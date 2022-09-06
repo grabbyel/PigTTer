@@ -1,8 +1,9 @@
 import React from 'react'
+import piggtter from '../../assets/piggtter.png'
 
 const FeedComponent = () => {
   return (
-    <div>FeedComponent</div>
+    <div><img src={piggtter} /></div>
   )
 }
 
