@@ -6,7 +6,7 @@ import ExplorarComponent from '../pure/ExplorarComponent'
 import MensajesComponents from '../pure/MensajesComponents'
 import NotificacionesComponent from '../pure/NotificacionesComponent'
 import PerfilComponent from '../pure/PerfilComponent'
-import BotonPiggttear from '../pure/BotonPiggttear'
+import PigComponent from './BotonPigttear'
 
 
 
@@ -53,7 +53,8 @@ const SidebarComponent = () => {
 
 
                         </ul>
-                                <BotonPiggttear/>
+                        <PigComponent />
+                        <hr />
                         {/* <hr /> */}
                         {/* <div className="dropdown pb-4">
                             <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
