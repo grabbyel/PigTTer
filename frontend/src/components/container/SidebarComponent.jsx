@@ -6,7 +6,7 @@ import ExplorarComponent from '../pure/ExplorarComponent'
 import MensajesComponents from '../pure/MensajesComponents'
 import NotificacionesComponent from '../pure/NotificacionesComponent'
 import PerfilComponent from '../pure/PerfilComponent'
-import PigComponent from './BotonPigttear'
+import PigComponent from './PigComponent'
 
 
 
