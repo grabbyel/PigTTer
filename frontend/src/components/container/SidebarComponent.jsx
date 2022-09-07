@@ -6,6 +6,7 @@ import ExplorarComponent from '../pure/ExplorarComponent'
 import MensajesComponents from '../pure/MensajesComponents'
 import NotificacionesComponent from '../pure/NotificacionesComponent'
 import PerfilComponent from '../pure/PerfilComponent'
+import BotonPiggttear from '../pure/BotonPiggttear'
 
 
 
@@ -31,29 +32,30 @@ const SidebarComponent = () => {
                                     <i className="fs-4 bi-house"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Inicio</span>
                                 </Link>
                             </li>
-                            <li>
-                                <a href="#" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-hash"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Explorar</span></a>
+                            <li className="nav-item">
+                                <Link to="/explorar" className="nav-link px-0 align-middle">
+                                    <i className="fs-4 bi-hash"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Explorar</span></Link>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link align-middle px-0">
+                                <Link to="/avisos" className="nav-link align-middle px-0">
                                     <i className="fs-4 bi-bell-fill"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Avisos</span>
-                                </a>
+                                </Link>
                             </li>
-                            <li>
-                                <a href="#" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-envelope-fill"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Mensajes</span></a>
+                            <li className="nav-item">
+                                <Link to="/mensajes" className="nav-link px-0 align-middle">
+                                    <i className="fs-4 bi-envelope-fill"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Mensajes</span></Link>
                             </li>
-                            <li>
-                                <a href="#" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-person-circle"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Perfil</span></a>
+                            <li className="nav-item">
+                                <Link to="/perfil" className="nav-link px-0 align-middle">
+                                    <i className="fs-4 bi-person-circle"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Perfil</span></Link>
                             </li>
 
 
 
                         </ul>
-                        <hr />
-                        <div className="dropdown pb-4">
+                                <BotonPiggttear/>
+                        {/* <hr /> */}
+                        {/* <div className="dropdown pb-4">
                             <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" className="rounded-circle" />
                                 <span className="d-none d-sm-inline mx-1">loser</span>
@@ -67,7 +69,7 @@ const SidebarComponent = () => {
                                 </li>
                                 <li><a className="dropdown-item" href="#">Sign out</a></li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
