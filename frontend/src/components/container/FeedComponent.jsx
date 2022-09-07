@@ -6,9 +6,11 @@ import ExplorarComponent from "../pure/ExplorarComponent";
 import MensajesComponents from "../pure/MensajesComponents";
 import NotificacionesComponent from "../pure/NotificacionesComponent";
 import PerfilComponent from "../pure/PerfilComponent";
+import LoginComponent from "../../pages/Auth/LoginComponent";
+import RegisterComponent from "../../pages/Auth/RegisterComponent";
 
 
-const FeedComponent = () => {
+const FeedComponent = ({setUser}) => {
     return (
         <div>
             <Routes>
@@ -18,6 +20,8 @@ const FeedComponent = () => {
                 <Route path="avisos" element={<NotificacionesComponent />} />
                 <Route path="perfil" element={<PerfilComponent />} />
             </Routes>
+            <LoginComponent setUser={setUser} />
+            <RegisterComponent/>
         </div>
     );
 };

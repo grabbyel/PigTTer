@@ -1,5 +1,5 @@
 import React from 'react'
-import piggtter from '../../assets/piggtter.png'
+import piggtter from '../../assets/logo_borde.png'
 import { Link } from "react-router-dom"
 import InicioComponent from '../pure/InicioComponent'
 import ExplorarComponent from '../pure/ExplorarComponent'
@@ -23,10 +23,13 @@ const SidebarComponent = () => {
             <div className="row flex-nowrap">
                 <div className="col-auto col-md-12 col-xl-12 px-sm-2 px-0 bg-light">
                     <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                        <a href="/" className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                            <img src={piggtter} width="100" />
-                        </a>
-                        <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <span className="w-100 d-flex flex-column align-items-center justify-content-center text-dark">
+                            <h1>Pigtter</h1>
+                        </span>
+                        <span className="w-100 d-flex flex-column align-items-center justify-content-center text-dark mb-5">
+                            <img src={piggtter} alt="cerdo" width="150" />
+                        </span>
+                        <ul className="nav nav-pills w-100 flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start my-3" id="menu">
                             <li className="nav-item">
                                 <Link to="/" className="nav-link align-middle px-0">
                                     <i className="fs-4 bi-house"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Inicio</span>
@@ -52,8 +55,10 @@ const SidebarComponent = () => {
 
 
 
+                            <div className='w-100 d-flex flex-column align-items-center justify-content-center'>
+                                <PigComponent />
+                            </div>
                         </ul>
-                        <PigComponent />
                         <hr />
                         {/* <hr /> */}
                         {/* <div className="dropdown pb-4">
