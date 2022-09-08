@@ -33,7 +33,7 @@ const AuthScreenComponent = () => {
             </div> */}
         </div>
 
-
+//gola
     );
 };
 
