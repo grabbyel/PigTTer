@@ -56,6 +56,7 @@ const RegisterComponent = () => {
                                 type="text"
                                 autoFocus
                                 onChange={handleChangeUser}
+                                required
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
@@ -63,6 +64,7 @@ const RegisterComponent = () => {
                             <Form.Control
                                 type="password"
                                 onChange={handleChangePass}
+                                required
                             />
                         </Form.Group>
                         <Modal.Footer className="border-0">

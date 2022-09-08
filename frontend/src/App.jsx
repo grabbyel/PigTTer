@@ -3,8 +3,6 @@
 import { useState, useEffect } from 'react'
 import "./App.css"
 import AuthScreenComponent from "./pages/Auth/AuthScreenComponent"
-import { Link, Routes, Route } from "react-router-dom"
-import LoginComponent from "./pages/Auth/LoginComponent"
 import PigtterComponent from './components/container/PigtterComponent'
 
 function App() {
