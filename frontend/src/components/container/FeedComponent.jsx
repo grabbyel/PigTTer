@@ -20,8 +20,7 @@ const FeedComponent = ({ setUser }) => {
                 <Route path="avisos" element={<NotificacionesComponent />} />
                 <Route path="perfil" element={<PerfilComponent />} />
             </Routes> */}
-            <LoginComponent setUser={setUser} />
-            <RegisterComponent />
+            Aqui esta el feed
         </div>
     )
 }

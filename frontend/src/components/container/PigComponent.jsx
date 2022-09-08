@@ -13,7 +13,7 @@ function PigComponent() {
   return (
     <>
       <Button className='btn btn-primary w-75 mt-5 rounded-5 fs-4' variant="primary" onClick={handleShow}>
-        <span className="fs-4 ms-1 d-none d-md-inline w-fit-content">Pigttear</span> 
+        <span className="fs-4 ms-1 d-none d-md-inline w-fit-content" style={{color: 'white'}}>Pigttear</span> 
         <span className="d-md-none"><img width="50" src={logo} alt="cerdo" /> </span>
       </Button>
 

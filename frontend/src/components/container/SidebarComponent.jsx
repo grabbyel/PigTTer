@@ -7,11 +7,15 @@ import MensajesComponents from '../pure/MensajesComponents'
 import NotificacionesComponent from '../pure/NotificacionesComponent'
 import PerfilComponent from '../pure/PerfilComponent'
 import PigComponent from './PigComponent'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+import logo from '../../assets/logo_blanco_cerdo.png'
 // PRUEBA COMMIT
 
 
 
-const SidebarComponent = () => {
+const SidebarComponent = ({setUser}) => {
     return (
         //   <nav classNameName='bg-light'>
         //       <InicioComponent/>
@@ -32,26 +36,26 @@ const SidebarComponent = () => {
                         </span>
                         <ul className="nav nav-pills w-100 flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start my-3" id="menu">
                             <li className="nav-item">
-                                {/* <Link to="/" className="nav-link align-middle px-0">
-                                    <i className="fs-4 bi-house"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Inicio</span>
-                                </Link> */}
+                                <Link to="/" className="nav-link align-middle px-0">
+                                    <i className="fs-4 bi-house"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Inicio</span>
+                                </Link> 
                             </li>
                             <li className="nav-item">
                                 <Link to="/explorar" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-hash"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Explorar</span></Link>
+                                    <i className="fs-4 bi-hash"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Explorar</span></Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/avisos" className="nav-link align-middle px-0">
-                                    <i className="fs-4 bi-bell-fill"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Avisos</span>
+                                    <i className="fs-4 bi-bell-fill"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Avisos</span>
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/mensajes" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-envelope-fill"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Mensajes</span></Link>
+                                    <i className="fs-4 bi-envelope-fill"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Mensajes</span></Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/perfil" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-person-circle"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Perfil</span></Link>
+                                    <i className="fs-4 bi-person-circle"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Perfil</span></Link>
                             </li>
 
 
@@ -59,6 +63,10 @@ const SidebarComponent = () => {
                             <div className='w-100 d-flex flex-column align-items-center justify-content-center'>
                                 <PigComponent />
                             </div>
+                            <Button className='btn btn-primary w-75 mt-5 rounded-5 fs-4' variant="primary" onClick={()=>setUser(null)}>
+                                <span className="fs-4 ms-1 d-none d-md-inline w-fit-content" style={{ color: 'white' }}>Logout</span>
+                                <span className="d-md-none" style={{ color: 'white' }}>X</span>
+                            </Button>
                         </ul>
                         <hr />
                         {/* <hr /> */}
