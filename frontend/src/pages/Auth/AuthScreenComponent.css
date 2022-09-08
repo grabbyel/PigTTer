@@ -1,0 +1,137 @@
+body {
+	/* background: #000; */
+	font-family: system-ui;
+	display: grid;
+	/* place-content: center; */
+	height: 100vh;
+}
+
+.titulo {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 800;
+	letter-spacing: -0.06em;
+	margin: 0 0 16px;
+}
+
+span {
+	/* -webkit-text-stroke: 1px whitesmoke; */
+	/* padding-left: 50%; */
+	color: transparent;
+	display: block;
+	font-size: 60px;
+	line-height: 1.1;
+	position: relative;
+}
+
+span::before {
+	/* padding-left: 50%; */
+	animation-name: var(--animation, a);
+	animation-duration: 8s;
+	animation-iteration-count: infinite;
+	background: linear-gradient(10deg, var(--start-color), var(--end-color));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #fff;
+	font-size: 60px;
+	position: absolute;
+	inset: 0;
+	content: var(--content);
+	opacity: 1;
+}
+
+.fila1 {
+	--start-color: #0f6cc3;
+	--end-color: #15b4cd;
+	--content: 'OPINA.';
+}
+
+.fila2 {
+	--start-color: #ff4d4d;
+	--end-color: #f9cb28;
+
+	--content: 'COMENTA.';
+	--animation: a2;
+}
+
+.fila3 {
+	--start-color: #7928ca;
+	animation-name: a3;
+	--end-color: #ff0080;
+	--content: 'PIGTTEA.';
+	--animation: a3;
+}
+.boton-auth {
+	transition: all 0.4s;
+	margin: 8px;
+	width: 180px;
+	border: 1px solid whitesmoke;
+}
+.boton-auth:hover {
+	/* background-color: transparent; */
+	transition: all 0.4s;
+	border: none !important;
+
+	/* color: black; */
+	transform: scale(1.1);
+}
+
+.divBotones {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2rem;
+	/* opacity: 0.7; */
+}
+
+.divLogo {
+	padding-top: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2rem;
+	/* opacity: 0.7; */
+}
+
+@keyframes a {
+	0%,
+	16.667%,
+	100% {
+		opacity: 1;
+	}
+
+	33.333%,
+	83.333% {
+		opacity: 0;
+	}
+}
+
+@keyframes a2 {
+	0%,
+	100% {
+		opacity: 0;
+	}
+
+	33.333%,
+	50% {
+		opacity: 1;
+	}
+
+	16.667%,
+	66.667% {
+		opacity: 0;
+	}
+}
+
+@keyframes a3 {
+	0%,
+	50%,
+	100% {
+		opacity: 0;
+	}
+
+	66.667%,
+	83.333% {
+		opacity: 1;
+	}
+}

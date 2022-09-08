@@ -1,13 +1,6 @@
-.background{
-    background-image: url("./assets/background_pigtter.png");
-    background-size: cover;
-    height: 100vh;
-}
-
-.divBotones{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    
+.background {
+	/* background-image: url('./assets/background_pigtter.png'); */
+	background-color: black;
+	background-size: cover;
+	height: 100vh;
 }

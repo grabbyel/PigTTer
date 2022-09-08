@@ -1,14 +1,14 @@
-import SidebarComponent from "./components/container/SidebarComponent"
+// import SidebarComponent from "./components/container/SidebarComponent"
 import "./App.css"
-import FeedComponent from "./components/container/FeedComponent"
-import {useState} from 'react'
-import AuthScreenComponent from "./pages/Auth/AuthScreenComponent";
+// import FeedComponent from "./components/container/FeedComponent"
+// import {useState} from 'react'
+import AuthScreenComponent from "./pages/Auth/AuthScreenComponent"
 
 
 function App() {
 
-const [user, setUser] = useState(null);
-    
+    // const [user, setUser] = useState(null);
+
     return (
         // <div className="container">
         //     <div className="row">
@@ -22,7 +22,7 @@ const [user, setUser] = useState(null);
         //     </div>
         // </div>
         <div>
-            <AuthScreenComponent/>
+            <AuthScreenComponent />
         </div>
     )
 }

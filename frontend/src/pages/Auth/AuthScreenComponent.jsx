@@ -1,40 +1,42 @@
-import React from "react";
+import React from "react"
 import logo from "../../assets/logo_blanco_cerdo.png"
+import "./AuthScreenComponent.css"
 
 const AuthScreenComponent = () => {
     return (
         <div className="background">
-            <div>
+            {/* <div>
                 <h1>PIGTTER</h1>
-            </div>
-            <div>
+            </div> */}
+            <div className="divLogo">
                 <img src={logo}
-                    alt="logo"/>
+                    alt="logo" />
             </div>
 
             <div className="divBotones">
-                <button className="btn btn-primary  mt-5 rounded-5 fs-4" variant="primary">
+                <button className="boton-auth btn btn-primary mt-5 rounded-5 fs-4 " variant="primary">
                     Iniciar Sesión
+                    {/* <Link to="/LoginComponent"> */}
                 </button>
-                <button className="btn btn-primary  mt-5 rounded-5 fs-4" variant="primary">
+                <button className="boton-auth btn btn-primary mt-5 rounded-5 fs-4 " variant="primary">
                     Registrarse
                 </button>
             </div>
-            {/* <div className="titulo">
-                <span style={{--start-color: #007cf0; --end-color: #00dfd8; --content: '¿Listo...'}}>
-                    LISTO...
+            <div className="titulo">
+                <span className='fila1'>
+                    OPINA.
                 </span>
-                <span style="--start-color: #7928ca; --end-color: #ff0080; --content: 'Preview.'; --animation: a2">
-                    PARA...
+                <span className='fila2'>
+                    COMENTA.
                 </span>
-                <span style="--start-color: #ff4d4d; animation-name: a3; --end-color: #f9cb28; --content: 'Ship.'; --animation: a3">
-                    PIGTEAR ?
+                <span className='fila3'>
+                    PIGTTEA.
                 </span>
-            </div> */}
+            </div>
         </div>
 
-//gola
-    );
-};
+        //gola
+    )
+}
 
-export default AuthScreenComponent;
+export default AuthScreenComponent
