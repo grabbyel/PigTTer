@@ -7,7 +7,7 @@ import RegisterComponent from "./RegisterComponent"
 
 
 
-const AuthScreenComponent = ({ setUser }) => {
+const AuthScreenComponent = ({ user, setUser }) => {
 
 
     return (
@@ -28,7 +28,7 @@ const AuthScreenComponent = ({ setUser }) => {
                         Iniciar Sesión
 
                     </button> */}
-                <LoginComponent setUser={setUser} />
+                <LoginComponent user={user} setUser={setUser} />
                 {/* <button className="boton-auth btn btn-primary mt-5 rounded-5 fs-4 " variant="primary">
                     Registrarse
                 </button> */}

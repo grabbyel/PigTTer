@@ -1,6 +1,6 @@
 // import SidebarComponent from "./components/container/SidebarComponent"
 // import FeedComponent from "./components/container/FeedComponent"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import "./App.css"
 import AuthScreenComponent from "./pages/Auth/AuthScreenComponent"
 import { Link, Routes, Route } from "react-router-dom"
@@ -9,11 +9,20 @@ import PigtterComponent from './components/container/PigtterComponent'
 
 function App() {
 
+
     const [user, setUser] = useState(null)
+
+    useEffect(() => {
+        const loggedUser = window.localStorage.getItem('loggedUser')
+        if (loggedUser) {
+            const user = JSON.parse(loggedUser)
+            setUser(user)
+        }
+    }, [])
 
     return (
         <div>
-            {user ? <PigtterComponent setUser={setUser} /> : <AuthScreenComponent setUser={setUser} />}
+            {user ? <PigtterComponent setUser={setUser} /> : <AuthScreenComponent user={user} setUser={setUser} />}
         </div>
     )
 }

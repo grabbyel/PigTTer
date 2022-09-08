@@ -63,7 +63,10 @@ const SidebarComponent = ({setUser}) => {
                             <div className='w-100 d-flex flex-column align-items-center justify-content-center'>
                                 <PigComponent />
                             </div>
-                            <Button className='btn btn-primary w-75 mt-5 rounded-5 fs-4' variant="primary" onClick={()=>setUser(null)}>
+                            <Button className='btn btn-primary w-75 mt-5 rounded-5 fs-4' variant="primary" onClick={()=>{
+                                setUser(null)
+                                window.localStorage.removeItem('loggedUser')
+                                }}>
                                 <span className="fs-4 ms-1 d-none d-md-inline w-fit-content" style={{ color: 'white' }}>Logout</span>
                                 <span className="d-md-none" style={{ color: 'white' }}>X</span>
                             </Button>

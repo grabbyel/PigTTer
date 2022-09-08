@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
 
-const LoginComponent = ({ setUser }) => {
+const LoginComponent = ({ user, setUser }) => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -31,6 +31,7 @@ const LoginComponent = ({ setUser }) => {
         const usuario = await loginService.login({ username, password })
         if (usuario) {
             setUser(usuario)
+            window.localStorage.setItem('loggedUser', JSON.stringify(usuario))
         }
         console.log(usuario)
 
