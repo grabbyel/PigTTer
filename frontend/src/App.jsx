@@ -1,13 +1,14 @@
 // import SidebarComponent from "./components/container/SidebarComponent"
-import "./App.css"
 // import FeedComponent from "./components/container/FeedComponent"
-// import {useState} from 'react'
+import { useState } from 'react'
+import "./App.css"
 import AuthScreenComponent from "./pages/Auth/AuthScreenComponent"
-
+import { Link, Routes, Route } from "react-router-dom"
+import LoginComponent from "./pages/Auth/LoginComponent"
 
 function App() {
 
-    // const [user, setUser] = useState(null);
+    const [user, setUser] = useState(null)
 
     return (
         // <div className="container">
@@ -22,7 +23,7 @@ function App() {
         //     </div>
         // </div>
         <div>
-            <AuthScreenComponent />
+            <AuthScreenComponent setUser={setUser} />
         </div>
     )
 }

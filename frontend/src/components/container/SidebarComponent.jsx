@@ -24,7 +24,7 @@ const SidebarComponent = () => {
             <div className="row flex-nowrap">
                 <div className="col-auto col-md-12 col-xl-12 px-sm-2 px-0 bg-light">
                     <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <span className="w-100 d-flex flex-column align-items-center justify-content-center text-dark">
+                        <span className="w-100 d-flex flex-column align-items-center justify-content-center text-dark">
                             <h1>Pigtter</h1>
                         </span>
                         <span className="w-100 d-flex flex-column align-items-center justify-content-center text-dark mb-5">
@@ -32,9 +32,9 @@ const SidebarComponent = () => {
                         </span>
                         <ul className="nav nav-pills w-100 flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start my-3" id="menu">
                             <li className="nav-item">
-                                <Link to="/" className="nav-link align-middle px-0">
+                                {/* <Link to="/" className="nav-link align-middle px-0">
                                     <i className="fs-4 bi-house"></i> <span className="fs-4 ms-1 d-none d-sm-inline">Inicio</span>
-                                </Link>
+                                </Link> */}
                             </li>
                             <li className="nav-item">
                                 <Link to="/explorar" className="nav-link px-0 align-middle">
