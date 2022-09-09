@@ -1,11 +1,13 @@
 import React, {useState} from "react";
 import "./PerfilComponent.css";
 import userService from '../../services/user'
+import EditarPerfilComponent from "./EditarPerfilComponent";
 
 const PerfilComponent = ({ user, setUser }) => {
 
   const [name, setName] = useState('')
   const [image, setImage] = useState('')
+  const [edit, setEdit] = useState(false)
 
   const updateName = (e) => {
     e.preventDefault()
@@ -49,10 +51,11 @@ const PerfilComponent = ({ user, setUser }) => {
         <h3>{user.name}</h3>
         {/* Actualizar con user.name cuando esté en el registro actualizado */}
         <p>@{user.username}</p>
-        <input placeholder="nuevo nombre" value={name} onChange={handleNameChange}/>
-        <button onClick={updateName}>Editar nombre</button>
-        <input placeholder="pega la url, max 100x100px" value={image} onChange={handleImageChange}/>
-        <button onClick={updateImage}>Editar foto</button>
+        {edit 
+        ? <EditarPerfilComponent name={name} handleNameChange={handleNameChange}
+        updateName={updateName} updateImage={updateImage}
+        image={image} handleImageChange={handleImageChange} setEdit={setEdit}/>
+        : <button onClick={() => setEdit(true)}>Editar Perfil</button>}
       </div>
 
       <div className="botones d-flex justify-content-center align-items-center">
