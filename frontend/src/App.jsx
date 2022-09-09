@@ -29,7 +29,7 @@ function App() {
 
     return (
         <div>
-            {user ? <PigtterComponent user={user} setUser={setUser} tweets={tweets} /> : <AuthScreenComponent user={user} setUser={setUser} />}
+            {user ? <PigtterComponent user={user} setUser={setUser} tweets={tweets} setTweets={setTweets} /> : <AuthScreenComponent user={user} setUser={setUser} />}
         </div>
     )
 }
