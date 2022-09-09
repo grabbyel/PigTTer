@@ -15,7 +15,7 @@ import logo from '../../assets/logo_blanco_cerdo.png'
 
 
 
-const SidebarComponent = ({user, setUser}) => {
+const SidebarComponent = ({user, setUser, tweets, setTweets}) => {
     return (
         //   <nav classNameName='bg-light'>
         //       <InicioComponent/>
@@ -61,7 +61,7 @@ const SidebarComponent = ({user, setUser}) => {
 
 
                             <div className='w-100 d-flex flex-column align-items-center justify-content-center'>
-                                <PigComponent user={user}/>
+                                <PigComponent user={user} tweets={tweets} setTweets={setTweets}/>
                             </div>
                             <Button className='btn btn-primary w-75 mt-5 rounded-5 fs-4' variant="primary" onClick={()=>{
                                 setUser(null)

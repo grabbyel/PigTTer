@@ -4,8 +4,9 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import logo from "../../assets/logo_blanco_cerdo.png";
 import tweetService from '../../services/tweets'
+import InicioComponent from "../pure/InicioComponent";
 
-function PigComponent({user}) {
+function PigComponent({user, tweets,setTweets} ) {
   const [show, setShow] = useState(false);
   const [tweetContent, setTweetContent] = useState("");
 
@@ -26,6 +27,8 @@ function PigComponent({user}) {
       image: user.image || 'https://pbs.twimg.com/profile_images/1414540297598652419/fq5Irp_s_400x400.jpg'
     }
     tweetService.postTweet(newTweet)
+    setTweets(tweets.concat(newTweet))
+    setTweetContent('')
     handleClose();
   };
 
