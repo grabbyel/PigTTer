@@ -10,4 +10,15 @@ const register = async (userRegisterInfo) => {
   }
 };
 
-export default { register };
+const editar = async (id, userToUpdate) => {
+
+  try {
+    const response = await axios.put(`${url}/${id}`, userToUpdate)
+    return response.data
+  } catch {
+    alert("Error. Comprueba los datos");
+  }
+
+}
+
+export default { register, editar };
