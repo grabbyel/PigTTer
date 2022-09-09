@@ -13,15 +13,15 @@ import RegisterComponent from "../../pages/Auth/RegisterComponent"
 const FeedComponent = ({ tweets, setUser }) => {
     return (
         <div>
-            {/* <Routes>
-                <Route path="/" element={<InicioComponent />} />
+            <Routes>
+                <Route path="/" element={<InicioComponent tweets={tweets} />} />
                 <Route path="explorar" element={<ExplorarComponent />} />
                 <Route path="mensajes" element={<MensajesComponents />} />
                 <Route path="avisos" element={<NotificacionesComponent />} />
                 <Route path="perfil" element={<PerfilComponent />} />
-            </Routes> */}
+            </Routes>
             Aqui esta el feed
-            <InicioComponent tweets={tweets} />
+            {/* <InicioComponent tweets={tweets} /> */}
         </div>
     )
 }
