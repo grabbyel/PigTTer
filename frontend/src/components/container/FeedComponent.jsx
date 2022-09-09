@@ -17,7 +17,7 @@ const FeedComponent = ({ tweets, setUser, user }) => {
         <Route path="explorar" element={<ExplorarComponent />} />
         <Route path="mensajes" element={<MensajesComponents />} />
         <Route path="avisos" element={<NotificacionesComponent />} />
-        <Route path="perfil" element={<PerfilComponent user={user} />} />
+        <Route path="perfil" element={<PerfilComponent user={user} setUser={setUser} />} />
       </Routes>
     </div>
   );

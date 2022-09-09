@@ -31,9 +31,10 @@ const LoginComponent = ({ user, setUser }) => {
         const usuario = await loginService.login({ username, password })
         if (usuario) {
             setUser(usuario)
+            console.log(usuario)
             window.localStorage.setItem('loggedUser', JSON.stringify(usuario))
         }
-        console.log(usuario)
+        
 
     }
 

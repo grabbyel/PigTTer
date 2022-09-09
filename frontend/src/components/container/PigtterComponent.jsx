@@ -14,7 +14,7 @@ const PigtterComponent = ({ tweets, user, setUser, setTweets }) => {
           />
         </div>
         <div className="col-md-8 col-sm-7 col-8">
-          <FeedComponent tweets={tweets} user={user} />
+          <FeedComponent tweets={tweets} user={user} setUser={setUser} />
         </div>
       </div>
     </div>

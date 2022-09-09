@@ -7,6 +7,11 @@ usersRouter.get('/', async (request, response) => {
     response.json(users)
 })
 
+usersRouter.get('/:id', async (request, response) => {
+    const user = await User.findById(request.params.id)
+    response.json(user)
+})
+
 usersRouter.post('/', async (request, response) => {
     const {username, name, password} = request.body
 
@@ -17,8 +22,8 @@ usersRouter.post('/', async (request, response) => {
 
     const saltRounds = 10
     const passwordHash = await bcrypt.hash(password, saltRounds)
-
-    const user = new User({username, name, passwordHash})
+    const newName = 'nombre provisional'
+    const user = new User({username, name: newName, passwordHash})
 
     const savedUser = await user.save()
 

@@ -1,7 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import "./PerfilComponent.css";
+import userService from '../../services/user'
 
-const PerfilComponent = ({ user }) => {
+const PerfilComponent = ({ user, setUser }) => {
+
+  const [name, setName] = useState('')
+
+  const handleClick = (e) => {
+    e.preventDefault()
+    const newUser = {...user, name: name}
+    userService.editar(user.id, newUser)
+    setUser(newUser)
+    setName('')
+  }
+
+  const handleNameChange = (e) => {
+    e.preventDefault()
+    setName(e.target.value)
+  }
   return (
     <div className="background-div p-4 bg-light">
       <div className="photo-div">
@@ -12,9 +28,11 @@ const PerfilComponent = ({ user }) => {
         />
       </div>
       <div className="py-3">
-        <h3>{user.username}</h3>
+        <h3>{user.name}</h3>
         {/* Actualizar con user.name cuando esté en el registro actualizado */}
         <p>@{user.username}</p>
+        <input placeholder="nuevo nombre" value={name} onChange={handleNameChange}/>
+        <button onClick={handleClick}>Editar perfil</button>
       </div>
 
       <div className="botones d-flex justify-content-center align-items-center">
