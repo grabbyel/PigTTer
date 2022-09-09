@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import registerService from "../../services/user";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -6,15 +6,32 @@ import Modal from "react-bootstrap/Modal";
 
 const RegisterComponent = () => {
   const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  // comprobación de coincidencia de contraseñas
+  const passwordRef = useRef('');
+  const confirmPasswordRef = useRef('');
+
+  function checkPassword(){
+    const password = passwordRef.current.value;
+    const confirmPassword = confirmPasswordRef.current.value;
+
+    return password===confirmPassword;
+  }
+
   const handleChangeUser = (e) => {
     e.preventDefault();
     setUsername(e.target.value);
+  };
+
+  const handleChangeName = (e) => {
+    e.preventDefault();
+    setName(e.target.value);
   };
 
   const handleChangePass = (e) => {
@@ -24,10 +41,16 @@ const RegisterComponent = () => {
 
   const register = async (e) => {
     e.preventDefault();
-    console.log({ username, password });
-    const usuario = await registerService.register({ username, password });
-    console.log(usuario);
-    handleClose();
+    console.log({ username,name, password });
+
+    if (checkPassword()){
+      const usuario = await registerService.register({ username, name, password });
+      console.log(usuario);
+      handleClose();
+    } else {
+      alert('¡Las contraseñas deben coincidir!')
+    }
+
   };
 
   return (
@@ -39,7 +62,7 @@ const RegisterComponent = () => {
       >
         {/* <span className="fs-4 ms-1 d-none d-md-inline w-fit-content">Pigttear</span> */}
         {/* <span className="d-md-none"><img width="50" src={logo} alt="cerdo" /> </span> */}
-        Registrarrrrse
+        Registrarse
       </Button>
 
       <Modal centered show={show} onHide={handleClose}>
@@ -57,11 +80,29 @@ const RegisterComponent = () => {
                 required
               />
             </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Nick</Form.Label>
+              <Form.Control
+                type="text"
+                autoFocus
+                onChange={handleChangeName}
+                required
+              />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
               <Form.Label>Contraseña</Form.Label>
               <Form.Control
+                ref={passwordRef}
                 type="password"
                 onChange={handleChangePass}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
+              <Form.Label>Repite contraseña</Form.Label>
+              <Form.Control
+                ref={confirmPasswordRef}
+                type="password"
                 required
               />
             </Form.Group>
@@ -85,15 +126,3 @@ const RegisterComponent = () => {
 };
 
 export default RegisterComponent;
-
-// <form onSubmit={register}>
-//     <h2>Registro</h2>
-
-//     <label>Nombre de usuario</label>
-//     <input onChange={handleChangeUser} type="text" />
-
-//     <label>Contraseña</label>
-//     <input onChange={handleChangePass} type="password" />
-
-//     <button>Submit</button>
-// </form>
