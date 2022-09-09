@@ -4,11 +4,14 @@ import { useState, useEffect } from 'react'
 import "./App.css"
 import AuthScreenComponent from "./pages/Auth/AuthScreenComponent"
 import PigtterComponent from './components/container/PigtterComponent'
+import tweetService from './services/tweets'
+
 
 function App() {
 
 
     const [user, setUser] = useState(null)
+    const [tweets, setTweets] = useState([])
 
     useEffect(() => {
         const loggedUser = window.localStorage.getItem('loggedUser')
@@ -18,9 +21,15 @@ function App() {
         }
     }, [])
 
+    useEffect(() => {
+        tweetService.getTweets().then(tweets => {
+            setTweets(tweets)
+        })
+    }, [])
+
     return (
         <div>
-            {user ? <PigtterComponent setUser={setUser} /> : <AuthScreenComponent user={user} setUser={setUser} />}
+            {user ? <PigtterComponent user={user} setUser={setUser} tweets={tweets} /> : <AuthScreenComponent user={user} setUser={setUser} />}
         </div>
     )
 }

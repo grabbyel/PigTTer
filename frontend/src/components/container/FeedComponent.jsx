@@ -10,7 +10,7 @@ import LoginComponent from "../../pages/Auth/LoginComponent"
 import RegisterComponent from "../../pages/Auth/RegisterComponent"
 
 
-const FeedComponent = ({ setUser }) => {
+const FeedComponent = ({ tweets, setUser }) => {
     return (
         <div>
             {/* <Routes>
@@ -21,6 +21,7 @@ const FeedComponent = ({ setUser }) => {
                 <Route path="perfil" element={<PerfilComponent />} />
             </Routes> */}
             Aqui esta el feed
+            <InicioComponent tweets={tweets} />
         </div>
     )
 }

@@ -1,8 +1,16 @@
 import React from 'react'
 
-const InicioComponent = () => {
+const InicioComponent = ({tweets}) => {
+
+  const tweetList = () => (
+    <div>
+      {tweets.map(tweet => <li>{tweet.username}-{tweet.content}</li>)}
+    </div>
+  )
   return (
-    <div>InicioComponent</div>
+    <div>
+      {tweetList()}
+    </div>
   )
 }
 

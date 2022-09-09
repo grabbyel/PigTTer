@@ -3,8 +3,9 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import logo from "../../assets/logo_blanco_cerdo.png";
+import tweetService from '../../services/tweets'
 
-function PigComponent() {
+function PigComponent({user}) {
   const [show, setShow] = useState(false);
   const [tweetContent, setTweetContent] = useState("");
 
@@ -14,24 +15,23 @@ function PigComponent() {
   const handleTextChange = (e) => {
     e.preventDefault();
     setTweetContent(e.target.value);
-    console.log("hola handle");
-    console.log(tweetContent);
   };
 
   const tweetear = (e) => {
     e.preventDefault();
-    console.log("hola tweetear");
-    console.log(tweetContent);
+    const newTweet = {
+      username: user.username, 
+      name: user.name || user.username,
+      content: tweetContent,
+      image: user.image || 'https://pbs.twimg.com/profile_images/1414540297598652419/fq5Irp_s_400x400.jpg'
+    }
+    tweetService.postTweet(newTweet)
     handleClose();
   };
 
   return (
     <>
-      <form onSubmit={tweetear}>
-        <input />
-        <button></button>
-      </form>
-      <Button
+         <Button
         className="btn btn-primary w-75 mt-5 rounded-5 fs-4"
         variant="primary"
         onClick={handleShow}
@@ -58,7 +58,7 @@ function PigComponent() {
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>¡Pigttea aquí!</Form.Label>
-              <Form.Control onChange={handleTextChange} value={tweetContent} />
+              <Form.Control as="textarea" rows={3} onChange={handleTextChange} value={tweetContent} />
             </Form.Group>
             <Button className="rounded-5" variant="primary" type="submit">
               Pigttear
