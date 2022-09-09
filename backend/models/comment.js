@@ -1,14 +1,15 @@
 const mongoose = require('mongoose')
 
-const userSchema = new mongoose.Schema({
+const commentSchema = new mongoose.Schema({
     username: String, 
     name: String, 
-    image: String,
-    passwordHash: String,
-    tweets: [{
+    content: String,
+    image: String,  
+    comments: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Tweet'
-    }]
+        ref: 'Comment'
+    }],
+    likes: Number 
 })
 
 userSchema.set('toJSON', {
@@ -16,8 +17,7 @@ userSchema.set('toJSON', {
         returnedObject.id = returnedObject._id.toString()
         delete returnedObject.__v
         delete returnedObject._id
-        delete returnedObject.passwordHash
     }
 })
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('Comment', commentSchema)
