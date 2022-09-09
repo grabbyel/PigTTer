@@ -26,6 +26,7 @@ const RegisterComponent = () => {
     e.preventDefault();
     console.log({ username, password });
     const usuario = await registerService.register({ username, password });
+    console.log(usuario);
     handleClose();
   };
 
