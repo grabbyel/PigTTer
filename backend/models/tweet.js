@@ -1,25 +1,26 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const tweetSchema = new mongoose.Schema({
-    username: String, 
-    name: String, 
-    content: String,
-    image: String, 
-    comments: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment'
-    }],
-    retweets: Number, 
-    likes: Number 
+  username: String,
+  name: String,
+  content: String,
+  image: String,
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Comment",
+    },
+  ],
+  retweets: Number,
+  likes: Number,
+});
 
-})
+tweetSchema.set("toJSON", {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject.__v;
+    delete returnedObject._id;
+  },
+});
 
-tweetSchema.set('toJSON', {
-    transform: (document, returnedObject) => {
-        returnedObject.id = returnedObject._id.toString()
-        delete returnedObject.__v
-        delete returnedObject._id
-    }
-})
-
-module.exports = mongoose.model('Tweet', tweetSchema)
+module.exports = mongoose.model("Tweet", tweetSchema);
