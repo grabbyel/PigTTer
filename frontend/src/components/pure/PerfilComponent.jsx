@@ -5,24 +5,42 @@ import userService from '../../services/user'
 const PerfilComponent = ({ user, setUser }) => {
 
   const [name, setName] = useState('')
+  const [image, setImage] = useState('')
 
-  const handleClick = (e) => {
+  const updateName = (e) => {
     e.preventDefault()
     const newUser = {...user, name: name}
     userService.editar(user.id, newUser)
     setUser(newUser)
+    window.localStorage.removeItem('loggedUser')
+    window.localStorage.setItem('loggedUser', JSON.stringify(newUser))
     setName('')
+  }
+
+  const updateImage = (e) => {
+    e.preventDefault()
+    const newUser = {...user, image: image}
+    userService.editar(user.id, newUser)
+    setUser(newUser)
+    window.localStorage.removeItem('loggedUser')
+    window.localStorage.setItem('loggedUser', JSON.stringify(newUser))
+    setImage('')
   }
 
   const handleNameChange = (e) => {
     e.preventDefault()
     setName(e.target.value)
   }
+
+  const handleImageChange = (e) => {
+    e.preventDefault()
+    setImage(e.target.value)
+  }
   return (
     <div className="background-div p-4 bg-light">
       <div className="photo-div">
         <img
-          src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+          src={user.image ?  user.image : "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"}
           alt="user"
           className=" img"
         />
@@ -32,7 +50,9 @@ const PerfilComponent = ({ user, setUser }) => {
         {/* Actualizar con user.name cuando esté en el registro actualizado */}
         <p>@{user.username}</p>
         <input placeholder="nuevo nombre" value={name} onChange={handleNameChange}/>
-        <button onClick={handleClick}>Editar perfil</button>
+        <button onClick={updateName}>Editar nombre</button>
+        <input placeholder="pega la url, max 100x100px" value={image} onChange={handleImageChange}/>
+        <button onClick={updateImage}>Editar foto</button>
       </div>
 
       <div className="botones d-flex justify-content-center align-items-center">
