@@ -14,7 +14,7 @@ const tweetSchema = new mongoose.Schema({
 
 })
 
-userSchema.set('toJSON', {
+tweetSchema.set('toJSON', {
     transform: (document, returnedObject) => {
         returnedObject.id = returnedObject._id.toString()
         delete returnedObject.__v
