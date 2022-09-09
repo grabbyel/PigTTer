@@ -6,7 +6,7 @@ const getUser = async (id) => {
     const response = await axios.get(`${url}/${id}`)
     return response.data;
   } catch {
-    alert("El usuario debe ser unico");
+    alert("El usuario debe ser único");
   }
 };
 
@@ -16,7 +16,7 @@ const register = async (userRegisterInfo) => {
     const response = await axios.post(url, userRegisterInfo);
     return response.data;
   } catch {
-    alert("El usuario debe ser unico");
+    alert("El usuario debe ser único");
   }
 };
 
