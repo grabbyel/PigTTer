@@ -1,6 +1,8 @@
 import './PigComponent.css'
 
-const PigComponent = ({username, name, content, image}) => {
+const PigComponent = ({username, name, content, image, id, handleDelete}) => {
+  let activeUser = JSON.parse(window.localStorage.getItem('loggedUser'))
+
     return(
       <div className="card">
       <img src={image} className="card-img-top" alt='imagen'/>
@@ -11,6 +13,7 @@ const PigComponent = ({username, name, content, image}) => {
         </p>
         {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
       </div>
+      {activeUser.username == username ? <button onClick={handleDelete(id)}>X</button> : ''}
     </div>
     )
 }

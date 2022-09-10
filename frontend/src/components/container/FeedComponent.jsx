@@ -9,11 +9,11 @@ import PerfilComponent from "../pure/PerfilComponent";
 import LoginComponent from "../../pages/Auth/LoginComponent";
 import RegisterComponent from "../../pages/Auth/RegisterComponent";
 
-const FeedComponent = ({ tweets, setUser, user }) => {
+const FeedComponent = ({ tweets, setTweets, setUser, user }) => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<InicioComponent tweets={tweets} />} />
+        <Route path="/" element={<InicioComponent tweets={tweets} setTweets={setTweets} />} />
         <Route path="explorar" element={<ExplorarComponent />} />
         <Route path="mensajes" element={<MensajesComponents />} />
         <Route path="avisos" element={<NotificacionesComponent />} />

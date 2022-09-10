@@ -1,8 +1,16 @@
 import React from 'react'
 import PigComponent from '../container/PigComponent'
 import './InicioComponent.css'
+import tweetsService from '../../services/tweets'
 
-const InicioComponent = ({tweets}) => {
+const InicioComponent = ({tweets, setTweets}) => {
+
+  const handleDelete = (id) => (e) => {
+    e.preventDefault()
+    tweetsService.removeTweet(id)
+    const filteredTweets = tweets.filter(tweet => tweet.id !== id)
+    setTweets(filteredTweets)
+  }
 
   const tweetList = () => (
     <div>
@@ -17,7 +25,10 @@ const InicioComponent = ({tweets}) => {
                 username={tweet.username} 
                 name={tweet.name} 
                 content={tweet.content} 
-                image={tweet.image}/>
+                image={tweet.image}
+                id={tweet.id}
+                handleDelete={handleDelete}
+                />
             </li>
           )
           
