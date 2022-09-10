@@ -16,7 +16,7 @@ const register = async (userRegisterInfo) => {
     const response = await axios.post(url, userRegisterInfo);
     return response.data;
   } catch {
-    alert("El usuario debe ser único");
+    alert("El usuario debe ser único y la contraseña debe tener al menos 5 caracteres");
   }
 };
 

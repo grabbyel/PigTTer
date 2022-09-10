@@ -41,7 +41,7 @@ const PerfilComponent = ({ user, setUser }) => {
     <div className="background-div p-4 bg-light row">
       <div className="photo-div col-6">
         <img
-          src={user.image ?  user.image : "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"}
+          src={user.image}
           alt="user"
           className=" img"
         />

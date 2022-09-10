@@ -75,6 +75,7 @@ const RegisterComponent = () => {
               <Form.Label>Usuario</Form.Label>
               <Form.Control
                 type="text"
+                placeholder="Ej. pigtter. Lo usarás para loguearte"
                 autoFocus
                 onChange={handleChangeUser}
                 required
@@ -84,6 +85,7 @@ const RegisterComponent = () => {
               <Form.Label>Nick</Form.Label>
               <Form.Control
                 type="text"
+                placeholder="Ej. Ninja Pig. Así te verán los usuarios de la comunidad"
                 autoFocus
                 onChange={handleChangeName}
                 required
@@ -94,6 +96,7 @@ const RegisterComponent = () => {
               <Form.Control
                 ref={passwordRef}
                 type="password"
+                placeholder="Mínimo 5 caracteres"
                 onChange={handleChangePass}
                 required
               />

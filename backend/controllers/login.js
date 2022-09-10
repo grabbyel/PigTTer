@@ -5,9 +5,11 @@ const User = require('../models/user')
 
 loginRouter.post('/', async(request, response) => {
     const {username, password} = request.body
+    console.log(request.body)
     const user = await User.findOne({username})
     const passwordCheck = user === null ? false : await bcrypt.compare(password, user.passwordHash)
-
+    console.log(user)
+    console.log(passwordCheck)
     if(!(user && passwordCheck)) {
         return response.status(401).json({error: 'invalid username or password'})
     }
@@ -21,7 +23,7 @@ loginRouter.post('/', async(request, response) => {
 
     response    
         .status(200)
-        .send({token, username: user.username, name: user.name, id: user._id})
+        .send({token, username: user.username, name: user.name, image:user.image, tweets:user.tweets, id: user._id})
 })
 
 module.exports = loginRouter

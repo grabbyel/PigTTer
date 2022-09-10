@@ -14,7 +14,7 @@ usersRouter.get('/:id', async (request, response) => {
 
 usersRouter.post('/', async (request, response) => {
     const {username, name, password} = request.body
-
+    if (password.length<5) return response.status(400).json({error: 'password must have at least 5 characters'})
     const existingUser = await User.findOne({username})
     if (existingUser) {
         return response.status(400).json({error: 'username must be unique'})

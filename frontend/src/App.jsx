@@ -24,6 +24,7 @@ function App() {
     useEffect(() => {
         tweetService.getTweets().then(tweets => {
             setTweets(tweets)
+            console.log(tweets)
         })
     }, [])
 

@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   name: { type: String, required: true },
   image: String,
-  passwordHash: String,
+  passwordHash: { type: String, minlength:5, required: true },
   tweets: [
     {
       type: mongoose.Schema.Types.ObjectId,
