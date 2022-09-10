@@ -12,6 +12,13 @@ const InicioComponent = ({tweets, setTweets}) => {
     setTweets(filteredTweets)
   }
 
+  // const handleEdit = (id, newTweet) => (e) => {
+  //   e.preventDefault()
+  //   tweetsService.updateTweet(id, newTweet)
+  //   const filteredTweets = tweets.map(tweet => tweet.id !== id ? tweet : {...tweet, content: newTweet})
+  //   setTweets(filteredTweets)
+  // }
+
   const tweetList = () => (
     <div>
 
@@ -28,6 +35,8 @@ const InicioComponent = ({tweets, setTweets}) => {
                 image={tweet.image}
                 id={tweet.id}
                 handleDelete={handleDelete}
+                tweets={tweets}
+                setTweets={setTweets}
                 />
             </li>
           )

@@ -31,6 +31,12 @@ tweetsRouter.post('/', async (request, response) => {
     response.status(201).json(savedTweet)
 })
 
+tweetsRouter.put('/:id', async (request, response) => {
+    const tweet = request.body
+    const updatedTweet = await Tweet.findByIdAndUpdate(request.params.id, tweet, {new: true, runValidators: true, context: 'query'})
+    response.json(updatedTweet)
+ })
+
 tweetsRouter.delete('/:id', async(request, response) => {
     const tweet = await Tweet.findById(request.params.id)
     if(tweet){
