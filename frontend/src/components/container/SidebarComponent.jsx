@@ -6,7 +6,7 @@ import ExplorarComponent from '../pure/ExplorarComponent'
 import MensajesComponents from '../pure/MensajesComponents'
 import NotificacionesComponent from '../pure/NotificacionesComponent'
 import PerfilComponent from '../pure/PerfilComponent'
-import PigComponent from './PigComponent'
+import PigComponent from './PigttearComponent'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
