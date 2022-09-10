@@ -1,7 +1,6 @@
 .photo-div {
   height: 100px;
-  width: 100px;
-  border: 2px solid #0f6cc3;
+  
   border-radius: 50px;
 }
 
@@ -10,9 +9,9 @@
   border-radius: 50px;
 }
 
-/* .background-div {
+.background-div {
   background-color: gainsboro;
-} */
+}
 
 .botones p {
   padding: 1rem;
