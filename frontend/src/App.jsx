@@ -6,9 +6,7 @@ import AuthScreenComponent from "./pages/Auth/AuthScreenComponent"
 import PigtterComponent from './components/container/PigtterComponent'
 import tweetService from './services/tweets'
 
-
 function App() {
-
 
     const [user, setUser] = useState(null)
     const [tweets, setTweets] = useState([])
@@ -24,7 +22,6 @@ function App() {
     useEffect(() => {
         tweetService.getTweets().then(tweets => {
             setTweets(tweets)
-            console.log(tweets)
         })
     }, [])
 
