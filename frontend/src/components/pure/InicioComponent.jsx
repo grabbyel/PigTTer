@@ -10,9 +10,9 @@ const InicioComponent = ({tweets}) => {
     {/* añadida key para evitar error de duplicidad */}
     {/* Warning: Each Child in a List Should Have a Unique 'key' Prop */}
     {/* {tweets.map(tweet => <li>{tweet.username}-{tweet.content}</li>)} */}
-    { tweets.map((tweet, index) => {
+    { tweets.map((tweet) => {
           return (
-            <li key={index}>
+            <li key={tweet.id}>
                 <PigComponent 
                 username={tweet.username} 
                 name={tweet.name} 
