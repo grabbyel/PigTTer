@@ -20,15 +20,24 @@ const register = async (userRegisterInfo) => {
   }
 };
 
-const editar = async (id, userToUpdate) => {
+const editarNombre = async (id, nameToUpdate) => {
 
   try {
-    const response = await axios.put(`${url}/${id}`, userToUpdate)
+    const response = await axios.put(`${url}/${id}`, {name: nameToUpdate})
     return response.data
   } catch {
     alert("Error. Comprueba los datos");
   }
-
 }
 
-export default {register, editar, getUser};
+const editarImagen = async (id, imageToUpdate) => {
+
+  try {
+    const response = await axios.put(`${url}/${id}`, {image: imageToUpdate})
+    return response.data
+  } catch {
+    alert("Error. Comprueba los datos");
+  }
+}
+
+export default {register, editarNombre, editarImagen, getUser}

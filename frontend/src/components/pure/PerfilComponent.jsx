@@ -10,6 +10,10 @@ const PerfilComponent = ({ user, setUser }) => {
 
   const updateName = (e) => {
     e.preventDefault()
+    userService.editarNombre(user.id, name)
+    const newUser = {...user, name: name}
+    setUser(newUser)
+    setName('')
     // const newUser = {...user, name: name}
     // userService.editar(user.id, newUser)
     // setUser(newUser)
@@ -20,6 +24,10 @@ const PerfilComponent = ({ user, setUser }) => {
 
   const updateImage = (e) => {
     e.preventDefault()
+    userService.editarImagen(user.id, image)
+    const newUser = {...user, image: image}
+    setUser(newUser)
+    setImage('')
     // const newUser = {...user, image: image}
     // userService.editar(user.id, newUser)
     // setUser(newUser)
