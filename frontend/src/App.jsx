@@ -19,11 +19,11 @@ function App() {
         }
     }, [])
 
-    useEffect(() => {
-        tweetService.getTweets().then(tweets => {
-            setTweets(tweets)
-        })
-    }, [])
+    // useEffect(() => {
+    //     tweetService.getTweets().then(tweets => {
+    //         setTweets(tweets)
+    //     })
+    // }, [])
 
     return (
         <div>

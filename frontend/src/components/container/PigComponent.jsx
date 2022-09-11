@@ -27,6 +27,11 @@ const PigComponent = ({username, name, content, image, id, handleDelete, tweets,
     handleClose()
   }
 
+  const handleFollow = (username) => (e) => {
+    e.preventDefault()
+    console.log(username)
+  }
+
   const editPigteo = () => {
     return(
       <Modal show={show} onHide={handleClose}>
@@ -62,7 +67,7 @@ const PigComponent = ({username, name, content, image, id, handleDelete, tweets,
       <div className="card">
       <img src={image} className="card-img-top" alt='imagen'/>
       <div className="card-body">
-        <h5 className="card-title">{name}</h5><h6>@{username}</h6>
+        <h5 className="card-title">{name}</h5><h6>@{username}{activeUser.username !== username ? <button onClick={handleFollow(username)}>Follow</button> : ''}</h6>
         <p className="card-text">
          {content}
         </p>

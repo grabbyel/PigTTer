@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import PigComponent from '../container/PigComponent'
 import './InicioComponent.css'
 import tweetsService from '../../services/tweets'
 
 const InicioComponent = ({tweets, setTweets}) => {
+
+  useEffect(() => {
+    tweetsService.getTweets().then(tweets => {
+        setTweets(tweets)
+    })
+}, [])
 
   const handleDelete = (id) => (e) => {
     e.preventDefault()
