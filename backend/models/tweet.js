@@ -13,6 +13,10 @@ const tweetSchema = new mongoose.Schema({
   ],
   retweets: Number,
   likes: Number,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  }
 });
 
 tweetSchema.set("toJSON", {

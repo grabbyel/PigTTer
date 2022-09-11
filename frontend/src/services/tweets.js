@@ -12,6 +12,15 @@ const getTweets = async () => {
     return response.data
 }
 
+const getSingleTweet = async (id) => {
+    try {
+      const response = await axios.get(`${url}/${id}`)
+      return response.data;
+    } catch {
+      alert("El tweet no existe");
+    }
+  };
+
 const postTweet = async tweetInfo => {
     const response = await axios.post(url, tweetInfo)
     return response.data
@@ -28,4 +37,4 @@ const removeTweet = async id => {
     return response
 }
 
-export default {getTweets, postTweet, updateTweet, removeTweet}
+export default {getTweets, getSingleTweet, postTweet, updateTweet, removeTweet}

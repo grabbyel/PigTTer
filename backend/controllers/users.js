@@ -3,12 +3,12 @@ const usersRouter = require('express').Router()
 const User = require('../models/user')
 
 usersRouter.get('/', async (request, response) => {
-    const users = await User.find({})
+    const users = await User.find({}).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, retweets: 1, likes: 1})
     response.json(users)
 })
 
 usersRouter.get('/:id', async (request, response) => {
-    const user = await User.findById(request.params.id)
+    const user = await User.findById(request.params.id).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, retweets: 1, likes: 1})
     response.json(user)
 })
 
@@ -31,7 +31,7 @@ usersRouter.post('/', async (request, response) => {
 
 usersRouter.put('/:id', async (request, response) => {
     const user = request.body
-    const updatedUser = await User.findByIdAndUpdate(request.params.id, user, {new: true, runValidators: true, context: 'query'})
+    const updatedUser = await User.findByIdAndUpdate(request.params.id, user, {new: true, runValidators: true, context: 'query'}).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, retweets: 1, likes: 1})
     response.json(updatedUser)
  })
 

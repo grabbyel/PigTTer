@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import PigComponent from '../container/PigComponent'
 import './InicioComponent.css'
 import tweetsService from '../../services/tweets'
+import user from '../../services/user'
 
 const InicioComponent = ({tweets, setTweets}) => {
 
@@ -16,6 +17,11 @@ const InicioComponent = ({tweets, setTweets}) => {
     tweetsService.removeTweet(id)
     const filteredTweets = tweets.filter(tweet => tweet.id !== id)
     setTweets(filteredTweets)
+
+    // const currentUser = JSON.parse(window.localStorage.getItem('loggedUser'))
+    // currentUser.tweets = currentUser.tweets.filter(tweet => tweet.id !== id)
+    // window.localStorage.clear()
+    // window.localStorage.setItem('loggedUser', JSON.stringify(currentUser))
   }
 
   // const handleEdit = (id, newTweet) => (e) => {

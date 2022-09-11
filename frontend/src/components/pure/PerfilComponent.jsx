@@ -10,22 +10,22 @@ const PerfilComponent = ({ user, setUser }) => {
 
   const updateName = (e) => {
     e.preventDefault()
-    const newUser = {...user, name: name}
-    userService.editar(user.id, newUser)
-    setUser(newUser)
-    window.localStorage.removeItem('loggedUser')
-    window.localStorage.setItem('loggedUser', JSON.stringify(newUser))
-    setName('')
+    // const newUser = {...user, name: name}
+    // userService.editar(user.id, newUser)
+    // setUser(newUser)
+    // window.localStorage.removeItem('loggedUser')
+    // window.localStorage.setItem('loggedUser', JSON.stringify(newUser))
+    // setName('')
   }
 
   const updateImage = (e) => {
     e.preventDefault()
-    const newUser = {...user, image: image}
-    userService.editar(user.id, newUser)
-    setUser(newUser)
-    window.localStorage.removeItem('loggedUser')
-    window.localStorage.setItem('loggedUser', JSON.stringify(newUser))
-    setImage('')
+    // const newUser = {...user, image: image}
+    // userService.editar(user.id, newUser)
+    // setUser(newUser)
+    // window.localStorage.removeItem('loggedUser')
+    // window.localStorage.setItem('loggedUser', JSON.stringify(newUser))
+    // setImage('')
   }
 
   const handleNameChange = (e) => {

@@ -10,19 +10,19 @@ const updateTweet = async (tweet) => {
 tweetsRouter.get('/', async (request, response) => {
     const tweets = await Tweet.find({})
     await tweets.map(tweet => updateTweet(tweet))
-    const updatedTweets = await Tweet.find({})
+    const updatedTweets = await Tweet.find({}).populate('user', {username: 1, name: 1, image: 1, tweets: 1, followers: 1, following: 1})
     response.json(updatedTweets)
 })
 
 tweetsRouter.get('/:id', async (request, response) => {
-    const tweet = await Tweet.findById(request.params.id)
+    const tweet = await Tweet.findById(request.params.id).populate('user', {username: 1, name: 1, image: 1, tweets: 1, followers: 1, following: 1})
     response.json(tweet)
 })
 
 tweetsRouter.post('/', async (request, response) => {
     const body = request.body
-    const user = request.user
-
+    const user = await User.findById(body.userId)
+    console.log(user)
     const tweet = new Tweet({
         username: body.username,
         name: body.name,
@@ -30,18 +30,19 @@ tweetsRouter.post('/', async (request, response) => {
         image: body.image, 
         comments: body.comments || [],
         retweets: body.retweets || 0,
-        likes: body.likes || 0
+        likes: body.likes || 0,
+        user: user._id
     })
 
     const savedTweet = await tweet.save()
-    //user.tweets = user.tweets.concat(savedTweet._id)
-    //await user.save()
+    user.tweets = user.tweets.concat(savedTweet._id)
+    await user.save()
     response.status(201).json(savedTweet)
 })
 
 tweetsRouter.put('/:id', async (request, response) => {
     const tweet = request.body
-    const updatedTweet = await Tweet.findByIdAndUpdate(request.params.id, tweet, {new: true, runValidators: true, context: 'query'})
+    const updatedTweet = await Tweet.findByIdAndUpdate(request.params.id, tweet, {new: true, runValidators: true, context: 'query'}).populate('user', {username: 1, name: 1, image: 1, tweets: 1, followers: 1, following: 1})
     response.json(updatedTweet)
  })
 

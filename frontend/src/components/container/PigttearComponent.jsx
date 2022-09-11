@@ -24,10 +24,14 @@ function PigComponent({user, tweets,setTweets} ) {
       username: user.username, 
       name: user.name || user.username,
       content: tweetContent,
-      image: user.image 
+      image: user.image,
+      userId: user.id
     }
     tweetService.postTweet(newTweet)
     setTweets(tweets.concat(newTweet))
+    // user.tweets = user.tweets.concat(newTweet)
+    // window.localStorage.clear()
+    // window.localStorage.setItem('loggedUser', JSON.stringify(user))
     setTweetContent('')
     handleClose();
   };
