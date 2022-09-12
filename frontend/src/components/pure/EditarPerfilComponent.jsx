@@ -14,8 +14,8 @@ const EditarPerfilComponent = ({name, updateName, image, updateImage, handleName
         if (name==='' || name===' ') {
             alert('Escribe el nombre bien')
         } else {
-            handleClose();
             updateName(e);
+            handleClose();
         }
     }
 
