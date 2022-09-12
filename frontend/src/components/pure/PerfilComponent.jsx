@@ -7,12 +7,32 @@ const PerfilComponent = ({ user, setUser, strangeUser }) => {
 
   const [name, setName] = useState('')
   const [image, setImage] = useState('')
+  const [currentProfile, setCurrentProfile] = useState(strangeUser ? strangeUser : user)
+
+  const condition = !strangeUser || (user.id === strangeUser.id)
 
   useEffect(() => {
     userService.getUser(user.id).then(updatedUser => {
       setUser(updatedUser)
     })
-  }, [])
+  }, [user.id, setUser])
+
+  useEffect(() => {
+    strangeUser ? setCurrentProfile(strangeUser) : setCurrentProfile(user)
+    return() => {
+      setCurrentProfile(user)
+    }
+  }, [user])
+
+  useEffect(() => {
+    console.log('user')
+    console.log(user)
+    console.log('strangeUser')
+    console.log(strangeUser)
+    console.log('currentProfile')
+    console.log(currentProfile)
+  }, [user, strangeUser, currentProfile])
+
 
 
 
@@ -45,7 +65,7 @@ const PerfilComponent = ({ user, setUser, strangeUser }) => {
   }
   // let botonOpcional
   const userLog = () => {
-    if (!strangeUser || (user.id === strangeUser.id)) {
+    if (condition) {
       return <EditarPerfilComponent name={name} handleNameChange={handleNameChange}
         updateName={updateName} updateImage={updateImage}
         image={image} handleImageChange={handleImageChange} />
@@ -65,16 +85,17 @@ const PerfilComponent = ({ user, setUser, strangeUser }) => {
     <div className="background-div p-4 bg-light row">
       <div className="photo-div col-6">
         <img
-          src={user.image ?
-            user.image : "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"}
+          // src={user.image ?
+          //   user.image : "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"}
+          src={currentProfile.image}
           alt="Imagen de usuario"
           className=" img"
         />
       </div>
       <div className="col-12 py-3">
-        <h3>{user.name}</h3>
+        <h3>{currentProfile.name}</h3>
         {/* Actualizar con user.name cuando esté en el registro actualizado */}
-        <p>@{user.username}</p>
+        <p>@{currentProfile.username}</p>
       </div>
       <div className="col-12">
         {userLog()}

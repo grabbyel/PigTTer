@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import PigComponent from '../container/PigComponent'
 import './InicioComponent.css'
 import tweetsService from '../../services/tweets'
-import user from '../../services/user'
 
 const InicioComponent = ({ tweets, setTweets, setStrangeId }) => {
 
@@ -10,6 +9,10 @@ const InicioComponent = ({ tweets, setTweets, setStrangeId }) => {
     tweetsService.getTweets().then(tweets => {
       setTweets(tweets)
     })
+  }, [])
+
+  useEffect(() => {
+    setStrangeId({})
   }, [])
 
   const handleDelete = (id) => (e) => {

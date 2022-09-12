@@ -20,8 +20,7 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
 
   const userCall = async () => {
     const userData = await userService.getUser(strangeUser.id)
-    // console.log(userData)
-    return userData
+    setStrangeId(userData)
   }
 
   // const userData = userCall()
@@ -45,8 +44,7 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
   }
 
   const setId = () => {
-    setStrangeId(userCall())
-    console.log(userCall())
+    userCall()
   }
 
   const editPigteo = () => {
@@ -135,20 +133,20 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
         aria-labelledby={`id${id}`}
         data-bs-parent="#listadoTweets">
         <div className="accordion-body">
-          <form class="row g-3">
+          <form className="row g-3">
 
-            <div class="col-9">
-              <label for="inputComentar" class="visually-hidden">Escribe aquí tu comentario</label>
+            <div className="col-9">
+              <label htmlFor="inputComentar" className="visually-hidden">Escribe aquí tu comentario</label>
               <textarea
-                class="form-control pb-1"
+                className="form-control pb-1"
                 id="exampleFormControlTextarea1"
                 rows="3"
                 placeholder='Escriba aquí su comentario' >
 
               </textarea>
             </div>
-            <div class="col-3">
-              <button type="submit" class="btn btn-primary mb-3">Publicar comentario</button>
+            <div className="col-3">
+              <button type="submit" className="btn btn-primary mb-3">Publicar comentario</button>
             </div>
           </form>
           <strong>Comentarios</strong>
