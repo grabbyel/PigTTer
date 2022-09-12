@@ -68,37 +68,41 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
       <h2
         className="accordion-header"
         id={id}>
-        <button
-          className="accordion-button"
-          type="button"
+        <div
+          className="accordion-button collapsed"
+          // type="button"
           data-bs-toggle="collapse"
           data-bs-target={`#collapse${id}`}
           aria-expanded="false"
           aria-controls={`collapse${id}`}>
-          <img
-            src={image}
-            className="card-img-top"
-            alt='imagen' />
-          <div className="card-body">
-            <h5 className="card-title">
-              {name}
-            </h5>
-            <h6>
-              @{username}{
-                activeUser.username !== username ?
-                  <button onClick={handleFollow(username)}>
-                    Follow
-                  </button> : ''}
-            </h6>
-            <p className="card-text">
-              {content}
-            </p>
-            {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+
+          <div className="card">
+            <img
+              src={image}
+              className="card-img-top"
+              alt='imagen' />
+            <div className="card-body">
+              <h5 className="card-title">
+                {name}
+              </h5>
+              <h6>
+                @{username}{
+                  activeUser.username !== username ?
+                    <button onClick={handleFollow(username)}>
+                      Follow
+                    </button> : ''}
+              </h6>
+              <p className="card-text">
+                {content}
+              </p>
+              {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+            </div>
+            {activeUser.username === username ? <button onClick={handleShow}>Editar</button> : ''}
+            {activeUser.username === username ? <button onClick={handleDelete(id)}>X</button> : ''}
+            {show && editPigteo()}
+
           </div>
-          {activeUser.username === username ? <button onClick={handleShow}>Editar</button> : ''}
-          {activeUser.username === username ? <button onClick={handleDelete(id)}>X</button> : ''}
-          {show && editPigteo()}
-        </button>
+        </div>
       </h2>
       <div
         id={`collapse${id}`}
