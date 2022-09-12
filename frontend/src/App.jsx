@@ -19,12 +19,12 @@ function App() {
         }
     }, [])
 
-    // useEffect(() => {
-    //     tweetService.getTweets().then(tweets => {
-    //         setTweets(tweets)
-    //     })
-    // }, [])
-    //Comment random
+    useEffect(() => {
+        tweetService.getTweets().then(tweets => {
+            setTweets(tweets)
+        })
+    }, [])
+    
 
     return (
         <div>

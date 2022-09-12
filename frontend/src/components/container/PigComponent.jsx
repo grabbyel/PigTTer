@@ -106,7 +106,7 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
       </h2>
       <div
         id={`collapse${id}`}
-        className="accordion-collapse collapse show"
+        className="accordion-collapse collapse"
         aria-labelledby={id}
         data-bs-parent="#listadoTweets">
         <div className="accordion-body">
