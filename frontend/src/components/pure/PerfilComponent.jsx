@@ -24,18 +24,6 @@ const PerfilComponent = ({ user, setUser, strangeUser }) => {
     }
   }, [user])
 
-  useEffect(() => {
-    console.log('user')
-    console.log(user)
-    console.log('strangeUser')
-    console.log(strangeUser)
-    console.log('currentProfile')
-    console.log(currentProfile)
-  }, [user, strangeUser, currentProfile])
-
-
-
-
   const updateName = (e) => {
     e.preventDefault()
     userService.editarNombre(user.id, name)
