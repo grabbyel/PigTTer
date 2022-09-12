@@ -4,8 +4,12 @@ import Form from "react-bootstrap/Form"
 import Modal from "react-bootstrap/Modal"
 import Button from "react-bootstrap/Button"
 import tweetsService from '../../services/tweets'
+import userService from '../../services/user'
+import { Link } from "react-router-dom"
+import PerfilComponent from '../pure/PerfilComponent'
 
-const PigComponent = ({ username, name, content, image, id, handleDelete, tweets, setTweets }) => {
+
+const PigComponent = ({ username, name, content, image, id, handleDelete, tweets, setTweets, strangeUser, setStrangeId }) => {
   let activeUser = JSON.parse(window.localStorage.getItem('loggedUser'))
 
   const [show, setShow] = useState(false)
@@ -13,6 +17,14 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+
+  const userCall = async () => {
+    const userData = await userService.getUser(strangeUser.id)
+    // console.log(userData)
+    return userData
+  }
+
+  // const userData = userCall()
 
   const handleTextChange = (e) => {
     e.preventDefault()
@@ -30,6 +42,11 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
   const handleFollow = (username) => (e) => {
     e.preventDefault()
     console.log(username)
+  }
+
+  const setId = () => {
+    setStrangeId(userCall())
+    console.log(userCall())
   }
 
   const editPigteo = () => {
@@ -85,9 +102,11 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
             {/* </div> */}
 
             <div className="card-body">
-              <h5 className="card-title">
-                {name}
-              </h5>
+              <Link to="/usuario" onClick={setId}>
+                <h5 className="card-title">
+                  {name}
+                </h5>
+              </Link>
               <h6>
                 @{username}
                 <div className='btnFollow'>

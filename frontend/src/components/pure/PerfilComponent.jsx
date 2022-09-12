@@ -3,7 +3,7 @@ import "./PerfilComponent.css"
 import userService from '../../services/user'
 import EditarPerfilComponent from "./EditarPerfilComponent"
 
-const PerfilComponent = ({ user, setUser }) => {
+const PerfilComponent = ({ user, setUser, strangeUser }) => {
 
   const [name, setName] = useState('')
   const [image, setImage] = useState('')
@@ -13,6 +13,8 @@ const PerfilComponent = ({ user, setUser }) => {
       setUser(updatedUser)
     })
   }, [])
+
+
 
   const updateName = (e) => {
     e.preventDefault()
@@ -41,6 +43,14 @@ const PerfilComponent = ({ user, setUser }) => {
     // window.localStorage.setItem('loggedUser', JSON.stringify(newUser))
     // setImage('')
   }
+  // let botonOpcional
+  const userLog = () => {
+    if (!strangeUser || (user.id === strangeUser.id)) {
+      return <EditarPerfilComponent name={name} handleNameChange={handleNameChange}
+        updateName={updateName} updateImage={updateImage}
+        image={image} handleImageChange={handleImageChange} />
+    } else { return <button>Follow</button> }
+  }
 
   const handleNameChange = (e) => {
     e.preventDefault()
@@ -67,9 +77,7 @@ const PerfilComponent = ({ user, setUser }) => {
         <p>@{user.username}</p>
       </div>
       <div className="col-12">
-        <EditarPerfilComponent name={name} handleNameChange={handleNameChange}
-          updateName={updateName} updateImage={updateImage}
-          image={image} handleImageChange={handleImageChange} />
+        {userLog()}
       </div>
 
       <div className="botones d-flex justify-content-center align-items-center">

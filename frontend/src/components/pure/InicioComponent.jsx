@@ -4,7 +4,7 @@ import './InicioComponent.css'
 import tweetsService from '../../services/tweets'
 import user from '../../services/user'
 
-const InicioComponent = ({ tweets, setTweets }) => {
+const InicioComponent = ({ tweets, setTweets, setStrangeId }) => {
 
   useEffect(() => {
     tweetsService.getTweets().then(tweets => {
@@ -49,6 +49,8 @@ const InicioComponent = ({ tweets, setTweets }) => {
               handleDelete={handleDelete}
               tweets={tweets}
               setTweets={setTweets}
+              strangeUser={tweet.user}
+              setStrangeId={setStrangeId}
             />
           </div>
         )
