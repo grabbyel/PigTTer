@@ -73,7 +73,7 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
           type="button"
           data-bs-toggle="collapse"
           data-bs-target={`#collapse${id}`}
-          aria-expanded="true"
+          aria-expanded="false"
           aria-controls={`collapse${id}`}>
           <img
             src={image}

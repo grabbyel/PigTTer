@@ -4,7 +4,7 @@ const User = require('../models/user')
 
 const updateTweet = async (tweet) => {
     const user = await User.findOne({ 'username': tweet.username })
-    // await Tweet.updateMany({username: user.username}, {name: user.name, image: user.image})
+    await Tweet.updateMany({username: user.username}, {name: user.name, image: user.image})
 }
 
 tweetsRouter.get('/', async (request, response) => {
