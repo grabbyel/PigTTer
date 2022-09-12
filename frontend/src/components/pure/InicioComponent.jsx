@@ -1,16 +1,16 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import PigComponent from '../container/PigComponent'
 import './InicioComponent.css'
 import tweetsService from '../../services/tweets'
 import user from '../../services/user'
 
-const InicioComponent = ({tweets, setTweets}) => {
+const InicioComponent = ({ tweets, setTweets }) => {
 
   useEffect(() => {
     tweetsService.getTweets().then(tweets => {
-        setTweets(tweets)
+      setTweets(tweets)
     })
-}, [])
+  }, [])
 
   const handleDelete = (id) => (e) => {
     e.preventDefault()
@@ -34,28 +34,28 @@ const InicioComponent = ({tweets, setTweets}) => {
   const tweetList = () => (
     <div>
 
-    {/* añadida key para evitar error de duplicidad */}
-    {/* Warning: Each Child in a List Should Have a Unique 'key' Prop */}
-    {/* {tweets.map(tweet => <li>{tweet.username}-{tweet.content}</li>)} */}
-    { tweets.map((tweet) => {
-          return (
-            <li key={tweet.id}>
-                <PigComponent 
-                username={tweet.username} 
-                name={tweet.name} 
-                content={tweet.content} 
-                image={tweet.image}
-                id={tweet.id}
-                handleDelete={handleDelete}
-                tweets={tweets}
-                setTweets={setTweets}
-                />
-            </li>
-          )
-          
+      {/* añadida key para evitar error de duplicidad */}
+      {/* Warning: Each Child in a List Should Have a Unique 'key' Prop */}
+      {/* {tweets.map(tweet => <li>{tweet.username}-{tweet.content}</li>)} */}
+      {tweets.map((tweet) => {
+        return (
+          <div className="accordion" key={tweet.id} id="listadoTweets">
+            <PigComponent
+              username={tweet.username}
+              name={tweet.name}
+              content={tweet.content}
+              image={tweet.image}
+              id={tweet.id}
+              handleDelete={handleDelete}
+              tweets={tweets}
+              setTweets={setTweets}
+            />
+          </div>
+        )
+
       }).sort().reverse()
-    }
-      
+      }
+
     </div>
   )
   return (

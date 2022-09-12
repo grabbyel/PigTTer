@@ -3,19 +3,19 @@ const Tweet = require('../models/tweet')
 const User = require('../models/user')
 
 const updateTweet = async (tweet) => {
-    const user = await User.findOne({'username': tweet.username})
-    await Tweet.updateMany({username: user.username}, {name: user.name, image: user.image})
+    const user = await User.findOne({ 'username': tweet.username })
+    // await Tweet.updateMany({username: user.username}, {name: user.name, image: user.image})
 }
 
 tweetsRouter.get('/', async (request, response) => {
     const tweets = await Tweet.find({})
     await tweets.map(tweet => updateTweet(tweet))
-    const updatedTweets = await Tweet.find({}).populate('user', {username: 1, name: 1, image: 1, tweets: 1, followers: 1, following: 1})
+    const updatedTweets = await Tweet.find({}).populate('user', { username: 1, name: 1, image: 1, tweets: 1, followers: 1, following: 1 })
     response.json(updatedTweets)
 })
 
 tweetsRouter.get('/:id', async (request, response) => {
-    const tweet = await Tweet.findById(request.params.id).populate('user', {username: 1, name: 1, image: 1, tweets: 1, followers: 1, following: 1})
+    const tweet = await Tweet.findById(request.params.id).populate('user', { username: 1, name: 1, image: 1, tweets: 1, followers: 1, following: 1 })
     response.json(tweet)
 })
 
@@ -26,8 +26,8 @@ tweetsRouter.post('/', async (request, response) => {
     const tweet = new Tweet({
         username: body.username,
         name: body.name,
-        content: body.content, 
-        image: body.image, 
+        content: body.content,
+        image: body.image,
         comments: body.comments || [],
         retweets: body.retweets || 0,
         likes: body.likes || 0,
@@ -42,17 +42,17 @@ tweetsRouter.post('/', async (request, response) => {
 
 tweetsRouter.put('/:id', async (request, response) => {
     const tweet = request.body
-    const updatedTweet = await Tweet.findByIdAndUpdate(request.params.id, tweet, {new: true, runValidators: true, context: 'query'}).populate('user', {username: 1, name: 1, image: 1, tweets: 1, followers: 1, following: 1})
+    const updatedTweet = await Tweet.findByIdAndUpdate(request.params.id, tweet, { new: true, runValidators: true, context: 'query' }).populate('user', { username: 1, name: 1, image: 1, tweets: 1, followers: 1, following: 1 })
     response.json(updatedTweet)
- })
+})
 
-tweetsRouter.delete('/:id', async(request, response) => {
+tweetsRouter.delete('/:id', async (request, response) => {
     const tweet = await Tweet.findById(request.params.id)
-    if(tweet){
+    if (tweet) {
         await Tweet.findByIdAndDelete(request.params.id)
         response.status(204).end()
     } else {
-        response.status(404).json({error: 'tweet already deleted'})
+        response.status(404).json({ error: 'tweet already deleted' })
     }
 })
 
