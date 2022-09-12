@@ -135,8 +135,23 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
         aria-labelledby={`id${id}`}
         data-bs-parent="#listadoTweets">
         <div className="accordion-body">
-          <strong>Comentarios</strong> <br />
-          Aquí sería donde necesitamos un apoyo del backend que nos traiga los comentarios asociados a este tweet
+          <form class="row g-3">
+
+            <div class="col-9">
+              <label for="inputComentar" class="visually-hidden">Escribe aquí tu comentario</label>
+              <textarea
+                class="form-control pb-1"
+                id="exampleFormControlTextarea1"
+                rows="3"
+                placeholder='Escriba aquí su comentario' >
+
+              </textarea>
+            </div>
+            <div class="col-3">
+              <button type="submit" class="btn btn-primary mb-3">Publicar comentario</button>
+            </div>
+          </form>
+          <strong>Comentarios</strong>
         </div>
       </div>
     </div >
