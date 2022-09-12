@@ -39,7 +39,7 @@ const InicioComponent = ({ tweets, setTweets }) => {
       {/* {tweets.map(tweet => <li>{tweet.username}-{tweet.content}</li>)} */}
       {tweets.map((tweet) => {
         return (
-          <div className="accordion" key={tweet.id} id="listadoTweets">
+          <div key={tweet.id}>
             <PigComponent
               username={tweet.username}
               name={tweet.name}
@@ -59,7 +59,7 @@ const InicioComponent = ({ tweets, setTweets }) => {
     </div>
   )
   return (
-    <div>
+    <div className="accordion" key={'listadoTweets'} id="listadoTweets">
       {tweetList()}
     </div>
   )

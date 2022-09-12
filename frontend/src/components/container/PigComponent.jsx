@@ -64,10 +64,10 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
   }
 
   return (
-    <div className="accordion-item">
+    <div key={id} className="accordion-item mb-2 h-100">
       <h2
         className="accordion-header"
-        id={id}>
+        id={`id${id}`}>
         <div
           className="accordion-button collapsed"
           // type="button"
@@ -77,20 +77,26 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
           aria-controls={`collapse${id}`}>
 
           <div className="card">
+            {/* <div> */}
             <img
               src={image}
-              className="card-img-top"
+              // className="card-img-top"
               alt='imagen' />
+            {/* </div> */}
+
             <div className="card-body">
               <h5 className="card-title">
                 {name}
               </h5>
               <h6>
-                @{username}{
-                  activeUser.username !== username ?
-                    <button onClick={handleFollow(username)}>
-                      Follow
-                    </button> : ''}
+                @{username}
+                <div className='btnFollow'>
+                  {
+                    activeUser.username !== username ?
+                      <button onClick={handleFollow(username)}>
+                        Follow
+                      </button> : ''}
+                </div>
               </h6>
               <p className="card-text">
                 {content}
@@ -102,19 +108,19 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
             {show && editPigteo()}
 
           </div>
-        </div>
-      </h2>
+        </div >
+      </h2 >
       <div
         id={`collapse${id}`}
         className="accordion-collapse collapse"
-        aria-labelledby={id}
+        aria-labelledby={`id${id}`}
         data-bs-parent="#listadoTweets">
         <div className="accordion-body">
           <strong>Comentarios</strong> <br />
           Aquí sería donde necesitamos un apoyo del backend que nos traiga los comentarios asociados a este tweet
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

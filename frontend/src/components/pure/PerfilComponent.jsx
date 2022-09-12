@@ -1,17 +1,23 @@
-import React, {useState} from "react";
-import "./PerfilComponent.css";
+import React, { useState, useEffect } from "react"
+import "./PerfilComponent.css"
 import userService from '../../services/user'
-import EditarPerfilComponent from "./EditarPerfilComponent";
+import EditarPerfilComponent from "./EditarPerfilComponent"
 
 const PerfilComponent = ({ user, setUser }) => {
 
   const [name, setName] = useState('')
   const [image, setImage] = useState('')
 
+  useEffect(() => {
+    userService.getUser(user.id).then(updatedUser => {
+      setUser(updatedUser)
+    })
+  }, [])
+
   const updateName = (e) => {
     e.preventDefault()
     userService.editarNombre(user.id, name)
-    const newUser = {...user, name: name}
+    const newUser = { ...user, name: name }
     setUser(newUser)
     setName('')
     // const newUser = {...user, name: name}
@@ -25,7 +31,7 @@ const PerfilComponent = ({ user, setUser }) => {
   const updateImage = (e) => {
     e.preventDefault()
     userService.editarImagen(user.id, image)
-    const newUser = {...user, image: image}
+    const newUser = { ...user, image: image }
     setUser(newUser)
     setImage('')
     // const newUser = {...user, image: image}
@@ -50,7 +56,7 @@ const PerfilComponent = ({ user, setUser }) => {
       <div className="photo-div col-6">
         <img
           src={user.image ?
-           user.image : "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"}
+            user.image : "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"}
           alt="Imagen de usuario"
           className=" img"
         />
@@ -61,9 +67,9 @@ const PerfilComponent = ({ user, setUser }) => {
         <p>@{user.username}</p>
       </div>
       <div className="col-12">
-       <EditarPerfilComponent name={name} handleNameChange={handleNameChange}
-         updateName={updateName} updateImage={updateImage}
-         image={image} handleImageChange={handleImageChange} />
+        <EditarPerfilComponent name={name} handleNameChange={handleNameChange}
+          updateName={updateName} updateImage={updateImage}
+          image={image} handleImageChange={handleImageChange} />
       </div>
 
       <div className="botones d-flex justify-content-center align-items-center">
@@ -71,10 +77,10 @@ const PerfilComponent = ({ user, setUser }) => {
         <p className=" fs-5">Me gusta</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PerfilComponent;
+export default PerfilComponent
 
 
 // {edit 
