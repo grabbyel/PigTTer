@@ -76,32 +76,32 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
           aria-expanded="false"
           aria-controls={`collapse${id}`}>
 
+          <div className="card">
+            <img
+              src={image}
+              className="card-img-top"
+              alt='imagen' />
+            <div className="card-body">
+              <h5 className="card-title">
+                {name}
+              </h5>
+              <h6>
+                @{username}{
+                  activeUser.username !== username ?
+                    <button onClick={handleFollow(username)}>
+                      Follow
+                    </button> : ''}
+              </h6>
+              <p className="card-text">
+                {content}
+              </p>
+              {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+            </div>
+            {activeUser.username === username ? <button onClick={handleShow}>Editar</button> : ''}
+            {activeUser.username === username ? <button onClick={handleDelete(id)}>X</button> : ''}
+            {show && editPigteo()}
 
-          <img
-            src={image}
-            className="card-img-top"
-            alt='imagen' />
-          <div className="card-body">
-            <h5 className="card-title">
-              {name}
-            </h5>
-            <h6>
-              @{username}{
-                activeUser.username !== username ?
-                  <button onClick={handleFollow(username)}>
-                    Follow
-                  </button> : ''}
-            </h6>
-            <p className="card-text">
-              {content}
-            </p>
-            {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
           </div>
-          {activeUser.username === username ? <button onClick={handleShow}>Editar</button> : ''}
-          {activeUser.username === username ? <button onClick={handleDelete(id)}>X</button> : ''}
-          {show && editPigteo()}
-
-
         </div>
       </h2>
       <div
