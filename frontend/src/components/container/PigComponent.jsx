@@ -68,13 +68,15 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
       <h2
         className="accordion-header"
         id={id}>
-        <button
-          className="accordion-button"
-          type="button"
+        <div
+          className="accordion-button collapsed"
+          // type="button"
           data-bs-toggle="collapse"
           data-bs-target={`#collapse${id}`}
           aria-expanded="false"
           aria-controls={`collapse${id}`}>
+
+
           <img
             src={image}
             className="card-img-top"
@@ -98,7 +100,9 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
           {activeUser.username === username ? <button onClick={handleShow}>Editar</button> : ''}
           {activeUser.username === username ? <button onClick={handleDelete(id)}>X</button> : ''}
           {show && editPigteo()}
-        </button>
+
+
+        </div>
       </h2>
       <div
         id={`collapse${id}`}
