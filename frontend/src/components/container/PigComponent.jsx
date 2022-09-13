@@ -14,9 +14,15 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
 
   const [show, setShow] = useState(false)
   const [tweetContent, setTweetContent] = useState('')
+  const [showComment, setShowComment] = useState(false)
+  const visible = { display: showComment ? '' : 'none' }
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+  const handleVisible = (e) => {
+    e.preventDefault()
+    showComment ? setShowComment(false) : setShowComment(true)
+  }
 
   const userCall = async () => {
     const userData = await userService.getUser(strangeUser.id)
@@ -125,12 +131,32 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
             </div>
             {activeUser.username === username ? <button onClick={handleShow}>Editar</button> : ''}
             {activeUser.username === username ? <button onClick={handleDelete(id)}>X</button> : ''}
+            <button onClick={handleVisible} style={{'border': 'none', 'background': 'none'}}>V</button>
             {show && editPigteo()}
 
           </div>
         </div >
       </h2 >
-      <div
+
+      <div style={visible}>
+        <form className="row g-3">
+
+          <div className="col-9">
+            <label htmlFor="inputComentar" className="visually-hidden">Escribe aquí tu comentario</label>
+            <textarea
+              className="form-control pb-1"
+              id="exampleFormControlTextarea1"
+              rows="3"
+              placeholder='Escriba aquí su comentario' >
+
+            </textarea>
+          </div>
+          <div className="col-3">
+            <button type="submit" className="btn btn-primary mb-3">Publicar comentario</button>
+          </div>
+        </form>
+      </div>
+      {/* <div
         id={`collapse${id}`}
         className="accordion-collapse collapse"
         aria-labelledby={`id${id}`}
@@ -154,7 +180,7 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
           </form>
           <strong>Comentarios</strong>
         </div>
-      </div>
+      </div> */}
     </div >
   )
 }
