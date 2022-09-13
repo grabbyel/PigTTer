@@ -16,6 +16,15 @@
 	border-radius: 50%;
 }
 
+.fecha {
+	color: darkgray;
+	text-align: end;
+	font-size: small;
+}
+
+.btnEdit {
+}
+
 @media only screen and (max-width: 768px) {
 	a {
 		display: none;
