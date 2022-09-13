@@ -1,74 +1,130 @@
-import React, { useState, useEffect } from "react"
-import "./PerfilComponent.css"
-import userService from '../../services/user'
-import EditarPerfilComponent from "./EditarPerfilComponent"
+import React, { useState, useEffect } from "react";
+import "./PerfilComponent.css";
+import userService from "../../services/user";
+import tweetsService from "../../services/tweets";
+import EditarPerfilComponent from "./EditarPerfilComponent";
+import { nanoid } from "nanoid";
+import PigComponent from "../container/PigComponent";
 
-const PerfilComponent = ({ user, setUser, strangeUser }) => {
+const PerfilComponent = ({ user, setUser, strangeUser, tweets, setTweets }) => {
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [currentProfile, setCurrentProfile] = useState(
+    strangeUser ? strangeUser : user
+  );
 
-  const [name, setName] = useState('')
-  const [image, setImage] = useState('')
-  const [currentProfile, setCurrentProfile] = useState(strangeUser ? strangeUser : user)
-
-  const condition = !strangeUser || (user.id === strangeUser.id)
-
-  useEffect(() => {
-    userService.getUser(user.id).then(updatedUser => {
-      setUser(updatedUser)
-    })
-  }, [user.id, setUser])
+  const condition = !strangeUser || user.id === strangeUser.id;
 
   useEffect(() => {
-    strangeUser ? setCurrentProfile(strangeUser) : setCurrentProfile(user)
-    return() => {
-      setCurrentProfile(user)
-    }
-  }, [user])
+    userService.getUser(user.id).then((updatedUser) => {
+      setUser(updatedUser);
+    });
+  }, [user.id, setUser]);
+
+  useEffect(() => {
+    strangeUser ? setCurrentProfile(strangeUser) : setCurrentProfile(user);
+    return () => {
+      setCurrentProfile(user);
+    };
+  }, [user]);
 
   const updateName = (e) => {
-    e.preventDefault()
-    userService.editarNombre(user.id, name)
-    const newUser = { ...user, name: name }
-    setUser(newUser)
-    setName('')
+    e.preventDefault();
+    userService.editarNombre(user.id, name);
+    const newUser = { ...user, name: name };
+    setUser(newUser);
+    setName("");
     // const newUser = {...user, name: name}
     // userService.editar(user.id, newUser)
     // setUser(newUser)
     // window.localStorage.removeItem('loggedUser')
     // window.localStorage.setItem('loggedUser', JSON.stringify(newUser))
     // setName('')
-  }
+  };
 
   const updateImage = (e) => {
-    e.preventDefault()
-    userService.editarImagen(user.id, image)
-    const newUser = { ...user, image: image }
-    setUser(newUser)
-    setImage('')
+    e.preventDefault();
+    userService.editarImagen(user.id, image);
+    const newUser = { ...user, image: image };
+    setUser(newUser);
+    setImage("");
     // const newUser = {...user, image: image}
     // userService.editar(user.id, newUser)
     // setUser(newUser)
     // window.localStorage.removeItem('loggedUser')
     // window.localStorage.setItem('loggedUser', JSON.stringify(newUser))
     // setImage('')
-  }
+  };
   // let botonOpcional
   const userLog = () => {
     if (condition) {
-      return <EditarPerfilComponent name={name} handleNameChange={handleNameChange}
-        updateName={updateName} updateImage={updateImage}
-        image={image} handleImageChange={handleImageChange} />
-    } else { return <button>Follow</button> }
-  }
+      return (
+        <EditarPerfilComponent
+          name={name}
+          handleNameChange={handleNameChange}
+          updateName={updateName}
+          updateImage={updateImage}
+          image={image}
+          handleImageChange={handleImageChange}
+        />
+      );
+    } else {
+      return <button>Follow</button>;
+    }
+  };
 
   const handleNameChange = (e) => {
-    e.preventDefault()
-    setName(e.target.value)
-  }
+    e.preventDefault();
+    setName(e.target.value);
+  };
 
   const handleImageChange = (e) => {
-    e.preventDefault()
-    setImage(e.target.value)
-  }
+    e.preventDefault();
+    setImage(e.target.value);
+  };
+
+  // const tweetsCargar = condition ? user.tweets : strangeUser.tweets;
+
+  const tweetList = () => {
+    // console.log(tweetsCargar);
+
+    return (
+      <div>
+        {tweets
+          .map((tweet) => {
+            if (currentProfile.username === tweet.username) {
+              return (
+                <div key={tweet.id}>
+                  <PigComponent
+                    username={tweet.username}
+                    name={tweet.name}
+                    content={tweet.content}
+                    image={tweet.image}
+                    id={tweet.id}
+                    handleDelete={handleDelete}
+                    tweets={tweets}
+                    setTweets={setTweets}
+                    date={tweet.date}
+                  />
+                </div>
+              );
+            } else {
+              return "";
+            }
+          })
+          .sort()
+          .reverse()}
+      </div>
+    );
+  };
+
+  const handleDelete = (id) => (e) => {
+    e.preventDefault();
+    tweetsService.removeTweet(id);
+    const filteredTweets = tweets.filter((tweet) => tweet.id !== id);
+    setTweets(filteredTweets);
+  };
+
   return (
     <div className="background-div p-4 bg-light row">
       <div className="photo-div col-6">
@@ -85,22 +141,20 @@ const PerfilComponent = ({ user, setUser, strangeUser }) => {
         {/* Actualizar con user.name cuando esté en el registro actualizado */}
         <p>@{condition ? user.username : strangeUser.username}</p>
       </div>
-      <div className="col-12">
-        {userLog()}
-      </div>
+      <div className="col-12">{userLog()}</div>
 
       <div className="botones d-flex justify-content-center align-items-center">
         <p className=" mx-5 fs-5">Tweets</p>
         <p className=" fs-5">Me gusta</p>
       </div>
+      <div>{tweetList()}</div>
     </div>
-  )
-}
+  );
+};
 
-export default PerfilComponent
+export default PerfilComponent;
 
-
-// {edit 
+// {edit
 //   ? <EditarPerfilComponent name={name} handleNameChange={handleNameChange}
 //   updateName={updateName} updateImage={updateImage}
 //   image={image} handleImageChange={handleImageChange} setEdit={setEdit}/>

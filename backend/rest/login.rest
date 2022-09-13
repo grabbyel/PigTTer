@@ -3,3 +3,6 @@ Content-Type: application/json
 
 {"username": "antonio",
 "password": "admin"}
+
+###
+get http://localhost:3001/api/tweets
