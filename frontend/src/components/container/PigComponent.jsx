@@ -62,16 +62,19 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
               <Form.Label>¡Cambia de opinion!</Form.Label>
               <Form.Control as="textarea" rows={3} onChange={handleTextChange} value={tweetContent} />
             </Form.Group>
-            <Button className="rounded-5" variant="primary" type="submit">
-              Pigttear
-            </Button>
-            <Button
-              className="rounded-5"
-              variant="secondary"
-              onClick={handleClose}
-            >
-              No Pigttear
-            </Button>
+            <Modal.Footer className="border-0">
+              <Button
+                className="rounded-5"
+                variant="secondary"
+                onClick={handleClose}
+              >
+                No Pigttear
+              </Button>
+              <Button className="rounded-5" variant="primary" type="submit">
+                Pigttear
+              </Button>
+            </Modal.Footer>
+
           </Form>
         </Modal.Body>
       </Modal>

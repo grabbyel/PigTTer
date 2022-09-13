@@ -80,9 +80,7 @@ function PigComponent({user, tweets,setTweets} ) {
               <Form.Label>¡Pigttea aquí!</Form.Label>
               <Form.Control as="textarea" rows={3} onChange={handleTextChange} value={tweetContent} />
             </Form.Group>
-            <Button className="rounded-5" variant="primary" type="submit">
-              Pigttear
-            </Button>
+        <Modal.Footer className="border-0">
             <Button
               className="rounded-5"
               variant="secondary"
@@ -90,13 +88,13 @@ function PigComponent({user, tweets,setTweets} ) {
             >
               No Pigttear
             </Button>
+            <Button className="rounded-5" variant="primary" type="submit">
+              Pigttear
+            </Button>
+        </Modal.Footer>
+            
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          {/* <Button className="rounded-5" variant="primary" type="submit">
-            Pigttear
-          </Button> */}
-        </Modal.Footer>
       </Modal>
     </>
   );
