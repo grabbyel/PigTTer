@@ -7,6 +7,8 @@ import tweetsService from '../../services/tweets'
 import userService from '../../services/user'
 import { Link } from "react-router-dom"
 import PerfilComponent from '../pure/PerfilComponent'
+import { BiEdit } from "react-icons/bi"
+import { RiChatDeleteFill } from "react-icons/ri"
 
 
 const PigComponent = ({ username, name, content, image, id, handleDelete, tweets, setTweets, strangeUser, setStrangeId, date }) => {
@@ -16,6 +18,10 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
   const [tweetContent, setTweetContent] = useState('')
   const [showComment, setShowComment] = useState(false)
   const visible = { display: showComment ? '' : 'none' }
+
+  // const fecha = new Date(date)
+  // console.log('fecha desde pigcomponent')
+  // console.log(date)
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
@@ -125,15 +131,28 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
                 </div>
               </h6>
               <p className="card-text">
-                {content} {date || '01/01/1970'}
+                {content}
               </p>
               {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+              <div className='fecha'>
+                {date || '01/01/1970'}
+              </div>
             </div>
-            {activeUser.username === username ? <button onClick={handleShow}>Editar</button> : ''}
-            {activeUser.username === username ? <button onClick={handleDelete(id)}>X</button> : ''}
-            <button onClick={handleVisible} style={{'border': 'none', 'background': 'none'}}>V</button>
+            <button onClick={handleVisible} style={{ 'border': 'none', 'background': 'none' }}>V</button>
             {show && editPigteo()}
 
+          </div>
+          <div className='btnEdit'>
+            {activeUser.username === username ? <div
+              onClick={handleShow}>
+              <BiEdit
+                style={{ 'height': '30px', 'width': '30px', 'color': 'blue' }} />
+            </div> : ''}
+            {activeUser.username === username ? <div
+              onClick={handleDelete(id)}>
+              <RiChatDeleteFill
+                style={{ 'height': '30px', 'width': '30px', 'color': 'blue' }} />
+            </div> : ''}
           </div>
         </div >
       </h2 >
@@ -184,5 +203,8 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
     </div >
   )
 }
+
+
+
 
 export default PigComponent
