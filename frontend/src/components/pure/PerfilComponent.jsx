@@ -6,7 +6,7 @@ import EditarPerfilComponent from "./EditarPerfilComponent";
 import { nanoid } from "nanoid";
 import PigComponent from "../container/PigComponent";
 
-const PerfilComponent = ({ user, setUser, strangeUser, tweets, setTweets }) => {
+const PerfilComponent = ({ user, setUser, strangeUser, setStrangeUser, tweets, setTweets }) => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [currentProfile, setCurrentProfile] = useState(
@@ -19,14 +19,20 @@ const PerfilComponent = ({ user, setUser, strangeUser, tweets, setTweets }) => {
     userService.getUser(user.id).then((updatedUser) => {
       setUser(updatedUser);
     });
-  }, [user.id, setUser]);
+  }, [user.id]);
 
   useEffect(() => {
+    
     strangeUser ? setCurrentProfile(strangeUser) : setCurrentProfile(user);
     return () => {
       setCurrentProfile(user);
     };
-  }, [user]);
+  }, [user, currentProfile]);
+
+  useEffect(() => {
+    window.location.pathname === '/perfil' ? setCurrentProfile(user) : setCurrentProfile(strangeUser)
+  })
+  
 
   const updateName = (e) => {
     e.preventDefault();
@@ -85,12 +91,14 @@ const PerfilComponent = ({ user, setUser, strangeUser, tweets, setTweets }) => {
 
   // const tweetsCargar = condition ? user.tweets : strangeUser.tweets;
 
+  
+
   const tweetList = () => {
     // console.log(tweetsCargar);
-
+    console.log(currentProfile)
     return (
       <div>
-        {tweets
+        {tweets 
           .map((tweet) => {
             if (currentProfile.username === tweet.username) {
               return (

@@ -45,6 +45,7 @@ const FeedComponent = ({ tweets, setTweets, setUser, user }) => {
               user={user}
               setUser={setUser}
               strangeUser={strangeId}
+              setStrangeUser={setStrangeId}
               tweets={tweets}
               setTweets={setTweets}
             />
