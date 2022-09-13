@@ -4,7 +4,7 @@ import './InicioComponent.css'
 import tweetsService from '../../services/tweets'
 import {nanoid} from 'nanoid'
 
-const InicioComponent = ({ tweets, setTweets, setStrangeId }) => {
+const InicioComponent = ({ user, tweets, setTweets, setStrangeId }) => {
 
   // useEffect(() => {
   //   tweetsService.getTweets().then(tweets => {
@@ -45,11 +45,14 @@ const InicioComponent = ({ tweets, setTweets, setStrangeId }) => {
         return (
           <div key={tweet.id}>
             <PigComponent
+              user={user}
               username={tweet.username}
               name={tweet.name}
               content={tweet.content}
               image={tweet.image}
               id={tweet.id}
+              objectId={tweet._id}
+              comments={tweet.comments}
               handleDelete={handleDelete}
               tweets={tweets}
               setTweets={setTweets}

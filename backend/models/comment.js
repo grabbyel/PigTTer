@@ -5,14 +5,18 @@ const commentSchema = new mongoose.Schema({
     name: String, 
     content: String,
     image: String,  
-    comments: [{
+    likes: Number,
+    tweetId: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment'
+        ref: 'Tweet'
     }],
-    likes: Number 
+    userId: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }]
 })
 
-userSchema.set('toJSON', {
+commentSchema.set('toJSON', {
     transform: (document, returnedObject) => {
         returnedObject.id = returnedObject._id.toString()
         delete returnedObject.__v

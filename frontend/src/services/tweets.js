@@ -31,10 +31,15 @@ const updateTweet = async (id, newTweet) => {
     return response.data
 }
 
+const addComment = async (id, newComment) => {
+  const response = await axios.put(`${url}/${id}`, newComment)
+  return response.data
+}
+
 const removeTweet = async id => {
     // const config = {headers: {Authorization: token}}
     const response = await axios.delete(`${url}/${id}`)
     return response
 }
 
-export default {getTweets, getSingleTweet, postTweet, updateTweet, removeTweet}
+export default {getTweets, getSingleTweet, postTweet, updateTweet, addComment, removeTweet}

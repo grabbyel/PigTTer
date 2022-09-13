@@ -9,15 +9,18 @@ import { Link } from "react-router-dom"
 import PerfilComponent from '../pure/PerfilComponent'
 import { BiEdit } from "react-icons/bi"
 import { RiChatDeleteFill } from "react-icons/ri"
+import CommentComponent from './CommentComponent'
 
 
-const PigComponent = ({ username, name, content, image, id, handleDelete, tweets, setTweets, strangeUser, setStrangeId, date }) => {
+const PigComponent = ({ user, username, name, content, image, id, comments, objectId, handleDelete, tweets, setTweets, strangeUser, setStrangeId, date }) => {
   let activeUser = JSON.parse(window.localStorage.getItem('loggedUser'))
 
   const [show, setShow] = useState(false)
   const [tweetContent, setTweetContent] = useState('')
   const [showComment, setShowComment] = useState(false)
   const visible = { display: showComment ? '' : 'none' }
+
+  const [commentContent, setCommentContent] = useState('')
 
   // const fecha = new Date(date)
   // console.log('fecha desde pigcomponent')
@@ -57,6 +60,28 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
 
   const setId = () => {
     userCall()
+  }
+
+  const handleCommentChange = (e) => {
+    e.preventDefault()
+    setCommentContent(e.target.value)
+  }
+
+  const postComment = (e) => {
+    e.preventDefault()
+  
+    const newComment = {
+      username: user.username, 
+      name: user.name, 
+      content: commentContent,
+      image: user.image,
+      userId: user.id
+    }
+    // console.log(newComment)
+    // const newComments = comments.concat(newComment)
+    tweetsService.addComment(id, newComment)
+    setCommentContent('')
+    
   }
 
   const editPigteo = () => {
@@ -158,7 +183,7 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
       </h2 >
 
       <div style={visible}>
-        <form className="row g-3">
+        <form className="row g-3" onSubmit={postComment}>
 
           <div className="col-9">
             <label htmlFor="inputComentar" className="visually-hidden">Escribe aquí tu comentario</label>
@@ -166,6 +191,8 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
               className="form-control pb-1"
               id="exampleFormControlTextarea1"
               rows="3"
+              value={commentContent}
+              onChange={handleCommentChange}
               placeholder='Escriba aquí su comentario' >
 
             </textarea>
@@ -174,6 +201,10 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
             <button type="submit" className="btn btn-primary mb-3">Publicar comentario</button>
           </div>
         </form>
+        <div>
+          <h3>Comentarios</h3>
+          {comments.map(com => <CommentComponent name={com.name} content={com.content}/>)}
+        </div>
       </div>
       {/* <div
         id={`collapse${id}`}
