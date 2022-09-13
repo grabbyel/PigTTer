@@ -19,13 +19,22 @@ function App() {
         }
     }, [])
 
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         tweetService.getTweets().then(tweets => {
+    //             setTweets(tweets)
+    //         })
+    //     }, 300)
+    //     return() => clearTimeout(timer)
+    // }, [tweets])
+
     useEffect(() => {
-        const timer = setTimeout(() => {
+        
             tweetService.getTweets().then(tweets => {
                 setTweets(tweets)
             })
-        }, 700)
-        return() => clearTimeout(timer)
+        
+   
     }, [tweets])
   
 

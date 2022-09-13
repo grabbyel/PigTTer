@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import PigComponent from '../container/PigComponent'
 import './InicioComponent.css'
 import tweetsService from '../../services/tweets'
-const { v4: uuidv4 } = require('uuid');
+import {nanoid} from 'nanoid'
 
 const InicioComponent = ({ tweets, setTweets, setStrangeId }) => {
 
@@ -43,7 +43,7 @@ const InicioComponent = ({ tweets, setTweets, setStrangeId }) => {
       {/* {tweets.map(tweet => <li>{tweet.username}-{tweet.content}</li>)} */}
       {tweets.map((tweet) => {
         return (
-          <div key={uuidv4()}>
+          <div key={tweet.id}>
             <PigComponent
               username={tweet.username}
               name={tweet.name}
