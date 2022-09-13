@@ -31,6 +31,7 @@ tweetsRouter.post('/', async (request, response) => {
         comments: body.comments || [],
         retweets: body.retweets || 0,
         likes: body.likes || 0,
+        date: body.date,
         user: user._id
     })
 

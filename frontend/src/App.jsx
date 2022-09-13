@@ -20,11 +20,14 @@ function App() {
     }, [])
 
     useEffect(() => {
-        tweetService.getTweets().then(tweets => {
-            setTweets(tweets)
-        })
-    }, [])
-    
+        const timer = setTimeout(() => {
+            tweetService.getTweets().then(tweets => {
+                setTweets(tweets)
+            })
+        }, 700)
+        return() => clearTimeout(timer)
+    }, [tweets])
+  
 
     return (
         <div>

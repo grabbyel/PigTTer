@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -18,17 +18,30 @@ function PigComponent({user, tweets,setTweets} ) {
     setTweetContent(e.target.value);
   };
 
-  const tweetear = (e) => {
+  const newDate = () => {
+    return new Date().toLocaleDateString('es-ES', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    })
+  }
+
+  const tweetear = async (e) => {
     e.preventDefault();
     const newTweet = {
       username: user.username, 
       name: user.name || user.username,
       content: tweetContent,
       image: user.image,
+      date: newDate(),
       userId: user.id
     }
+    const newTweets = tweets.concat(newTweet)
+    await setTweets(newTweets)
     tweetService.postTweet(newTweet)
-    setTweets(tweets.concat(newTweet))
+  
     // user.tweets = user.tweets.concat(newTweet)
     // window.localStorage.clear()
     // window.localStorage.setItem('loggedUser', JSON.stringify(user))

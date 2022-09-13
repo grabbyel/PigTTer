@@ -9,7 +9,7 @@ import { Link } from "react-router-dom"
 import PerfilComponent from '../pure/PerfilComponent'
 
 
-const PigComponent = ({ username, name, content, image, id, handleDelete, tweets, setTweets, strangeUser, setStrangeId }) => {
+const PigComponent = ({ username, name, content, image, id, handleDelete, tweets, setTweets, strangeUser, setStrangeId, date }) => {
   let activeUser = JSON.parse(window.localStorage.getItem('loggedUser'))
 
   const [show, setShow] = useState(false)
@@ -116,7 +116,7 @@ const PigComponent = ({ username, name, content, image, id, handleDelete, tweets
                 </div>
               </h6>
               <p className="card-text">
-                {content}
+                {content} {date || '01/01/1970'}
               </p>
               {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
             </div>

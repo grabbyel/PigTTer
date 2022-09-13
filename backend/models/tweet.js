@@ -13,6 +13,7 @@ const tweetSchema = new mongoose.Schema({
   ],
   retweets: Number,
   likes: Number,
+  date: String,
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User"

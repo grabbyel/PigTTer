@@ -2,14 +2,15 @@ import React, { useEffect } from 'react'
 import PigComponent from '../container/PigComponent'
 import './InicioComponent.css'
 import tweetsService from '../../services/tweets'
+const { v4: uuidv4 } = require('uuid');
 
 const InicioComponent = ({ tweets, setTweets, setStrangeId }) => {
 
-  useEffect(() => {
-    tweetsService.getTweets().then(tweets => {
-      setTweets(tweets)
-    })
-  }, [])
+  // useEffect(() => {
+  //   tweetsService.getTweets().then(tweets => {
+  //     setTweets(tweets)
+  //   })
+  // }, [])
 
   useEffect(() => {
     setStrangeId({})
@@ -42,7 +43,7 @@ const InicioComponent = ({ tweets, setTweets, setStrangeId }) => {
       {/* {tweets.map(tweet => <li>{tweet.username}-{tweet.content}</li>)} */}
       {tweets.map((tweet) => {
         return (
-          <div key={tweet.id}>
+          <div key={uuidv4()}>
             <PigComponent
               username={tweet.username}
               name={tweet.name}
@@ -52,6 +53,7 @@ const InicioComponent = ({ tweets, setTweets, setStrangeId }) => {
               handleDelete={handleDelete}
               tweets={tweets}
               setTweets={setTweets}
+              date={tweet.date}
               strangeUser={tweet.user}
               setStrangeId={setStrangeId}
             />
