@@ -87,7 +87,7 @@ function PigComponent({user, tweets,setTweets} ) {
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>¡Pigttea aquí!</Form.Label>
-              <Form.Control as="textarea" rows={3} onChange={handleTextChange} value={tweetContent} />
+              <Form.Control as="textarea" autoFocus rows={3} onChange={handleTextChange} value={tweetContent} />
             </Form.Group>
         <Modal.Footer className="border-0">
             <Button
