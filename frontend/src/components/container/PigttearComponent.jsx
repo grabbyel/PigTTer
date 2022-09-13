@@ -10,6 +10,15 @@ function PigComponent({user, tweets,setTweets} ) {
   const [show, setShow] = useState(false);
   const [tweetContent, setTweetContent] = useState("");
 
+  useEffect(() => {
+        
+    return() => tweetService.getTweets().then(tweets => {
+        setTweets(tweets)
+    })
+
+
+}, [])
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -39,7 +48,7 @@ function PigComponent({user, tweets,setTweets} ) {
       userId: user.id
     }
     const newTweets = tweets.concat(newTweet)
-    await setTweets(newTweets)
+    setTweets(newTweets)
     tweetService.postTweet(newTweet)
   
     // user.tweets = user.tweets.concat(newTweet)

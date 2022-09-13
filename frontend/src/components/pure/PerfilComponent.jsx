@@ -75,15 +75,15 @@ const PerfilComponent = ({ user, setUser, strangeUser }) => {
         <img
           // src={user.image ?
           //   user.image : "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"}
-          src={currentProfile.image}
+          src={condition ? user.image : strangeUser.image}
           alt="Imagen de usuario"
           className=" img"
         />
       </div>
       <div className="col-12 py-3">
-        <h3>{currentProfile.name}</h3>
+        <h3>{condition ? user.name : strangeUser.name}</h3>
         {/* Actualizar con user.name cuando esté en el registro actualizado */}
-        <p>@{currentProfile.username}</p>
+        <p>@{condition ? user.username : strangeUser.username}</p>
       </div>
       <div className="col-12">
         {userLog()}
