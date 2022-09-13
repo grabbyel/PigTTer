@@ -25,8 +25,8 @@ const SidebarComponent = ({user, setUser, tweets, setTweets}) => {
         //       <PerfilComponent />
         // </nav>
         <div className="container-fluid">
-            <div className="row flex-nowrap">
-                <div className="col-auto col-md-12 col-xl-12 px-sm-2 px-0 bg-light">
+            <div className="row flex-nowrap" style={{position:'relative', height: '100vh',width: '25%'}}>
+                <div className="col-auto col-md-12 col-xl-12 px-sm-2 px-0 bg-light" style={{position:'fixed', top: '0px',  width: '25%'}}>
                     <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                         <span className="w-100 d-flex flex-column align-items-center justify-content-center text-dark">
                             <h1>Pigtter</h1>
@@ -34,28 +34,28 @@ const SidebarComponent = ({user, setUser, tweets, setTweets}) => {
                         <span className="w-100 d-flex flex-column align-items-center justify-content-center text-dark mb-5">
                             <img src={piggtter} alt="cerdo" width="150" />
                         </span>
-                        <ul className="nav nav-pills w-100 flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start my-3" id="menu">
+                        <ul className="nav nav-pills w-100 flex-column mb-sm-auto mb-0 align-items-center align-items-md-start my-3" id="menu">
                             <li className="nav-item">
                                 <Link to="/" className="nav-link align-middle px-0">
-                                    <i className="fs-4 bi-house"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Inicio</span>
+                                    <i className="fs-4 bi-house"></i> <span className="fs-4 ms-1 d-none d-md-inline" style={{color: 'black'}}>Inicio</span>
                                 </Link> 
                             </li>
                             <li className="nav-item">
                                 <Link to="/explorar" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-hash"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Explorar</span></Link>
+                                    <i className="fs-4 bi-hash"></i> <span className="fs-4 ms-1 d-none d-md-inline" style={{color: 'black'}}>Explorar</span></Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/avisos" className="nav-link align-middle px-0">
-                                    <i className="fs-4 bi-bell-fill"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Avisos</span>
+                                    <i className="fs-4 bi-bell-fill"></i> <span className="fs-4 ms-1 d-none d-md-inline" style={{color: 'black'}}>Avisos</span>
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/mensajes" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-envelope-fill"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Mensajes</span></Link>
+                                    <i className="fs-4 bi-envelope-fill"></i> <span className="fs-4 ms-1 d-none d-md-inline" style={{color: 'black'}}>Mensajes</span></Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/perfil" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-person-circle"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Perfil</span></Link>
+                                    <i className="fs-4 bi-person-circle"></i> <span className="fs-4 ms-1 d-none d-md-inline" style={{color: 'black'}}>Perfil</span></Link>
                             </li>
 
 
