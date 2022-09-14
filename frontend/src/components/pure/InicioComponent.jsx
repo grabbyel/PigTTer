@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import PigComponent from "../container/PigComponent";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import "./InicioComponent.css";
 import tweetsService from "../../services/tweets";
 import { nanoid } from "nanoid";
+const PigComponent = lazy(() => import("../container/PigComponent")) 
 
 const InicioComponent = ({ user, tweets, setTweets, setStrangeId }) => {
   // useEffect(() => {
@@ -42,6 +42,7 @@ const InicioComponent = ({ user, tweets, setTweets, setStrangeId }) => {
       {tweets
         .map((tweet) => {
           return (
+            <Suspense fallback={<div>Loading...</div>}>
             <div key={tweet.id}>
               <PigComponent
                 user={user}
@@ -62,6 +63,7 @@ const InicioComponent = ({ user, tweets, setTweets, setStrangeId }) => {
                 userId={tweet.user}
               />
             </div>
+            </Suspense>
           );
         })
         .sort()
