@@ -5,12 +5,12 @@ const defaultImage = 'http://simpleicon.com/wp-content/uploads/user1-256x256.png
 const mongoose = require("mongoose");
 
 usersRouter.get('/', async (request, response) => {
-    const users = await User.find({}).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, retweets: 1, likes: 1}).populate('likes')
+    const users = await User.find({}).populate('tweets').populate('likes').populate('followers').populate('following')
     response.json(users)
 })
 
 usersRouter.get('/:id', async (request, response) => {
-    const user = await User.findById(request.params.id).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, retweets: 1, likes: 1}).populate('likes')
+    const user = await User.findById(request.params.id).populate('tweets').populate('likes').populate('followers').populate('following')
     response.json(user)
 })
 
@@ -39,12 +39,27 @@ usersRouter.put('/:id', async (request, response) => {
         const userId = request.params.id
         const userToUpdate = await User.findById(userId)
         const updatedLikes = userToUpdate.likes.concat(tweetId)
-        const updatedUser = await User.findByIdAndUpdate(request.params.id, {likes: updatedLikes}, {new: true, runValidators: true, context: 'query'}).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, retweets: 1, likes: 1}).populate('likes')
+        const updatedUser = await User.findByIdAndUpdate(request.params.id, {likes: updatedLikes}, {new: true, runValidators: true, context: 'query'}).populate('tweets').populate('likes').populate('followers').populate('following')
         response.json(updatedUser)
+
+    } else if (user.hasOwnProperty('followId')){
+        const userToFollowId = mongoose.Types.ObjectId(user.followId)
+        const followerId = mongoose.Types.ObjectId(request.params.id)
+        const userToFollowToUpdate = await User.findById(user.followId)
+        const followerToUpdate = await User.findById(request.params.id)
+        const updateFollowers = userToFollowToUpdate.followers.concat(followerId)
+        const updateFollowing = followerToUpdate.following.concat(userToFollowId)
+        const updatedUser1 = await User.findByIdAndUpdate(user.followId, {followers: updateFollowers}, {new: true, runValidators: true, context: 'query'}).populate('tweets').populate('likes').populate('followers').populate('following')
+        const updatedUser2 = await User.findByIdAndUpdate(request.params.id, {following: updateFollowing}, {new: true, runValidators: true, context: 'query'}).populate('tweets').populate('likes').populate('followers').populate('following')
+        response.json(updatedUser1)
+        // const userToUpdate = await User.findById(userId)
+        // const updatedLikes = userToUpdate.likes.concat(tweetId)
+        // const updatedUser = await User.findByIdAndUpdate(request.params.id, {likes: updatedLikes}, {new: true, runValidators: true, context: 'query'}).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, retweets: 1, likes: 1}).populate('likes')
+        // response.json(updatedUser)
 
     } else {
         console.log('2')
-        const updatedUser = await User.findByIdAndUpdate(request.params.id, user, {new: true, runValidators: true, context: 'query'}).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, retweets: 1, likes: 1}).populate('likes')
+        const updatedUser = await User.findByIdAndUpdate(request.params.id, user, {new: true, runValidators: true, context: 'query'}).populate('tweets').populate('likes').populate('followers').populate('following')
         response.json(updatedUser)
 
     }

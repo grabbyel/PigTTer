@@ -60,16 +60,16 @@ const PigComponent = ({
   const handleEdit = (id, newTweet) => async (e) => {
     e.preventDefault();
     await tweetsService.updateTweet(id, newTweet);
-    const filteredTweets = tweets.map((tweet) =>
-      tweet.id !== id ? tweet : { ...tweet, content: newTweet }
-    );
+    // const filteredTweets = tweets.map((tweet) =>
+    //   tweet.id !== id ? tweet : { ...tweet, content: newTweet }
+    // );
     //setTweets(filteredTweets)
     handleClose();
   };
 
-  const handleFollow = (username) => (e) => {
+  const handleFollow = async (e) => {
     e.preventDefault();
-    console.log(username);
+    await userService.addFollow(activeUser.id, userId.id)
   };
 
   const setId = () => {
@@ -181,7 +181,7 @@ const PigComponent = ({
                 @{username}
                 <div className="btnFollow">
                   {activeUser.username !== username ? (
-                    <button onClick={handleFollow(username)}>Follow</button>
+                    <button onClick={handleFollow}>Follow</button>
                   ) : (
                     ""
                   )}
@@ -279,31 +279,6 @@ const PigComponent = ({
           </div>
         </div>
       </div>
-      {/* <div
-        id={`collapse${id}`}
-        className="accordion-collapse collapse"
-        aria-labelledby={`id${id}`}
-        data-bs-parent="#listadoTweets">
-        <div className="accordion-body">
-          <form className="row g-3">
-
-            <div className="col-9">
-              <label htmlFor="inputComentar" className="visually-hidden">Escribe aquí tu comentario</label>
-              <textarea
-                className="form-control pb-1"
-                id="exampleFormControlTextarea1"
-                rows="3"
-                placeholder='Escriba aquí su comentario' >
-
-              </textarea>
-            </div>
-            <div className="col-3">
-              <button type="submit" className="btn btn-primary mb-3">Publicar comentario</button>
-            </div>
-          </form>
-          <strong>Comentarios</strong>
-        </div>
-      </div> */}
     </div>
   );
 };

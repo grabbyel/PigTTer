@@ -26,7 +26,10 @@ const FeedComponent = ({ tweets, setTweets, setUser, user, users }) => {
             />
           }
         />
-        <Route path="explorar" element={<ExplorarComponent />} />
+        <Route path="explorar" element={<ExplorarComponent tweets={tweets}
+              setTweets={setTweets}
+              setStrangeId={setStrangeId}
+              user={user} />} />
         <Route path="mensajes" element={<MensajesComponents />} />
         <Route path="avisos" element={<NotificacionesComponent />} />
         <Route
