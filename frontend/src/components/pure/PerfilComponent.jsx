@@ -12,6 +12,7 @@ const PerfilComponent = ({ user, setUser, strangeUser, setStrangeUser, tweets, s
   const [currentProfile, setCurrentProfile] = useState(
     strangeUser ? strangeUser : user
   );
+  const [show, setShow] = useState(true)
 
   const condition = !strangeUser || user.id === strangeUser.id;
 
@@ -124,6 +125,35 @@ const PerfilComponent = ({ user, setUser, strangeUser, setStrangeUser, tweets, s
     );
   };
 
+  const likesList = () => {
+    console.log(currentProfile.likes)
+    return (
+      <div>
+        {currentProfile.likes && currentProfile.likes 
+          .map((tweet) => {
+              return (
+                <div key={tweet.id}>
+                  <PigComponent
+                    username={tweet.username}
+                    name={tweet.name}
+                    content={tweet.content}
+                    image={tweet.image}
+                    id={tweet.id}
+                    handleDelete={handleDelete}
+                    tweets={tweets}
+                    setTweets={setTweets}
+                    date={tweet.date}
+                  />
+                </div>
+              );
+            } 
+          )
+          .sort()
+          .reverse()}
+      </div>
+    );
+  };
+
   const handleDelete = (id) => (e) => {
     e.preventDefault();
     tweetsService.removeTweet(id);
@@ -150,10 +180,11 @@ const PerfilComponent = ({ user, setUser, strangeUser, setStrangeUser, tweets, s
       <div className="col-12">{userLog()}</div>
 
       <div className="botones d-flex justify-content-center align-items-center">
-        <p className=" mx-5 fs-5">Tweets</p>
-        <p className=" fs-5">Me gusta</p>
+        <p className=" mx-5 fs-5"><button onClick={() => setShow(true)}>Tweets</button></p>
+        <p className=" fs-5"><button onClick={() => setShow(false)}>Me gusta</button></p>
       </div>
-      <div>{tweetList()}</div>
+      <div>{show && tweetList()}</div>
+      <div>{!show && likesList()}</div>
     </div>
   );
 };

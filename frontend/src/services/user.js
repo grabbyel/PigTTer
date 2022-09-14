@@ -44,4 +44,15 @@ const editarImagen = async (id, imageToUpdate) => {
   }
 }
 
-export default {register, editarNombre, editarImagen, getUser, getUsers}
+const addLike = async (id, tweetToAdd) => {
+  try {
+    console.log(id)
+    console.log(typeof tweetToAdd)
+    const response = await axios.put(`${url}/${id}`, {tweetId: tweetToAdd})
+    return response.data
+  } catch {
+    alert("Error. Comprueba los datos");
+  }
+}
+
+export default {register, editarNombre, editarImagen, getUser, getUsers, addLike}

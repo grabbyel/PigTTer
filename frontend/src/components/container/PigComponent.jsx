@@ -38,7 +38,7 @@ const PigComponent = ({
   const visible = { display: showComment ? "" : "none" };
 
   const [commentContent, setCommentContent] = useState("");
-  const [userLikes, setUserLikes] = useState([userId.id])
+  const [userLikes, setUserLikes] = useState([])
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -141,6 +141,7 @@ const PigComponent = ({
         likes: likes + 1,
       };
       await tweetsService.updateTweet(id, likesSaved);
+      await userService.addLike(user.id, id)
       setUserLikes(userLikes.concat(user.id))
     }
   };
