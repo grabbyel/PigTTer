@@ -203,7 +203,7 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
         </form>
         <div>
           <h3>Comentarios</h3>
-          {comments.map(com => <CommentComponent name={com.name} content={com.content}/>)}
+          {comments && comments.map(com => <CommentComponent name={com.name} content={com.content}/>)}
         </div>
       </div>
       {/* <div
