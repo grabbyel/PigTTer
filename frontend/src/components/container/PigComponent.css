@@ -42,3 +42,7 @@
 .red{
 	color: red;
 }
+
+.like{
+	cursor: pointer;
+}
