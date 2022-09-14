@@ -7,7 +7,7 @@
 .card-title-tweet {
 	font-weight: bold;
 }
-.card img {
+.card-tweet img {
 	box-shadow: -6px 2px 29px -1px rgb(0 0 0 / 75%);
 	width: 10%;
 	max-height: 65px;
