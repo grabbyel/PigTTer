@@ -271,6 +271,8 @@ const PigComponent = ({
                     content={com.content}
                     image={com.image}
                     date={com.username}
+                    id={com.id}
+                    userId={com.userId}
                   />
                 ))
                 .reverse()}

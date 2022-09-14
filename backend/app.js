@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const usersRouter = require("./controllers/users");
 const loginRouter = require("./controllers/login");
 const tweetsRouter = require("./controllers/tweets");
+const commentsRouter = require("./controllers/comments")
 
 mongoose
   .connect(process.env.MONGODB_URI)
@@ -21,5 +22,7 @@ app.use(express.json());
 app.use("/api/users", usersRouter);
 app.use("/api/login", loginRouter);
 app.use("/api/tweets", tweetsRouter);
+app.use("/api/comments", commentsRouter);
+
 
 module.exports = app;
