@@ -54,7 +54,7 @@ const FeedComponent = ({ tweets, setTweets, setUser, user, users }) => {
           }
         />
         <Route path="*" element={<ErrorComponent />} />
-        <Route path="comunidad" element={<ComunidadComponent users={users} />} />
+        <Route path="comunidad" element={<ComunidadComponent users={users} strangeUser={strangeId} setStrangeId={setStrangeId} />} />
       </Routes>
     </div>
   );
