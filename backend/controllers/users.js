@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 const usersRouter = require('express').Router()
 const User = require('../models/user')
+const defaultImage = 'http://simpleicon.com/wp-content/uploads/user1-256x256.png'
 
 usersRouter.get('/', async (request, response) => {
     const users = await User.find({}).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, retweets: 1, likes: 1})
@@ -22,7 +23,7 @@ usersRouter.post('/', async (request, response) => {
 
     const saltRounds = 10
     const passwordHash = await bcrypt.hash(password, saltRounds)
-    const user = new User({username, name, passwordHash})
+    const user = new User({username, name, passwordHash, image: defaultImage})
 
     const savedUser = await user.save()
 
