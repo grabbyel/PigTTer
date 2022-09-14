@@ -11,4 +11,11 @@
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: wrap;
+	color: rgb(164, 157, 157);
+}
+
+.commentImg {
+	height: 15px;
+	border-radius: 50%;
+	padding-right: 0.5rem;
 }
