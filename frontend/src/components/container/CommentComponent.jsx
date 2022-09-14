@@ -1,7 +1,9 @@
-const CommentComponent = ({name, content}) => {
-    return(
-        <div>
-            {name} - {content}
+import "./CommentComponent.css"
+const CommentComponent = ({ name, content }) => {
+    return (
+        <div className="commentContainer">
+            <div className="commentName">{name}</div>
+            <div className="commentContent">{content}</div>
         </div>
     )
 }
