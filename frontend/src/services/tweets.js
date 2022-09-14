@@ -27,8 +27,14 @@ const postTweet = async tweetInfo => {
 }
 
 const updateTweet = async (id, newTweet) => {
-    const response = await axios.put(`${url}/${id}`, {content: newTweet})
+  if (newTweet.hasOwnProperty('content')) {
+    const response = await axios.put(`${url}/${id}`, { content: newTweet })
     return response.data
+
+  } else {
+    const response = await axios.put(`${url}/${id}`, { likes: newTweet.likes })
+    return response.data
+  }
 }
 
 const addComment = async (id, newComment) => {
