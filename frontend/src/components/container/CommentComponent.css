@@ -1,0 +1,14 @@
+.commentContainer {
+	display: block;
+	padding: 0.5rem;
+}
+
+.commentName {
+	font-weight: bold;
+}
+
+.commentContent {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: wrap;
+}

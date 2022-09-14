@@ -69,10 +69,10 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
 
   const postComment = (e) => {
     e.preventDefault()
-  
+
     const newComment = {
-      username: user.username, 
-      name: user.name, 
+      username: user.username,
+      name: user.name,
       content: commentContent,
       image: user.image,
       userId: user.id
@@ -81,7 +81,7 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
     // const newComments = comments.concat(newComment)
     tweetsService.addComment(id, newComment)
     setCommentContent('')
-    
+
   }
 
   const editPigteo = () => {
@@ -131,7 +131,7 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
           aria-expanded="false"
           aria-controls={`collapse${id}`}>
 
-          <div className="card" style={{"border": "none" }}>
+          <div className="card" style={{ "border": "none" }}>
             {/* <div> */}
             <img
               src={image}
@@ -164,53 +164,60 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
               </div>
             </div>
             {/* <button onClick={handleVisible} style={{ 'border': 'none', 'background': 'none' }}>V</button> */}
-            
+
             {show && editPigteo()}
 
           </div>
           <div className='btnEdit'>
-          
+
             {activeUser.username === username ? <div
               onClick={handleShow}>
               <BiEdit
-                style={{ 'height': '30px', 'width': '30px', 'color': 'blue' }} />
+                style={{ 'height': '30px', 'width': '30px', 'color': '#0d6efd' }} />
             </div> : ''}
             {activeUser.username === username ? <div
               onClick={handleDelete(id)}>
               <RiChatDeleteFill
-                style={{ 'height': '30px', 'width': '30px', 'color': 'blue' }} />
+                style={{ 'height': '30px', 'width': '30px', 'color': '#0d6efd' }} />
             </div> : ''}
             <button onClick={handleVisible} title='Ver comentarios' style={{ 'border': 'none', 'background': 'none' }}>
-              <i className="d-block fs-4 bi-chat-dots"></i>
+              <i className="d-block fs-4 bi-chat-dots" style={{ "color": "#0d6efd" }}></i>
               {comments && comments.length}
             </button>
           </div>
         </div>
       </h2>
 
-      <div style={visible}>
-        <form className="row g-3" onSubmit={postComment}>
-
-          <div className="col-9">
-            <label htmlFor="inputComentar" className="visually-hidden">Escribe aquí tu comentario</label>
-            <textarea
-              className="form-control pb-1"
-              id="exampleFormControlTextarea1"
-              rows="3"
-              value={commentContent}
-              onChange={handleCommentChange}
-              placeholder='Escriba aquí su comentario' >
-
-            </textarea>
-          </div>
-          <div className="col-3">
-            <button type="submit" className="btn btn-primary mb-3">Publicar comentario</button>
-          </div>
-        </form>
-        <div>
-          <h3>Comentarios</h3>
-          {comments && comments.map(com => <CommentComponent name={com.name} content={com.content}/>)}
+      <div style={visible} className="container">
+        <div className="row m-1">
+          <form className="row g-3" onSubmit={postComment}>
+            <div className="input-group mb-3">
+              <textarea
+                value={commentContent}
+                onChange={handleCommentChange}
+                rows="1"
+                type="text"
+                className="form-control rounded-2"
+                placeholder="Escribe aquí tu comentario"
+                aria-label="Escribe aquí tu comentario"
+                aria-describedby="button-addon2"
+                style={{ "borderRadius": "2px" }}></textarea>
+              <button
+                className="btn btn-outline-secondary"
+                type="submit"
+                id="button-addon2"
+                style={{ "backgroundColor": "#0d6efd", "color": "white" }}>Comentar</button>
+            </div>
+          </form>
         </div>
+
+        <div className="row m-1">
+          <div className='col 12 border  rounded mb-2 ' style={{ "borderColor": "#0d6efd" }}>
+            <h3 style={{ "color": "#0d6efd", "textAlign": "center", "fontSize": "1.5rem" }}>Comentarios</h3>
+            {comments && comments.map(com => <CommentComponent name={com.name} content={com.content} />).reverse()}
+          </div>
+        </div>
+
       </div>
       {/* <div
         id={`collapse${id}`}
