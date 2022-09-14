@@ -10,8 +10,8 @@
 .card-tweet img {
 	box-shadow: -6px 2px 29px -1px rgb(0 0 0 / 75%);
 	width: 10%;
-	max-height: 65px;
-	max-width: 65px;
+	height: 65px;
+	width: 65px;
 	margin-left: 1rem;
 	/* border-top-right-radius: 0;
     border-bottom-left-radius: calc(0.25rem - 1px); */
