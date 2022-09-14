@@ -1,16 +1,16 @@
 /** CARD **/
-.card {
+.card-tweet {
 	flex-direction: row;
 	align-items: center;
 	width: 100%;
 }
-.card-title {
+.card-title-tweet {
 	font-weight: bold;
 }
-.card img {
+.card-tweet img {
 	width: 10%;
-	max-height: 35px;
-	max-width: 35px;
+	max-height: 100px;
+	max-width: 100px;
 	margin-left: 1rem;
 	/* border-top-right-radius: 0;
     border-bottom-left-radius: calc(0.25rem - 1px); */
