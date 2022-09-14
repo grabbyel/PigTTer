@@ -48,9 +48,9 @@ function PigComponent({user, tweets,setTweets} ) {
       userId: user.id
     }
     const newTweets = tweets.concat(newTweet)
-    setTweets(newTweets)
-    tweetService.postTweet(newTweet)
-  
+    //setTweets(newTweets)
+    await tweetService.postTweet(newTweet)
+    
     // user.tweets = user.tweets.concat(newTweet)
     // window.localStorage.clear()
     // window.localStorage.setItem('loggedUser', JSON.stringify(user))

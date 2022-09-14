@@ -45,11 +45,11 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
     setTweetContent(e.target.value)
   }
 
-  const handleEdit = (id, newTweet) => (e) => {
+  const handleEdit = (id, newTweet) => async (e) => {
     e.preventDefault()
-    tweetsService.updateTweet(id, newTweet)
+    await tweetsService.updateTweet(id, newTweet)
     const filteredTweets = tweets.map(tweet => tweet.id !== id ? tweet : { ...tweet, content: newTweet })
-    setTweets(filteredTweets)
+    //setTweets(filteredTweets)
     handleClose()
   }
 
