@@ -39,6 +39,7 @@ function PigComponent({user, tweets,setTweets} ) {
 
   const tweetear = async (e) => {
     e.preventDefault();
+    handleClose();
     const newTweet = {
       username: user.username, 
       name: user.name || user.username,
@@ -55,7 +56,6 @@ function PigComponent({user, tweets,setTweets} ) {
     // window.localStorage.clear()
     // window.localStorage.setItem('loggedUser', JSON.stringify(user))
     setTweetContent('')
-    handleClose();
   };
 
   return (

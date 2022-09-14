@@ -41,11 +41,9 @@ const RegisterComponent = () => {
 
   const register = async (e) => {
     e.preventDefault();
-    console.log({ username,name, password });
 
     if (checkPassword()){
       const usuario = await registerService.register({ username, name, password });
-      console.log(usuario);
       handleClose();
     } else {
       alert('¡Las contraseñas deben coincidir!')

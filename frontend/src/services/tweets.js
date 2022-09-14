@@ -37,9 +37,12 @@ const addComment = async (id, newComment) => {
 }
 
 const removeTweet = async id => {
-    // const config = {headers: {Authorization: token}}
-    const response = await axios.delete(`${url}/${id}`)
+    try {
+      const response = await axios.delete(`${url}/${id}`)
     return response
+    } catch {
+      alert("El tweet no existe");
+    }
 }
 
 export default {getTweets, getSingleTweet, postTweet, updateTweet, addComment, removeTweet}
