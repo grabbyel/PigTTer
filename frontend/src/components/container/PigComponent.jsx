@@ -125,7 +125,8 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
           aria-expanded="false"
           aria-controls={`collapse${id}`}>
 
-          <div className="card" style={{ "border": "none" }}>
+          <div className="card card-tweet" style={{ "border": "none" }}>
+            {/* <div> */}
             <img
               src={image || defaultUser}
               alt='imagen'
@@ -134,7 +135,7 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
 
             <div className="card-body">
               <Link to="/usuario" onClick={setId}>
-                <h5 className="card-title">
+                <h5 className="card-title card-title-tweet">
                   {name}
                 </h5>
               </Link>

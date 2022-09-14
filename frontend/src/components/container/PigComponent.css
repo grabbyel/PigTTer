@@ -1,10 +1,10 @@
 /** CARD **/
-.card {
+.card-tweet {
 	flex-direction: row;
 	align-items: center;
 	width: 100%;
 }
-.card-title {
+.card-title-tweet {
 	font-weight: bold;
 }
 .card img {

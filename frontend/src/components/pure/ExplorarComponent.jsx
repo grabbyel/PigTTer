@@ -1,5 +1,4 @@
 import React from 'react'
-import TarjetaComponent from './TarjetaComponent'
 
 const ExplorarComponent = () => {
   return (
