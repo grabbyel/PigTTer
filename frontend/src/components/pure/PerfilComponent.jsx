@@ -112,6 +112,7 @@ const PerfilComponent = ({ user, setUser, strangeUser, setStrangeUser, tweets, s
                     tweets={tweets}
                     setTweets={setTweets}
                     date={tweet.date}
+                    likes={tweet.likes}
                   />
                 </div>
               );
@@ -143,6 +144,7 @@ const PerfilComponent = ({ user, setUser, strangeUser, setStrangeUser, tweets, s
                     tweets={tweets}
                     setTweets={setTweets}
                     date={tweet.date}
+                    likes={tweet.likes}
                   />
                 </div>
               );
