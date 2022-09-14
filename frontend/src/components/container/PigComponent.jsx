@@ -182,7 +182,7 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
             </div> : ''}
             <button onClick={handleVisible} title='Ver comentarios' style={{ 'border': 'none', 'background': 'none' }}>
               <i className="d-block fs-4 bi-chat-dots"></i>
-              {comments.length}
+              {comments && comments.length}
             </button>
           </div>
         </div>
