@@ -16,11 +16,11 @@ const InicioComponent = ({ user, tweets, setTweets, setStrangeId }) => {
     setStrangeId({})
   }, [])
 
-  const handleDelete = (id) => (e) => {
+  const handleDelete =  (id) =>  async (e) => {
     e.preventDefault()
-    tweetsService.removeTweet(id)
+    await tweetsService.removeTweet(id)
     const filteredTweets = tweets.filter(tweet => tweet.id !== id)
-    setTweets(filteredTweets)
+    //setTweets(filteredTweets)
 
     // const currentUser = JSON.parse(window.localStorage.getItem('loggedUser'))
     // currentUser.tweets = currentUser.tweets.filter(tweet => tweet.id !== id)

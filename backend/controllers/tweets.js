@@ -47,7 +47,6 @@ tweetsRouter.put('/:id', async (request, response) => {
     const tweet = request.body
     
     if(tweet.hasOwnProperty('username')){
-        console.log('hola')
         const tweetId = mongoose.Types.ObjectId(request.params.id)
         const userId = mongoose.Types.ObjectId(tweet.userId)
         const newComment = new Comment({
@@ -78,7 +77,6 @@ tweetsRouter.delete('/:id', async (request, response) => {
     if (tweet) {
         const userId = tweet.user._id.toString()
         const user = await User.findById(userId)
-        console.log(user.tweets)
         const userTweets = user.tweets.filter(x => x.toString() !== request.params.id)
         await User.findByIdAndUpdate(userId, {tweets: userTweets})
         await Tweet.findByIdAndDelete(request.params.id)
