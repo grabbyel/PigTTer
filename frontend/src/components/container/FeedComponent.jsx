@@ -7,8 +7,9 @@ import NotificacionesComponent from "../pure/NotificacionesComponent";
 import PerfilComponent from "../pure/PerfilComponent";
 import { useState } from "react";
 import ErrorComponent from "../../pages/Error/ErrorComponent";
+import ComunidadComponent from "./ComunidadComponent";
 
-const FeedComponent = ({ tweets, setTweets, setUser, user }) => {
+const FeedComponent = ({ tweets, setTweets, setUser, user, users }) => {
   const [strangeId, setStrangeId] = useState({});
 
   return (
@@ -53,6 +54,7 @@ const FeedComponent = ({ tweets, setTweets, setUser, user }) => {
           }
         />
         <Route path="*" element={<ErrorComponent />} />
+        <Route path="comunidad" element={<ComunidadComponent users={users} />} />
       </Routes>
     </div>
   );

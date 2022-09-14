@@ -1,0 +1,18 @@
+/* * CARD *
+.tarjeta {
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+}
+.tarjeta-title {
+	font-weight: bold;
+}
+.tarjeta-img {
+	width: 100%;
+	max-height: 200px;
+	max-width: 200px;
+	margin-left: 1rem;
+	/* border-top-right-radius: 0;
+    border-bottom-left-radius: calc(0.25rem - 1px); */
+	
+/* } */ 

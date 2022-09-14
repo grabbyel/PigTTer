@@ -1,7 +1,7 @@
 import SidebarComponent from "./SidebarComponent";
 import FeedComponent from "./FeedComponent";
 
-const PigtterComponent = ({ tweets, user, setUser, setTweets }) => {
+const PigtterComponent = ({ tweets, user, setUser, setTweets, users }) => {
   return (
     <div className="container">
       <div className="row">
@@ -14,7 +14,7 @@ const PigtterComponent = ({ tweets, user, setUser, setTweets }) => {
           />
         </div>
         <div className="col-md-8 col-sm-7 col-8">
-          <FeedComponent tweets={tweets} setTweets={setTweets} user={user} setUser={setUser} />
+          <FeedComponent tweets={tweets} setTweets={setTweets} users={users} user={user} setUser={setUser} />
         </div>
       </div>
     </div>

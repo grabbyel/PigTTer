@@ -37,7 +37,7 @@ const SidebarComponent = ({user, setUser, tweets, setTweets}) => {
                         <ul className="nav nav-pills w-100 flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start my-3" id="menu">
                             <li className="nav-item">
                                 <Link to="/" className="nav-link align-middle px-0">
-                                    <i className="fs-4 bi-house"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Inicio</span>
+                                    <i className="fs-4 bi-house-fill"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Inicio</span>
                                 </Link> 
                             </li>
                             <li className="nav-item">
@@ -52,6 +52,10 @@ const SidebarComponent = ({user, setUser, tweets, setTweets}) => {
                             <li className="nav-item">
                                 <Link to="/mensajes" className="nav-link px-0 align-middle">
                                     <i className="fs-4 bi-envelope-fill"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Mensajes</span></Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/comunidad" className="nav-link px-0 align-middle">
+                                    <i className="fs-4 bi-people-fill"></i> <span className="fs-4 ms-1 d-none d-sm-inline" style={{color: 'black'}}>Comunidad</span></Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/perfil" className="nav-link px-0 align-middle">

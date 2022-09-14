@@ -10,6 +10,10 @@ const getUser = async (id) => {
   }
 };
 
+const getUsers = async () => {
+  const response = await axios.get(url)
+  return response.data
+}
 
 const register = async (userRegisterInfo) => {
   try {
@@ -40,4 +44,4 @@ const editarImagen = async (id, imageToUpdate) => {
   }
 }
 
-export default {register, editarNombre, editarImagen, getUser}
+export default {register, editarNombre, editarImagen, getUser, getUsers}

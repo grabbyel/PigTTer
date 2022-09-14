@@ -1,5 +1,5 @@
 import "./PigComponent.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -10,6 +10,7 @@ import PerfilComponent from "../pure/PerfilComponent";
 import { BiEdit } from "react-icons/bi";
 import { RiChatDeleteFill } from "react-icons/ri";
 import CommentComponent from "./CommentComponent";
+import defaultUser from "./../../assets/defaultUser.png";
 
 const PigComponent = ({
   user,
@@ -37,10 +38,6 @@ const PigComponent = ({
 
   const [commentContent, setCommentContent] = useState("");
 
-  // const fecha = new Date(date)
-  // console.log('fecha desde pigcomponent')
-  // console.log(date)
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleVisible = (e) => {
@@ -52,8 +49,6 @@ const PigComponent = ({
     const userData = await userService.getUser(strangeUser.id);
     setStrangeId(userData);
   };
-
-  // const userData = userCall()
 
   const handleTextChange = (e) => {
     e.preventDefault();
@@ -94,8 +89,7 @@ const PigComponent = ({
       image: user.image,
       userId: user.id,
     };
-    // console.log(newComment)
-    // const newComments = comments.concat(newComment)
+
     tweetsService.addComment(id, newComment);
     setCommentContent("");
   };
@@ -150,7 +144,7 @@ const PigComponent = ({
     if (likes !== 0) {
       return <i className="bi bi-heart-fill" onClick={handleLike(id)}></i>;
     } else {
-      return <i className="bi bi-heart"></i>;
+      return <i className="bi bi-heart" onClick={handleLike(id)}></i>;
     }
   };
 
@@ -165,18 +159,17 @@ const PigComponent = ({
           aria-expanded="false"
           aria-controls={`collapse${id}`}
         >
-          <div className="card" style={{ border: "none" }}>
+          <div className="card card-tweet" style={{ border: "none" }}>
             {/* <div> */}
             <img
-              src={image}
-              // className="card-img-top"
+              src={image || defaultUser}
               alt="imagen"
+              className="imgAvatar"
             />
-            {/* </div> */}
 
             <div className="card-body">
               <Link to="/usuario" onClick={setId}>
-                <h5 className="card-title">{name}</h5>
+                <h5 className="card-title card-title-tweet">{name}</h5>
               </Link>
               <h6>
                 @{username}
@@ -201,7 +194,7 @@ const PigComponent = ({
             {activeUser.username === username ? (
               <div onClick={handleShow}>
                 <BiEdit
-                  style={{ height: "30px", width: "30px", color: "blue" }}
+                  style={{ height: "30px", width: "30px", color: "#0d6efd" }}
                 />
               </div>
             ) : (
@@ -210,7 +203,7 @@ const PigComponent = ({
             {activeUser.username === username ? (
               <div onClick={handleDelete(id)}>
                 <RiChatDeleteFill
-                  style={{ height: "30px", width: "30px", color: "blue" }}
+                  style={{ height: "30px", width: "30px", color: "#0d6efd" }}
                 />
               </div>
             ) : (
@@ -221,40 +214,61 @@ const PigComponent = ({
               title="Ver comentarios"
               style={{ border: "none", background: "none" }}
             >
-              <i className="d-block fs-4 bi-chat-dots"></i>
+              <i
+                className="d-block fs-4 bi-chat-dots"
+                style={{ color: "#0d6efd" }}
+              ></i>
               {comments && comments.length}
             </button>
           </div>
         </div>
       </h2>
 
-      <div style={visible}>
-        <form className="row g-3" onSubmit={postComment}>
-          <div className="col-9">
-            <label htmlFor="inputComentar" className="visually-hidden">
-              Escribe aquí tu comentario
-            </label>
-            <textarea
-              className="form-control pb-1"
-              id="exampleFormControlTextarea1"
-              rows="3"
-              value={commentContent}
-              onChange={handleCommentChange}
-              placeholder="Escriba aquí su comentario"
-            ></textarea>
+      <div style={visible} className="container">
+        <div className="row m-1">
+          <form className="row g-3" onSubmit={postComment}>
+            <div className="input-group mb-3">
+              <textarea
+                value={commentContent}
+                onChange={handleCommentChange}
+                rows="1"
+                type="text"
+                className="form-control rounded-2"
+                placeholder="Escribe aquí tu comentario"
+                aria-label="Escribe aquí tu comentario"
+                aria-describedby="button-addon2"
+                style={{ borderRadius: "2px" }}
+              ></textarea>
+              <button
+                className="btn btn-outline-secondary"
+                type="submit"
+                id="button-addon2"
+                style={{ backgroundColor: "#0d6efd", color: "white" }}
+              >
+                Comentar
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div className="row m-1">
+          <div
+            className="col 12 border  rounded mb-2 "
+            style={{ borderColor: "#0d6efd" }}
+          >
+            <h3 className="comentarios">Comentarios</h3>
+            {comments &&
+              comments
+                .map((com) => (
+                  <CommentComponent
+                    name={com.name}
+                    content={com.content}
+                    image={com.image}
+                    date={com.username}
+                  />
+                ))
+                .reverse()}
           </div>
-          <div className="col-3">
-            <button type="submit" className="btn btn-primary mb-3">
-              Publicar comentario
-            </button>
-          </div>
-        </form>
-        <div>
-          <h3>Comentarios</h3>
-          {comments &&
-            comments.map((com) => (
-              <CommentComponent name={com.name} content={com.content} />
-            ))}
         </div>
       </div>
       {/* <div
