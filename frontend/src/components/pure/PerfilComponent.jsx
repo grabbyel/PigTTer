@@ -94,8 +94,6 @@ const PerfilComponent = ({ user, setUser, strangeUser, setStrangeUser, tweets, s
   
 
   const tweetList = () => {
-    // console.log(tweetsCargar);
-    console.log(currentProfile)
     return (
       <div>
         {tweets 
