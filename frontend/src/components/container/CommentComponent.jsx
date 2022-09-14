@@ -1,8 +1,12 @@
 import "./CommentComponent.css"
-const CommentComponent = ({ name, content }) => {
+import defaultUser from "./../../assets/defaultUser.png"
+const CommentComponent = ({ name, content, image, date }) => {
     return (
         <div className="commentContainer">
-            <div className="commentName">{name}</div>
+            <div className="commentName">
+                <img src={image || defaultUser} className="commentImg" alt="avatar" />
+                {name}
+            </div>
             <div className="commentContent">{content}</div>
         </div>
     )

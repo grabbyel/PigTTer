@@ -10,6 +10,7 @@ import PerfilComponent from '../pure/PerfilComponent'
 import { BiEdit } from "react-icons/bi"
 import { RiChatDeleteFill } from "react-icons/ri"
 import CommentComponent from './CommentComponent'
+import defaultUser from "./../../assets/defaultUser.png"
 
 
 const PigComponent = ({ user, username, name, content, image, id, comments, objectId, handleDelete, tweets, setTweets, strangeUser, setStrangeId, date }) => {
@@ -22,10 +23,6 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
 
   const [commentContent, setCommentContent] = useState('')
 
-  // const fecha = new Date(date)
-  // console.log('fecha desde pigcomponent')
-  // console.log(date)
-
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
   const handleVisible = (e) => {
@@ -37,8 +34,6 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
     const userData = await userService.getUser(strangeUser.id)
     setStrangeId(userData)
   }
-
-  // const userData = userCall()
 
   const handleTextChange = (e) => {
     e.preventDefault()
@@ -77,8 +72,7 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
       image: user.image,
       userId: user.id
     }
-    // console.log(newComment)
-    // const newComments = comments.concat(newComment)
+
     tweetsService.addComment(id, newComment)
     setCommentContent('')
 
@@ -131,13 +125,13 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
           aria-expanded="false"
           aria-controls={`collapse${id}`}>
 
-          <div className="card card-tweet" style={{"border": "none" }}>
+          <div className="card card-tweet" style={{ "border": "none" }}>
             {/* <div> */}
             <img
-              src={image}
-              // className="card-img-top"
-              alt='imagen' />
-            {/* </div> */}
+              src={image || defaultUser}
+              alt='imagen'
+              className='imgAvatar'
+            />
 
             <div className="card-body">
               <Link to="/usuario" onClick={setId}>
@@ -212,9 +206,18 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
         </div>
 
         <div className="row m-1">
-          <div className='col 12 border  rounded mb-2 ' style={{ "borderColor": "#0d6efd" }}>
-            <h3 style={{ "color": "#0d6efd", "textAlign": "center", "fontSize": "1.5rem" }}>Comentarios</h3>
-            {comments && comments.map(com => <CommentComponent name={com.name} content={com.content} />).reverse()}
+          <div
+            className='col 12 border  rounded mb-2 '
+            style={{ "borderColor": "#0d6efd" }}>
+            <h3 className='comentarios'>Comentarios</h3>
+            {comments &&
+              comments.map(com =>
+                <CommentComponent
+                  name={com.name}
+                  content={com.content}
+                  image={com.image}
+                  date={com.username}
+                />).reverse()}
           </div>
         </div>
 

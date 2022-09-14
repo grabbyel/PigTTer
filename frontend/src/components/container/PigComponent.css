@@ -8,26 +8,36 @@
 	font-weight: bold;
 }
 .card-tweet img {
+	box-shadow: -6px 2px 29px -1px rgb(0 0 0 / 75%);
 	width: 10%;
-	max-height: 100px;
-	max-width: 100px;
+	max-height: 65px;
+	max-width: 65px;
 	margin-left: 1rem;
 	/* border-top-right-radius: 0;
     border-bottom-left-radius: calc(0.25rem - 1px); */
 	border-radius: 50%;
+	background-color: transparent;
 }
-
 
 .fecha {
 	color: darkgray;
 	text-align: end;
 	font-size: small;
 }
-.accordion-button::after{
+.accordion-button::after {
 	width: 0px;
 }
 /* .btnEdit {
 } */
+.comentarios {
+	color: #0d6efd;
+	text-align: center;
+	font-size: 1.4rem;
+	padding-top: 1rem;
+}
+.imgAvatar {
+	background: transparent;
+}
 
 /*** MEDIA QUERY ***/
 @media only screen and (max-width: 768px) {
