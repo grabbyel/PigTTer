@@ -131,7 +131,7 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
           aria-expanded="false"
           aria-controls={`collapse${id}`}>
 
-          <div className="card">
+          <div className="card" style={{"border": "none" }}>
             {/* <div> */}
             <img
               src={image}
@@ -163,11 +163,13 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
                 {date || '01/01/1970'}
               </div>
             </div>
-            <button onClick={handleVisible} style={{ 'border': 'none', 'background': 'none' }}>V</button>
+            {/* <button onClick={handleVisible} style={{ 'border': 'none', 'background': 'none' }}>V</button> */}
+            
             {show && editPigteo()}
 
           </div>
           <div className='btnEdit'>
+          
             {activeUser.username === username ? <div
               onClick={handleShow}>
               <BiEdit
@@ -178,9 +180,13 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
               <RiChatDeleteFill
                 style={{ 'height': '30px', 'width': '30px', 'color': 'blue' }} />
             </div> : ''}
+            <button onClick={handleVisible} title='Ver comentarios' style={{ 'border': 'none', 'background': 'none' }}>
+              <i className="d-block fs-4 bi-chat-dots"></i>
+              {comments.length}
+            </button>
           </div>
-        </div >
-      </h2 >
+        </div>
+      </h2>
 
       <div style={visible}>
         <form className="row g-3" onSubmit={postComment}>
@@ -231,7 +237,7 @@ const PigComponent = ({ user, username, name, content, image, id, comments, obje
           <strong>Comentarios</strong>
         </div>
       </div> */}
-    </div >
+    </div>
   )
 }
 

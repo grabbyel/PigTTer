@@ -69,7 +69,7 @@ const InicioComponent = ({ user, tweets, setTweets, setStrangeId }) => {
     </div>
   )
   return (
-    <div className="accordion" key={'listadoTweets'} id="listadoTweets">
+    <div className="accordion scroll" key={'listadoTweets'} id="listadoTweets">
       {tweetList()}
     </div>
   )

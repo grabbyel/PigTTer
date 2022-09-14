@@ -1,4 +1,13 @@
-li{
-	list-style-type: none;
+li {
+    list-style-type: none;
     margin: 0.5rem;
+}
+
+.scroll {
+    overflow: scroll;
+    height: 100vh;
+}
+
+.scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
 }
