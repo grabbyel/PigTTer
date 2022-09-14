@@ -142,7 +142,7 @@ const PigComponent = ({
 
   const giveLike = () => {
     if (likes !== 0) {
-      return <i className="bi bi-heart-fill" onClick={handleLike(id)}></i>;
+      return <i className="bi bi-heart-fill red" onClick={handleLike(id)}></i>;
     } else {
       return <i className="bi bi-heart" onClick={handleLike(id)}></i>;
     }
