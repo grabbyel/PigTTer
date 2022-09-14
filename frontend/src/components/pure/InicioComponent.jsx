@@ -59,6 +59,7 @@ const InicioComponent = ({ user, tweets, setTweets, setStrangeId }) => {
                 strangeUser={tweet.user}
                 setStrangeId={setStrangeId}
                 likes={tweet.likes}
+                userId={tweet.user}
               />
             </div>
           );

@@ -28,6 +28,7 @@ const PigComponent = ({
   setStrangeId,
   date,
   likes,
+  userId
 }) => {
   let activeUser = JSON.parse(window.localStorage.getItem("loggedUser"));
 
@@ -37,6 +38,7 @@ const PigComponent = ({
   const visible = { display: showComment ? "" : "none" };
 
   const [commentContent, setCommentContent] = useState("");
+  const [userLikes, setUserLikes] = useState([userId.id])
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -133,11 +135,14 @@ const PigComponent = ({
   };
 
   const handleLike = (id) => async () => {
-    console.log("like", id);
-    const likesSaved = {
-      likes: likes + 1,
-    };
-    await tweetsService.updateTweet(id, likesSaved);
+    const check = userLikes.includes(user.id)
+    if (!check) {
+      const likesSaved = {
+        likes: likes + 1,
+      };
+      await tweetsService.updateTweet(id, likesSaved);
+      setUserLikes(userLikes.concat(user.id))
+    }
   };
 
   const giveLike = () => {
@@ -183,7 +188,7 @@ const PigComponent = ({
               </h6>
               <p className="card-text">{content}</p>
               {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
-              <div>{giveLike()}</div>
+              <div>{giveLike()} {likes} piggylikes</div>
               <div className="fecha">{date || "01/01/1970"}</div>
             </div>
             {/* <button onClick={handleVisible} style={{ 'border': 'none', 'background': 'none' }}>V</button> */}
