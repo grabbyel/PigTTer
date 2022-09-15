@@ -3,12 +3,12 @@ const Comment = require('../models/comment')
 const Tweet = require('../models/tweet')
 
 commentsRouter.get('/', async (request, response) => {
-    const comments = await Comment.find({}).populate('tweetId').populate('userId')
+    const comments = await Comment.find({}).populate('tweetId', {username: 1, name: 1, content: 1, image: 1}).populate('userId', {username: 1, name: 1, image: 1})
     response.json(comments)
 })
 
 commentsRouter.get('/:id', async (request, response) => {
-    const comment = await Comment.findById(request.params.id).populate('tweetId').populate('userId')
+    const comment = await Comment.findById(request.params.id).populate('tweetId', {username: 1, name: 1, content: 1, image: 1}).populate('userId', {username: 1, name: 1, image: 1})
     response.json(comment)
 })
 

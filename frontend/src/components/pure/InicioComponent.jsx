@@ -51,16 +51,12 @@ const InicioComponent = ({ user, tweets, setTweets, setStrangeId }) => {
                 content={tweet.content}
                 image={tweet.image}
                 id={tweet.id}
-                objectId={tweet._id}
                 comments={tweet.comments}
                 handleDelete={handleDelete}
-                tweets={tweets}
-                setTweets={setTweets}
                 date={tweet.date}
                 strangeUser={tweet.user}
                 setStrangeId={setStrangeId}
                 likes={tweet.likes}
-                userId={tweet.user}
               />
             </div>
             </Suspense>

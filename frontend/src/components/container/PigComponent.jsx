@@ -20,10 +20,7 @@ const PigComponent = ({
   image,
   id,
   comments,
-  objectId,
   handleDelete,
-  tweets,
-  setTweets,
   strangeUser,
   setStrangeId,
   date,
@@ -261,6 +258,7 @@ const PigComponent = ({
                     date={com.username}
                     id={com.id}
                     userId={com.userId}
+                    com={com}
                   />
                 ))
                 .reverse()}
