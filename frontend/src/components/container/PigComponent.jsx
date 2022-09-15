@@ -32,16 +32,6 @@ const PigComponent = ({
 }) => {
   let activeUser = JSON.parse(window.localStorage.getItem("loggedUser"));
 
-  const [following, setFollowing] = useState([])
-
-  useEffect(() => {
-
-    userService.getUser(activeUser.id).then(user => {
-      setFollowing(user.following)
-    })
-  }, [])
-
-
   const [show, setShow] = useState(false);
   const [tweetContent, setTweetContent] = useState("");
   const [showComment, setShowComment] = useState(false);
@@ -76,37 +66,6 @@ const PigComponent = ({
     //setTweets(filteredTweets)
     handleClose();
   };
-
-  const condition = async () => {
-
-    const currentUser = await userService.getUser(activeUser.id)
-    console.log(currentUser)
-    if(currentUser){
-      return currentUser.following.some(x => x.id !== userId.id)
-    }
-  }
-
-  const handleFollow = async (e) => {
-    e.preventDefault();
-    console.log('follow', userId.id)
-    if (condition()) {
-      await userService.addFollow(activeUser.id, userId.id)
-      setFollowing(following.concat(userId.id))
-    }   
-  };
-
-  const handleUnfollow = async (e) => {
-    e.preventDefault();
-    console.log('unfollow', userId.id)
-    if (condition()) {
-      await userService.removeFollow(activeUser.id, userId.id)
-      setFollowing(following.filter(x => x!==userId.id))
-    }   
-  };
-
-  const followCondition = () => {
-    return following.length === 0 || !following.includes(userId.id) ? <button onClick={handleFollow}>Follow</button> : <button onClick={handleUnfollow}>Unfollow</button>
-  }
 
   const setId = () => {
     userCall();
@@ -215,10 +174,7 @@ const PigComponent = ({
               </Link>
               <h6>
                 @{username}
-                <div className="btnFollow">
-                  {activeUser.username !== username && followCondition()}
-                </div>
-              </h6>
+                     </h6>
               <p className="card-text">{content}</p>
               {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
               <div>{giveLike()} {likes} piggylikes</div>
