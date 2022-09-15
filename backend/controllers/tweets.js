@@ -13,12 +13,12 @@ const updateTweet = async (tweet) => {
 tweetsRouter.get('/', async (request, response) => {
         const tweets = await Tweet.find({})
         await tweets.map(tweet => updateTweet(tweet))
-        const updatedTweets = await Tweet.find({}).populate('user', { username: 1, name: 1, image: 1, tweets: 1, followers: 1, following: 1 }).populate('comments')
+        const updatedTweets = await Tweet.find({}).populate('user', { username: 1, name: 1, image: 1, tweets: 1 }).populate('comments')
         response.json(updatedTweets)
 })
 
 tweetsRouter.get('/:id', async (request, response) => {
-    const tweet = await Tweet.findById(request.params.id).populate('user', { username: 1, name: 1, image: 1, tweets: 1, followers: 1, following: 1 }).populate('comments')
+    const tweet = await Tweet.findById(request.params.id).populate('user', { username: 1, name: 1, image: 1, tweets: 1 }).populate('comments')
     response.json(tweet)
 })
 
@@ -62,11 +62,11 @@ tweetsRouter.put('/:id', async (request, response) => {
         const tweetToUpdate = await Tweet.findById(request.params.id)
         const updatedComments = tweetToUpdate.comments.concat(savedComment._id)
         const objectToUpdate = {comments: updatedComments}
-        const updatedTweet = await Tweet.findByIdAndUpdate(request.params.id, objectToUpdate, { new: true, runValidators: true, context: 'query' }).populate('user', { username: 1, name: 1, image: 1, tweets: 1, followers: 1, following: 1 }).populate('comments')
+        const updatedTweet = await Tweet.findByIdAndUpdate(request.params.id, objectToUpdate, { new: true, runValidators: true, context: 'query' }).populate('user', { username: 1, name: 1, image: 1, tweets: 1 }).populate('comments')
         console.log(updatedTweet)
         response.json(updatedTweet)
     } else {
-        const updatedTweet = await Tweet.findByIdAndUpdate(request.params.id, tweet, { new: true, runValidators: true, context: 'query' }).populate('user', { username: 1, name: 1, image: 1, tweets: 1, followers: 1, following: 1 }).populate('comments')
+        const updatedTweet = await Tweet.findByIdAndUpdate(request.params.id, tweet, { new: true, runValidators: true, context: 'query' }).populate('user', { username: 1, name: 1, image: 1, tweets: 1 }).populate('comments')
         response.json(updatedTweet)
 
     }
