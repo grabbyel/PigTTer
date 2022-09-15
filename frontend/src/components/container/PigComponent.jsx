@@ -182,7 +182,7 @@ const PigComponent = ({
             {show && editPigteo()}
           </div>
           <div className="btnEdit">
-            {activeUser.username === username ? (
+            {/* {activeUser.username === username ? (
               <div onClick={handleShow}>
                 <BiEdit
                   style={{ height: "30px", width: "30px", color: "#0d6efd", cursor: "pointer" }}
@@ -190,7 +190,7 @@ const PigComponent = ({
               </div>
             ) : (
               ""
-            )}
+            )} */}
             {activeUser.username === username ? (
               <div onClick={handleDelete(id)}>
                 <RiChatDeleteFill
