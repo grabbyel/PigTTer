@@ -3,10 +3,13 @@ import defaultUser from "./../../assets/defaultUser.png"
 import commentService from '../../services/comments'
 
 
-const CommentComponent = ({ name, content, image, date, id, userId }) => {
+const CommentComponent = ({ name, content, image, date, id, userId, com }) => {
 
     let activeUser = JSON.parse(window.localStorage.getItem("loggedUser"));
-    const condition = userId[0] === activeUser.id
+    const condition = com.userId[0] === activeUser.id
+    
+    
+    
 
     const handleDelete = (id) => async (e) => {
         e.preventDefault()
