@@ -13,7 +13,6 @@ const ComunidadComponent = ({users, strangeUser, setStrangeId}) => {
 
   }
 
-
   return (
     <div className="container row g-4 mt-1 ml-3">
       {users.map((user) => (
