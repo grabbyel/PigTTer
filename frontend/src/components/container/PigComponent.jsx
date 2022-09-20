@@ -1,16 +1,16 @@
-import "./PigComponent.css";
-import React, { useState, useEffect } from "react";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-import tweetsService from "../../services/tweets";
-import userService from "../../services/user";
-import { Link } from "react-router-dom";
-import PerfilComponent from "../pure/PerfilComponent";
-import { BiEdit } from "react-icons/bi";
-import { RiChatDeleteFill } from "react-icons/ri";
-import CommentComponent from "./CommentComponent";
-import defaultUser from "./../../assets/defaultUser.png";
+import "./PigComponent.css"
+import React, { useState, useEffect } from "react"
+import Form from "react-bootstrap/Form"
+import Modal from "react-bootstrap/Modal"
+import Button from "react-bootstrap/Button"
+import tweetsService from "../../services/tweets"
+import userService from "../../services/user"
+import { Link } from "react-router-dom"
+import PerfilComponent from "../pure/PerfilComponent"
+import { BiEdit } from "react-icons/bi"
+import { RiChatDeleteFill } from "react-icons/ri"
+import CommentComponent from "./CommentComponent"
+import defaultUser from "./../../assets/defaultUser.png"
 
 const PigComponent = ({
   user,
@@ -27,54 +27,54 @@ const PigComponent = ({
   likes,
   userId,
 }) => {
-  let activeUser = JSON.parse(window.localStorage.getItem("loggedUser"));
+  let activeUser = JSON.parse(window.localStorage.getItem("loggedUser"))
 
-  const [show, setShow] = useState(false);
-  const [tweetContent, setTweetContent] = useState("");
-  const [showComment, setShowComment] = useState(false);
-  const visible = { display: showComment ? "" : "none" };
+  const [show, setShow] = useState(false)
+  const [tweetContent, setTweetContent] = useState("")
+  const [showComment, setShowComment] = useState(false)
+  const visible = { display: showComment ? "" : "none" }
 
   const [commentContent, setCommentContent] = useState("");
   const [userLikes, setUserLikes] = useState([]);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
   const handleVisible = (e) => {
-    e.preventDefault();
-    showComment ? setShowComment(false) : setShowComment(true);
-  };
+    e.preventDefault()
+    showComment ? setShowComment(false) : setShowComment(true)
+  }
 
   const userCall = async () => {
-    const userData = await userService.getUser(strangeUser.id);
-    setStrangeId(userData);
-  };
+    const userData = await userService.getUser(strangeUser.id)
+    setStrangeId(userData)
+  }
 
   const handleTextChange = (e) => {
-    e.preventDefault();
-    setTweetContent(e.target.value);
-  };
+    e.preventDefault()
+    setTweetContent(e.target.value)
+  }
 
   const handleEdit = (id, newTweet) => async (e) => {
-    e.preventDefault();
-    await tweetsService.updateTweet(id, newTweet);
+    e.preventDefault()
+    await tweetsService.updateTweet(id, newTweet)
     // const filteredTweets = tweets.map((tweet) =>
     //   tweet.id !== id ? tweet : { ...tweet, content: newTweet }
     // );
     //setTweets(filteredTweets)
-    handleClose();
-  };
+    handleClose()
+  }
 
   const setId = () => {
-    userCall();
-  };
+    userCall()
+  }
 
   const handleCommentChange = (e) => {
-    e.preventDefault();
-    setCommentContent(e.target.value);
-  };
+    e.preventDefault()
+    setCommentContent(e.target.value)
+  }
 
   const postComment = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const newComment = {
       username: user.username,
@@ -82,11 +82,11 @@ const PigComponent = ({
       content: commentContent,
       image: user.image,
       userId: user.id,
-    };
+    }
 
-    tweetsService.addComment(id, newComment);
-    setCommentContent("");
-  };
+    tweetsService.addComment(id, newComment)
+    setCommentContent("")
+  }
 
   const editPigteo = () => {
     return (
@@ -123,8 +123,8 @@ const PigComponent = ({
           </Form>
         </Modal.Body>
       </Modal>
-    );
-  };
+    )
+  }
 
   const handleLike = (id) => async () => {
     const check = userLikes.includes(user.id);
@@ -168,7 +168,7 @@ const PigComponent = ({
         </div>
       );
     }
-  };
+  }
 
   const giveLike = () => {
     if (likes !== 0) {
@@ -176,9 +176,9 @@ const PigComponent = ({
         <i className="bi bi-heart-fill red like" onClick={handleLike(id)}></i>
       );
     } else {
-      return <i className="bi bi-heart like" onClick={handleLike(id)}></i>;
+      return <i className="bi bi-heart like" onClick={handleLike(id)}></i>
     }
-  };
+  }
 
   const condition =
     window.location.pathname === "/perfil" ||
@@ -298,7 +298,7 @@ const PigComponent = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PigComponent;
+export default PigComponent
