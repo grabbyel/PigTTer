@@ -20,15 +20,12 @@ const PigComponent = ({
   image,
   id,
   comments,
-  objectId,
   handleDelete,
-  tweets,
-  setTweets,
   strangeUser,
   setStrangeId,
   date,
   likes,
-  userId
+  userId,
 }) => {
   let activeUser = JSON.parse(window.localStorage.getItem("loggedUser"));
 
@@ -38,7 +35,7 @@ const PigComponent = ({
   const visible = { display: showComment ? "" : "none" };
 
   const [commentContent, setCommentContent] = useState("");
-  const [userLikes, setUserLikes] = useState([])
+  const [userLikes, setUserLikes] = useState([]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -130,93 +127,125 @@ const PigComponent = ({
   };
 
   const handleLike = (id) => async () => {
-    const check = userLikes.includes(user.id)
+    const check = userLikes.includes(user.id);
     if (!check) {
       const likesSaved = {
         likes: likes + 1,
       };
       await tweetsService.updateTweet(id, likesSaved);
-      await userService.addLike(user.id, id)
-      setUserLikes(userLikes.concat(user.id))
+      await userService.addLike(user.id, id);
+      setUserLikes(userLikes.concat(user.id));
+    }
+  };
+
+  const processString = () => {
+    const array = content.split(" ");
+    const result = array.find((x) => x.includes(".gif"));
+    const position = content.search("http");
+    const url = content.substring(position, content.length);
+    if (result && array.length === 1) {
+      return (
+        <div className="card-text text-center">
+          <img src={url} />
+        </div>
+      );
+    } else if (result && array.length > 1) {
+      return (
+        <div className="text-and-gif">
+          <div className="card-text">
+            <p className="card-text">{content.substring(0, position)}</p>
+          </div>
+
+          <div className="card-text  my-4">
+            <img src={url} />
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="mb-4 ">
+          <p className="card-text ">{content}</p>
+        </div>
+      );
     }
   };
 
   const giveLike = () => {
     if (likes !== 0) {
-      return <i className="bi bi-heart-fill red like" onClick={handleLike(id)}></i>;
+      return (
+        <i className="bi bi-heart-fill red like" onClick={handleLike(id)}></i>
+      );
     } else {
       return <i className="bi bi-heart like" onClick={handleLike(id)}></i>;
     }
   };
 
+  const condition =
+    window.location.pathname === "/perfil" ||
+    window.location.pathname === "/usuario";
+
   return (
-    <div key={id} className="accordion-item mb-2 h-100">
-      <h2 className="accordion-header" id={`id${id}`}>
-        <div
-          className="accordion-button collapsed"
-          // type="button"
-          data-bs-toggle="collapse"
-          data-bs-target={`#collapse${id}`}
-          aria-expanded="false"
-          aria-controls={`collapse${id}`}
-        >
-          <div className="card card-tweet" style={{ border: "none" }}>
-            {/* <div> */}
-            <img
-              src={image || defaultUser}
-              alt="imagen"
-              className="imgAvatar"
-            />
+    <div key={id} className=" mb-2 h-100">
+      <div id={`id${id}`}>
+        <div>
+          <div className="card card-tweet">
+            <div className="header-container">
+              <img
+                src={image || defaultUser}
+                alt="imagen"
+                className="imgAvatar me-3"
+              />
+              <div>
+                {condition ? (
+                  <h5 className="card-title card-title-tweet">{name}</h5>
+                ) : (
+                  <Link to="/usuario" onClick={setId}>
+                    <h5 className="card-title card-title-tweet">{name}</h5>
+                  </Link>
+                )}
 
-            <div className="card-body">
-              <Link to="/usuario" onClick={setId}>
-                <h5 className="card-title card-title-tweet">{name}</h5>
-              </Link>
-              <h6>
-                @{username}
-                     </h6>
-              <p className="card-text">{content}</p>
-              {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
-              <div>{giveLike()} {likes} piggylikes</div>
-              <div className="fecha">{date || "01/01/1970"}</div>
+                <h6>@{username}</h6>
+              </div>
             </div>
-            {/* <button onClick={handleVisible} style={{ 'border': 'none', 'background': 'none' }}>V</button> */}
 
-            {show && editPigteo()}
-          </div>
-          <div className="btnEdit">
-            {activeUser.username === username ? (
-              <div onClick={handleShow}>
-                <BiEdit
-                  style={{ height: "30px", width: "30px", color: "#0d6efd" }}
-                />
+            <div className="card-body card-text">
+              {processString()}
+
+              <div className="card-likes-date">
+                <div>
+                  {giveLike()} {likes} piggylikes
+                </div>
+
+                <div className="fecha">{date || "01/01/1970"}</div>
               </div>
-            ) : (
-              ""
-            )}
-            {activeUser.username === username ? (
-              <div onClick={handleDelete(id)}>
-                <RiChatDeleteFill
-                  style={{ height: "30px", width: "30px", color: "#0d6efd" }}
-                />
+
+              <div className="btnEdit">
+                {activeUser.username === username ? (
+                  <i
+                    onClick={handleDelete(id)}
+                    class="bi bi-x-square  fs-4 delete-icon"
+                    style={{ color: "#0d6efd", cursor: "pointer" }}
+                  ></i>
+                ) : (
+                  ""
+                )}
+
+                <div className="comments-container">
+                  <i
+                    onClick={handleVisible}
+                    title="Ver comentarios"
+                    className="d-block fs-4 bi-chat-dots "
+                    style={{ color: "#0d6efd", cursor: "pointer" }}
+                  ></i>
+                  <p>{comments && comments.length}</p>
+                </div>
               </div>
-            ) : (
-              ""
-            )}
-            <button
-              onClick={handleVisible}
-              title="Ver comentarios"
-              style={{ border: "none", background: "none" }}
-            >
-              <i
-                className="d-block fs-4 bi-chat-dots"
-                style={{ color: "#0d6efd" }}
-              ></i>
-              {comments && comments.length}
-            </button>
+            </div>
           </div>
+
+          {show && editPigteo()}
         </div>
-      </h2>
+      </div>
 
       <div style={visible} className="container">
         <div className="row m-1">
@@ -261,6 +290,7 @@ const PigComponent = ({
                     date={com.username}
                     id={com.id}
                     userId={com.userId}
+                    com={com}
                   />
                 ))
                 .reverse()}

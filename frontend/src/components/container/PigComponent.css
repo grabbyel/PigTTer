@@ -1,48 +1,115 @@
 /** CARD **/
 .card-tweet {
-	flex-direction: row;
-	align-items: center;
-	width: 100%;
+  width: 80%;
 }
+
+.header-container {
+  display: flex;
+  padding: 1rem 0 1rem 0;
+}
+
 .card-title-tweet {
-	font-weight: bold;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
 }
 .card-tweet img {
-	box-shadow: -6px 2px 29px -1px rgb(0 0 0 / 75%);
-	width: 10%;
-	height: 65px;
-	width: 65px;
-	margin-left: 1rem;
-	/* border-top-right-radius: 0;
-    border-bottom-left-radius: calc(0.25rem - 1px); */
-	border-radius: 50%;
-	background-color: transparent;
+  box-shadow: -6px 2px 29px -1px rgb(0 0 0 / 75%);
+  width: 10%;
+  height: 65px;
+  width: 65px;
+  margin-left: 1rem;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.card-likes-date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnEdit {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
 }
 
 .fecha {
-	color: darkgray;
-	text-align: end;
-	font-size: small;
+  color: darkgray;
+  text-align: end;
 }
-.accordion-button::after {
-	width: 0px;
+
+.delete-icon {
+  cursor: pointer;
+  margin-right: 1rem;
 }
-/* .btnEdit {
-} */
+
+.comments-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .comentarios {
-	color: #0d6efd;
-	text-align: center;
-	font-size: 1.4rem;
-	padding-top: 1rem;
+  color: #0d6efd;
+  text-align: center;
+  font-size: 1.4rem;
+  padding-top: 1rem;
 }
 .imgAvatar {
-	background: transparent;
+  background: transparent;
 }
 
-.red{
-	color: red;
+.card-text {
+  font-weight: 500;
 }
 
-.like{
-	cursor: pointer;
+.text-and-gif {
+  display: flex;
+  flex-direction: column;
+}
+
+.red {
+  color: red;
+}
+
+.like {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 360px) {
+  .card-text > img {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: none;
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .card-text > img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: none;
+    margin-left: 0;
+  }
+
+  .card-text > img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: none;
+    margin-left: 0;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .card-text > img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: none;
+    margin-left: 0;
+  }
 }

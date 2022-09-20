@@ -18,7 +18,7 @@ const ComunidadComponent = ({users, strangeUser, setStrangeId}) => {
       {users.map((user) => (
         <div className='col d-flex justify-content-center'>
           <div className="card" style={{"width": "18rem" }}>
-            <img src={user.image} style={{"height": "220px"}} className="card-img-top  d-xl-block  d-none" alt="..." />
+            <img src={user.image} style={{"height": "220px"}} className="card-img-top  d-xl-block  d-m-none" alt="..." />
             <div className="card-body">
               <Link to="/usuario" onClick={()=>userCall(user.id)}>
                 <h5 className="card-title card-title-tweet">

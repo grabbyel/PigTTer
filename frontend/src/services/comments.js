@@ -1,5 +1,5 @@
 import axios from 'axios'
-const url = 'http://localhost:3001/api/comments'
+const url = '/api/comments'
 
 const getComments = async () => {
     const response = await axios.get(url)

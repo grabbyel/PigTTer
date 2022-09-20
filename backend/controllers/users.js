@@ -5,12 +5,12 @@ const defaultImage = 'http://simpleicon.com/wp-content/uploads/user1-256x256.png
 const mongoose = require("mongoose");
 
 usersRouter.get('/', async (request, response) => {
-    const users = await User.find({}).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, retweets: 1, likes: 1}).populate('likes')
+    const users = await User.find({}).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, likes: 1, date: 1, user: 1})
     response.json(users)
 })
 
 usersRouter.get('/:id', async (request, response) => {
-    const user = await User.findById(request.params.id).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, retweets: 1, likes: 1}).populate('likes')
+    const user = await User.findById(request.params.id).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, likes: 1, date: 1, user: 1})
     response.json(user)
 })
 
@@ -39,11 +39,11 @@ usersRouter.put('/:id', async (request, response) => {
         const userId = request.params.id
         const userToUpdate = await User.findById(userId)
         const updatedLikes = userToUpdate.likes.concat(tweetId)
-        const updatedUser = await User.findByIdAndUpdate(request.params.id, {likes: updatedLikes}, {new: true, runValidators: true, context: 'query'}).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, retweets: 1, likes: 1}).populate('likes')
+        const updatedUser = await User.findByIdAndUpdate(request.params.id, {likes: updatedLikes}, {new: true, runValidators: true, context: 'query'})
         response.json(updatedUser)
 
     }  else {
-        const updatedUser = await User.findByIdAndUpdate(request.params.id, user, {new: true, runValidators: true, context: 'query'}).populate('tweets', {username: 1, name: 1, content: 1, image: 1, comments: 1, retweets: 1, likes: 1}).populate('likes')
+        const updatedUser = await User.findByIdAndUpdate(request.params.id, user, {new: true, runValidators: true, context: 'query'})
         response.json(updatedUser)
 
     }

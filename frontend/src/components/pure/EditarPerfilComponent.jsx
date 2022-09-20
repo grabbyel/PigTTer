@@ -43,7 +43,7 @@ const EditarPerfilComponent = ({name, updateName, image, updateImage, handleName
                         <button style={{width:'9rem'}} className=" btn btn-outline-secondary" type="button" id="btnEditName" onClick={updateNameRefresh} >Editar nombre</button>
                     </div>
                     <div className="input-group mb-3 mt-2">
-                        <input type="text" className="form-control" placeholder="Pega la url, max 100x100px" aria-label="Nuevo nombre" aria-describedby="button-addon2" onChange={handleImageChange} value={image}/>
+                        <input type="text" className="form-control" placeholder="Pega la url de tu imagen." aria-label="Nuevo nombre" aria-describedby="button-addon2" onChange={handleImageChange} value={image}/>
                         <button style={{width:'9rem'}} className=" btn btn-outline-secondary" type="button" id="btnEditImage" onClick={updateImageRefresh}>Editar foto</button>
                     </div>
                     <Modal.Footer className="border-0">

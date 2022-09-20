@@ -32,7 +32,7 @@ const LoginComponent = ({ user, setUser }) => {
         if (usuario) {
             setUser(usuario)
             window.localStorage.setItem('loggedUser', JSON.stringify(usuario))
-        }
+        } 
         
 
     }

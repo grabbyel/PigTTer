@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "http://localhost:3001/api/users";
+const url = "/api/users";
 
 const getUser = async (id) => {
   try {

@@ -1,5 +1,5 @@
 import axios from 'axios'
-const url = 'http://localhost:3001/api/tweets'
+const url = '/api/tweets'
 
 // let token = null
 

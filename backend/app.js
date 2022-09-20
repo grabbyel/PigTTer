@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+require('express-async-errors')
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -19,6 +20,7 @@ mongoose
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static('build'))
 app.use("/api/users", usersRouter);
 app.use("/api/login", loginRouter);
 app.use("/api/tweets", tweetsRouter);

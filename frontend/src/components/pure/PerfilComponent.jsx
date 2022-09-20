@@ -13,8 +13,10 @@ const PerfilComponent = ({ user, setUser, strangeUser, setStrangeUser, tweets, s
     strangeUser ? strangeUser : user
   );
   const [show, setShow] = useState(true)
+  let activeUser = JSON.parse(window.localStorage.getItem("loggedUser"))
 
   const condition = !strangeUser || user.id === strangeUser.id;
+
 
   useEffect(() => {
     userService.getUser(user.id).then((updatedUser) => {
@@ -29,6 +31,7 @@ const PerfilComponent = ({ user, setUser, strangeUser, setStrangeUser, tweets, s
       setCurrentProfile(user);
     };
   }, [user, currentProfile]);
+
 
   useEffect(() => {
     window.location.pathname === '/perfil' ? setCurrentProfile(user) : setCurrentProfile(strangeUser)
@@ -76,7 +79,7 @@ const PerfilComponent = ({ user, setUser, strangeUser, setStrangeUser, tweets, s
         />
       );
     } else {
-      return <button>Follow</button>;
+      return <button onClick={() => alert('Función a implementar en la version 2.0 de Pigtter')}>Follow</button>;
     }
   };
 
@@ -97,64 +100,63 @@ const PerfilComponent = ({ user, setUser, strangeUser, setStrangeUser, tweets, s
   const tweetList = () => {
     return (
       <div>
-        {tweets 
-          .map((tweet) => {
-            if (currentProfile.username === tweet.username) {
-              return (
-                <div key={tweet.id}>
-                  <PigComponent
-                    username={tweet.username}
-                    name={tweet.name}
-                    content={tweet.content}
-                    image={tweet.image}
-                    id={tweet.id}
-                    handleDelete={handleDelete}
-                    tweets={tweets}
-                    setTweets={setTweets}
-                    date={tweet.date}
-                    likes={tweet.likes}
-                  />
-                </div>
-              );
-            } else {
-              return "";
-            }
-          })
-          .sort()
-          .reverse()}
+        {tweets
+        .map((tweet) => {
+          if (currentProfile.username === tweet.username) {
+          return (
+            <div key={tweet.id}>
+              <PigComponent
+                user={user}
+                username={tweet.username}
+                name={tweet.name}
+                content={tweet.content}
+                image={tweet.image}
+                id={tweet.id}
+                comments={tweet.comments}
+                handleDelete={handleDelete}
+                date={tweet.date}
+                strangeUser={tweet.user}
+                likes={tweet.likes}
+              />
+            </div>
+          )};
+        })
+        .sort()
+        .reverse()}
       </div>
     );
   };
 
-  const likesList = () => {
-    console.log(currentProfile.likes)
-    return (
-      <div>
-        {currentProfile.likes && currentProfile.likes 
-          .map((tweet) => {
-              return (
-                <div key={tweet.id}>
-                  <PigComponent
-                    username={tweet.username}
-                    name={tweet.name}
-                    content={tweet.content}
-                    image={tweet.image}
-                    id={tweet.id}
-                    handleDelete={handleDelete}
-                    tweets={tweets}
-                    setTweets={setTweets}
-                    date={tweet.date}
-                    likes={tweet.likes}
-                  />
-                </div>
-              );
-            } 
-          )
-          .sort()
-          .reverse()}
-      </div>
-    );
-  };
+
+  // const likesList = () => {
+  //   console.log(currentProfile.likes)
+  //   return (
+  //     <div>
+  //       {currentProfile.likes && currentProfile.likes 
+  //         .map((tweet) => {
+  //             return (
+  //               <div key={tweet.id}>
+  //                 <PigComponent
+  //                   username={tweet.username}
+  //                   name={tweet.name}
+  //                   content={tweet.content}
+  //                   image={tweet.image}
+  //                   id={tweet.id}
+  //                   handleDelete={handleDelete}
+  //                   tweets={tweets}
+  //                   setTweets={setTweets}
+  //                   date={tweet.date}
+  //                   likes={tweet.likes}
+  //                 />
+  //               </div>
+  //             );
+  //           } 
+  //         )
+  //         .sort()
+  //         .reverse()}
+  //     </div>
+  //   );
+  // };
 
   const handleDelete = (id) => (e) => {
     e.preventDefault();
@@ -182,11 +184,11 @@ const PerfilComponent = ({ user, setUser, strangeUser, setStrangeUser, tweets, s
       <div className="col-12">{userLog()}</div>
 
       <div className="botones d-flex justify-content-center align-items-center">
-        <p className=" mx-5 fs-5"><button onClick={() => setShow(true)}>Tweets</button></p>
-        <p className=" fs-5"><button onClick={() => setShow(false)}>Me gusta</button></p>
+        <p className=" mx-5 fs-5"><button onClick={() => setShow(true)}>Pigtteos</button></p>
+        <p className=" fs-5"><button onClick={() => alert('Función a implementar en la version 2.0 de Pigtter')}>Me gusta</button></p>
       </div>
       <div>{show && tweetList()}</div>
-      <div>{!show && likesList()}</div>
+      {/* <div>{!show && likesList()}</div> */}
     </div>
   );
 };

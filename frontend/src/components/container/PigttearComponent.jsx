@@ -3,21 +3,19 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import logo from "../../assets/logo_blanco_cerdo.png";
-import tweetService from '../../services/tweets'
+import tweetService from "../../services/tweets";
 import InicioComponent from "../pure/InicioComponent";
 
-function PigComponent({user, tweets,setTweets} ) {
+function PigComponent({ user, tweets, setTweets }) {
   const [show, setShow] = useState(false);
   const [tweetContent, setTweetContent] = useState("");
 
   useEffect(() => {
-        
-    return() => tweetService.getTweets().then(tweets => {
-        setTweets(tweets)
-    })
-
-
-}, [])
+    return () =>
+      tweetService.getTweets().then((tweets) => {
+        setTweets(tweets);
+      });
+  }, []);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -28,40 +26,40 @@ function PigComponent({user, tweets,setTweets} ) {
   };
 
   const newDate = () => {
-    return new Date().toLocaleDateString('es-ES', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    })
-  }
+    return new Date().toLocaleDateString("es-ES", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
 
   const tweetear = async (e) => {
     e.preventDefault();
     handleClose();
     const newTweet = {
-      username: user.username, 
+      username: user.username,
       name: user.name || user.username,
       content: tweetContent,
       image: user.image,
       date: newDate(),
-      userId: user.id
-    }
-    const newTweets = tweets.concat(newTweet)
+      userId: user.id,
+    };
+    const newTweets = tweets.concat(newTweet);
     //setTweets(newTweets)
-    await tweetService.postTweet(newTweet)
-    
+    await tweetService.postTweet(newTweet);
+
     // user.tweets = user.tweets.concat(newTweet)
     // window.localStorage.clear()
     // window.localStorage.setItem('loggedUser', JSON.stringify(user))
-    setTweetContent('')
+    setTweetContent("");
   };
 
   return (
     <>
-         <Button
-        className="btn btn-primary w-75 mt-5 rounded-5 fs-4"
+      <Button
+        className="btn btn-primary w-75 mt-5 rounded-5 fs-5"
         variant="primary"
         onClick={handleShow}
       >
@@ -71,8 +69,8 @@ function PigComponent({user, tweets,setTweets} ) {
         >
           Pigttear
         </span>
-        <span className="d-md-none">
-          <img width="50" src={logo} alt="cerdo" />{" "}
+        <span className="d-md-none d-flex justify-content-center">
+          <img width="50" src={logo} alt="cerdo" />
         </span>
       </Button>
 
@@ -87,21 +85,26 @@ function PigComponent({user, tweets,setTweets} ) {
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>¡Pigttea aquí!</Form.Label>
-              <Form.Control as="textarea" autoFocus rows={3} onChange={handleTextChange} value={tweetContent} />
+              <Form.Control
+                as="textarea"
+                autoFocus
+                rows={3}
+                onChange={handleTextChange}
+                value={tweetContent}
+              />
             </Form.Group>
-        <Modal.Footer className="border-0">
-            <Button
-              className="rounded-5"
-              variant="secondary"
-              onClick={handleClose}
-            >
-              No Pigttear
-            </Button>
-            <Button className="rounded-5" variant="primary" type="submit">
-              Pigttear
-            </Button>
-        </Modal.Footer>
-            
+            <Modal.Footer className="border-0">
+              <Button
+                className="rounded-5"
+                variant="secondary"
+                onClick={handleClose}
+              >
+                No Pigttear
+              </Button>
+              <Button className="rounded-5" variant="primary" type="submit">
+                Pigttear
+              </Button>
+            </Modal.Footer>
           </Form>
         </Modal.Body>
       </Modal>
