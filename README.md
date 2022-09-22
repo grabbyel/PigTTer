@@ -29,7 +29,7 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
 <img src="https://avatars.githubusercontent.com/u/56316451?v=4" width="100" height="100"  />
 <a href =" https://github.com/JonathanSimonS" >
   <p>Jonathan</p>
-  <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" align="right"/> 
+  <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
 </a>
 
 
