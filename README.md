@@ -36,32 +36,32 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
   
 <p align= "center"> 
   
-   <p align= "center"> 
+   <p > 
     <a href ="https://github.com/JonathanSimonS" align= "center">Jonathan
     <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
   </a>    
   </p>
   
-   <p align= "center"> 
+   <p > 
   <a href ="https://github.com/sergeisg" align= "center">Sergei
   <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
   </a>
   <p/>
-   <p align= "center"> 
+   <p > 
     <a href ="https://github.com/antoni0ps" align= "center">
     Antonio
     <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
     </a>
   </p>
   
-   <p align= "center"> 
+   <p > 
     <a href ="https://github.com/juanandres86" align= "center">
     Juan Andrés
     <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
     </a>
   </p>
   
-  <p align= "center"> 
+  <p > 
     <a href ="https://github.com/grabbyel" align= "center">
     Gabriel
     <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
