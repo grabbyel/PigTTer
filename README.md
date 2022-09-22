@@ -28,7 +28,6 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
 <p align= "center"> 
   
   <img src="https://avatars.githubusercontent.com/u/56316451?v=4" width="100" height="100"  />
-
   <img src="https://avatars.githubusercontent.com/u/91953689?v=4" width="100" height="100"   />
   <img src="https://avatars.githubusercontent.com/u/79004977?v=4" width="100" height="100"   />
   <img src="https://avatars.githubusercontent.com/u/109976138?v=4" width="100" height="100"  />
@@ -39,10 +38,10 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
  <p align="center">
   
 [<img src="https://avatars.githubusercontent.com/u/56316451?v=4" width=115>](https://github.com/JonathanSimonS) ] 
-[<img src="https://avatars.githubusercontent.com/u/91953689?v=4" width=115><br><sub>Sergei</sub>](https://github.com/sergeisg) 
-[<img src="https://avatars.githubusercontent.com/u/79004977?v=4" width=115><br><sub>Antonio</sub>](https://github.com/antoni0ps) 
-[<img src="https://avatars.githubusercontent.com/u/109976138?v=4" width=115><br><sub>Juan Andrés</sub>](https://github.com/juanandres86) 
-[<img src="https://avatars.githubusercontent.com/u/101138621?v=4" width=115><br><sub>Gabriel</sub>](https://github.com/grabbyel) 
+[<img src="https://avatars.githubusercontent.com/u/91953689?v=4" width=115>](https://github.com/sergeisg) 
+[<img src="https://avatars.githubusercontent.com/u/79004977?v=4" width=115>](https://github.com/antoni0ps) 
+[<img src="https://avatars.githubusercontent.com/u/109976138?v=4" width=115>](https://github.com/juanandres86) 
+[<img src="https://avatars.githubusercontent.com/u/101138621?v=4" width=115>](https://github.com/grabbyel) 
 <p/>
  
  <!-- 
