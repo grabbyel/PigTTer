@@ -34,7 +34,7 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
   <img src="https://avatars.githubusercontent.com/u/101138621?v=4" width="100" height="100"  />
   </p>
   
-<p align= "center"> 
+<center> 
   
    <p > 
     <a href ="https://github.com/JonathanSimonS" align= "center">Jonathan
@@ -68,7 +68,7 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
     </a>
   </p>
  
- </p>
+ </ center>
   
 
 
