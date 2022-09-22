@@ -27,8 +27,6 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
 <br/>
 <p align= "center"> 
 
-    [//]: contributor-faces
-
     <a href="https://github.com/JonathanSimonS"><img src="https://avatars.githubusercontent.com/u/56316451?v=4" width="80" height="80"></a>
     <a href="https://github.com/sergeisg"><img src="https://avatars.githubusercontent.com/u/91953689?v=4"  width="80" height="80"></a>
     <a href="https://github.com/antoni0ps"><img src="https://avatars.githubusercontent.com/u/79004977?v=4" width="80" height="80"></a>
