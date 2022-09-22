@@ -1,5 +1,5 @@
 # Pgtter
-##Héroes y Heroínas - Hiberus
+<h4> Héroes y Heroínas - Hiberus </h4>
 
 ## Descripción 
 <br/>
@@ -12,7 +12,7 @@
 </p>
 <br/>
 <p align="center">
-<img src="./frontend/src/assets/view.PNG"  width="400" />
+<img src="frontend/src/assets/view.PNG"  width="400" />
 <img  src="./assets/view2.PNG"  align="right"  width="500"/>
 </p>
 
