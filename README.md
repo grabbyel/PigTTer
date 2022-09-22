@@ -33,7 +33,7 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
   <img src="https://avatars.githubusercontent.com/u/101138621?v=4" width="100" height="100"  />
   </p>
   
-  <p align= "left"> 
+  <p align= "center"> 
     <a href ="https://github.com/JonathanSimonS" align= "center">Jonathan
     <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
   </a>    
@@ -44,23 +44,25 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
   <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
   </a>
   <p/>
+   <p align= "center"> 
+    <a href ="https://github.com/antoni0ps" align= "center">
+    Antonio
+    <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
+    </a>
+  </p>
   
-  <a href ="https://github.com/antoni0ps" align= "center">
-  Antonio
-  <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
-</a>
+   <p align= "center"> 
+    <a href ="https://github.com/juanandres86" align= "center">
+    Juan Andrés
+    <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
+    </a>
+  </p>
   
-  <a href ="https://github.com/juanandres86" align= "center">
-  Juan Andrés
-  <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
-</a>
-  
-  <a href ="https://github.com/grabbyel" align= "center">
-  Gabriel
-  <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
-</a>
-  
-  
+  <p align= "center"> 
+    <a href ="https://github.com/grabbyel" align= "center">
+    Gabriel
+    <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
+    </a>
   </p>
   
   
