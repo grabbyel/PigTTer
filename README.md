@@ -1,12 +1,12 @@
-# Pgtter
+# Pigtter
 <h4> Héroes y Heroínas - Hiberus </h4>
 
 ## Descripción 
 <br/>
 <p> App imitación de twitter creada en grupo para el curso Héroes y Herínas de Hiberus y desarrollada en React. Tiene funcionalidades como registro y login. Puedes pigttear (twitear) y dar like a otro tweets. Además con react-router-dom puedes navegar a través de las páginas que contiene la app. En tu perfil puedes cambiar tu nombre de usuario y tu foto. La parte de backend ha sido desarrollada con Node.js y Express, y MongoDB como base de datos.</p>
 <p>
-- React.js.
-- Node.js
+-React.js.
+-Node.js
 -Express.
 -MogoDB.
 </p>
