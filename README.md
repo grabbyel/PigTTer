@@ -19,7 +19,7 @@
 
 ## Url para ver el resultado
 <br/>
-Aquí pueder ver el proyecto: [https://pigtter.herokuapp.com/](https://pigtter.herokuapp.com/)
+Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
 
 
 # Getting Started with Create React App
