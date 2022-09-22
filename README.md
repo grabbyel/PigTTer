@@ -33,36 +33,38 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
   <img src="https://avatars.githubusercontent.com/u/101138621?v=4" width="100" height="100"  />
   </p>
   
-  <a href =" https://github.com/JonathanSimonS" >
+  <p align= "center"> 
+      <a href =" https://github.com/JonathanSimonS" >
     <p>Jonathan</p>
     <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
-  </a>
-
-
-<a href ="https://github.com/sergeisg" >
+  </a>    
+  
+  <a href ="https://github.com/sergeisg" >
   <p>Sergei</p>
   <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
 </a>
-
-
-<a href ="https://github.com/antoni0ps" >
+  
+  <a href ="https://github.com/antoni0ps" >
   <p>Antonio</p>
   <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
 </a>
-
-
-<a href ="https://github.com/juanandres86" >
+  
+  <a href ="https://github.com/juanandres86" >
   <p>Juan Andrés</p>
   <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
 </a>
-
-
-<a href ="https://github.com/grabbyel" >
+  
+  <a href ="https://github.com/grabbyel" >
   <p>Gabriel</p>
   <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
 </a>
+  
+  
+  </p>
+  
+  
 
-</p>
+
 
 
 # Getting Started with Create React App
