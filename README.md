@@ -34,13 +34,16 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
   </p>
   
   <p align= "center"> 
-    <a href =" https://github.com/JonathanSimonS" align= "center">Jonathan
+    <a href ="https://github.com/JonathanSimonS" align= "center">Jonathan
     <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
   </a>    
+  </p>
   
+   <p align= "center"> 
   <a href ="https://github.com/sergeisg" align= "center">Sergei
   <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
-</a>
+  </a>
+  <p/>
   
   <a href ="https://github.com/antoni0ps" align= "center">
   Antonio
