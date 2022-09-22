@@ -21,6 +21,12 @@
 <br/>
 Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
 
+<br/>
+
+## Desarrolladores
+<br/>
+<img src="https://github.com/JonathanSimonS"/>
+
 
 # Getting Started with Create React App
 
