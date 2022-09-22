@@ -32,13 +32,13 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
   <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
 </a>
 
-<img src="https://avatars.githubusercontent.com/u/91953689?v=4" width="100" height="100"  />
+<img src="https://avatars.githubusercontent.com/u/91953689?v=4" width="100" height="100"  align="right" />
 <a href ="https://github.com/sergeisg" >
   <p>Sergei</p>
   <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
 </a>
 
-<img src="https://avatars.githubusercontent.com/u/79004977?v=4" width="100" height="100"  />
+<img src="https://avatars.githubusercontent.com/u/79004977?v=4" width="100" height="100"  align="right" />
 <a href ="https://github.com/antoni0ps" >
   <p>Antonio</p>
   <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
