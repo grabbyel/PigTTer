@@ -26,63 +26,13 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
 ## Desarrolladores
 <br/>
 <p align= "center"> 
-  
-  <img src="https://avatars.githubusercontent.com/u/56316451?v=4" width="100" height="100"  />
-  <img src="https://avatars.githubusercontent.com/u/91953689?v=4" width="100" height="100"   />
-  <img src="https://avatars.githubusercontent.com/u/79004977?v=4" width="100" height="100"   />
-  <img src="https://avatars.githubusercontent.com/u/109976138?v=4" width="100" height="100"  />
-  <img src="https://avatars.githubusercontent.com/u/101138621?v=4" width="100" height="100"  />
-  </p>
-  
-  
- <p align="center">
-  
-[<img src="https://avatars.githubusercontent.com/u/56316451?v=4" width=115>](https://github.com/JonathanSimonS) ] 
-[<img src="https://avatars.githubusercontent.com/u/91953689?v=4" width=115>](https://github.com/sergeisg) 
-[<img src="https://avatars.githubusercontent.com/u/79004977?v=4" width=115>](https://github.com/antoni0ps) 
-[<img src="https://avatars.githubusercontent.com/u/109976138?v=4" width=115>](https://github.com/juanandres86) 
-[<img src="https://avatars.githubusercontent.com/u/101138621?v=4" width=115>](https://github.com/grabbyel) 
-<p/>
- 
- <!-- 
-<center> 
-  
-   <p > 
-    
-    <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
-  </a>    
-  </p>
-  
-   <p > 
-  <a href ="https://github.com/sergeisg" align= "center">Sergei
-  <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
-  </a>
-  <p/>
-   <p > 
-    <a href ="https://github.com/antoni0ps" align= "center">
-    Antonio
-    <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
-    </a>
-  </p>
-  
-   <p > 
-    <a href ="https://github.com/juanandres86" align= "center">
-    Juan Andrés
-    <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
-    </a>
-  </p>
-  
-  <p > 
-    <a href ="https://github.com/grabbyel" align= "center">
-    Gabriel
-    <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
-    </a>
-  </p>
- 
- </ center>
-  
--->
+    [<img src="https://avatars.githubusercontent.com/u/56316451?v=4" width=115>](https://github.com/JonathanSimonS)
+    [<img src="https://avatars.githubusercontent.com/u/91953689?v=4" width=115>](https://github.com/sergeisg) 
+    [<img src="https://avatars.githubusercontent.com/u/79004977?v=4" width=115>](https://github.com/antoni0ps) 
+    [<img src="https://avatars.githubusercontent.com/u/109976138?v=4" width=115>](https://github.com/juanandres86) 
+    [<img src="https://avatars.githubusercontent.com/u/101138621?v=4" width=115>](https://github.com/grabbyel) 
 
+</p>
 
 
 # Getting Started with Create React App
