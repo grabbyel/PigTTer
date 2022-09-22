@@ -39,7 +39,7 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
   </a>    
   </p>
   
-   <p align= "right"> 
+   <p align= "center"> 
   <a href ="https://github.com/sergeisg" align= "center">Sergei
   <img src= "https://user-images.githubusercontent.com/25181517/117364276-fc4eb280-aebd-11eb-92ba-8a6ef74b7313.png"  width="40" height="40" /> 
   </a>
