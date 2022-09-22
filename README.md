@@ -25,9 +25,27 @@ Aquí pueder ver el proyecto: https://pigtter.herokuapp.com/
 
 ## Desarrolladores
 <br/>
-<p align= "center"> 
-
-</p>
+<div align= "center"> 
+  <a href="https://github.com/JonathanSimonS">
+  <img src="https://avatars.githubusercontent.com/u/56316451?v=4" width=150/>
+  </a>
+  <a href="https://github.com/juanandres86">
+  <img src="https://avatars.githubusercontent.com/u/109976138?v=4" width=150/>
+  </a>
+  <a href="https://github.com/cristinagdev">
+  <img src="https://avatars.githubusercontent.com/u/91671557?v=4" width=150/>
+  </a>
+  <a href="https://github.com/grabbyel">
+  <img src="https://avatars.githubusercontent.com/u/101138621?v=4" width=150/>
+  </a>
+  <a href="https://github.com/sergeisg">
+  <img src="https://avatars.githubusercontent.com/u/91953689?v=4" width=150/>
+  </a>
+  <a href="https://github.com/antoni0ps">
+  <img src="https://avatars.githubusercontent.com/u/79004977?v=4" width=150/>
+  </a>
+  
+</div>
 
 
 # Getting Started with Create React App
